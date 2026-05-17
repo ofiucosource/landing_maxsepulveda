@@ -1,0 +1,702 @@
+/* ==========================================================================
+   Sistema Prose — Tipografía para contenido editorial
+   ========================================================================== 
+   
+   Uso: Aplica la clase .prose al contenedor de contenido rico.
+   Ejemplo: <div class="prose">{{ content|richtext }}</div>
+   
+   Variantes:
+   - .prose           → Ancho estándar (65ch)
+   - .prose-lg        → Texto más grande
+   - .prose-sm        → Texto más pequeño
+   - .prose-wide      → Ancho completo
+   - .prose-invert    → Para fondos oscuros
+   
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Variables de tipografía
+   -------------------------------------------------------------------------- */
+
+:root {
+    /* Escala tipográfica fluid (min, preferred, max) */
+    --prose-font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --prose-font-size-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+    --prose-font-size-base: clamp(1rem, 0.925rem + 0.4vw, 1.125rem);
+    --prose-font-size-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+    --prose-font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --prose-font-size-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+    --prose-font-size-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+    --prose-font-size-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+    
+    /* Line heights */
+    --prose-line-height-tight: 1.25;
+    --prose-line-height-snug: 1.375;
+    --prose-line-height-normal: 1.5;
+    --prose-line-height-relaxed: 1.625;
+    --prose-line-height-loose: 1.75;
+    
+    /* Spacing */
+    --prose-spacing-xs: 0.5em;
+    --prose-spacing-sm: 0.75em;
+    --prose-spacing-md: 1em;
+    --prose-spacing-lg: 1.5em;
+    --prose-spacing-xl: 2em;
+    --prose-spacing-2xl: 3em;
+    
+    /* Anchos óptimos para lectura */
+    --prose-width: 65ch;
+    --prose-width-wide: 80ch;
+    --prose-width-full: 100%;
+    
+    /* Colores para prosa (heredan del tema) */
+    --prose-body: var(--color-text, #1e293b);
+    --prose-headings: var(--color-text, #1e293b);
+    --prose-lead: var(--color-text-light, #64748b);
+    --prose-links: var(--color-primary, #2563eb);
+    --prose-links-hover: var(--color-primary-dark, #1d4ed8);
+    --prose-bold: var(--color-text, #1e293b);
+    --prose-counters: var(--color-text-light, #64748b);
+    --prose-bullets: var(--color-border, #e2e8f0);
+    --prose-hr: var(--color-border, #e2e8f0);
+    --prose-quotes: var(--color-text, #1e293b);
+    --prose-quote-borders: var(--color-primary, #2563eb);
+    --prose-captions: var(--color-text-light, #64748b);
+    --prose-code: var(--color-text, #1e293b);
+    --prose-code-bg: var(--color-background-alt, #f8fafc);
+    --prose-pre-code: #e2e8f0;
+    --prose-pre-bg: #1e293b;
+    --prose-th-borders: var(--color-border, #e2e8f0);
+    --prose-td-borders: var(--color-border, #e2e8f0);
+}
+
+/* --------------------------------------------------------------------------
+   Base .prose
+   -------------------------------------------------------------------------- */
+
+.prose {
+    color: var(--prose-body);
+    font-size: var(--prose-font-size-base);
+    line-height: var(--prose-line-height-loose);
+    max-width: var(--prose-width);
+    
+    /* Evitar desbordamiento de texto largo */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* Variante wide */
+.prose-wide {
+    max-width: var(--prose-width-wide);
+}
+
+/* Variante full */
+.prose-full {
+    max-width: var(--prose-width-full);
+}
+
+/* Variante tamaños */
+.prose-sm {
+    font-size: var(--prose-font-size-sm);
+}
+
+.prose-lg {
+    font-size: var(--prose-font-size-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Headings
+   -------------------------------------------------------------------------- */
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    color: var(--prose-headings);
+    font-weight: 700;
+    line-height: var(--prose-line-height-tight);
+    margin-top: var(--prose-spacing-xl);
+    margin-bottom: var(--prose-spacing-md);
+}
+
+.prose h1 {
+    font-size: var(--prose-font-size-4xl);
+    margin-top: 0;
+}
+
+.prose h2 {
+    font-size: var(--prose-font-size-3xl);
+    margin-top: var(--prose-spacing-2xl);
+    padding-bottom: var(--prose-spacing-xs);
+    border-bottom: 1px solid var(--prose-hr);
+}
+
+.prose h3 {
+    font-size: var(--prose-font-size-2xl);
+}
+
+.prose h4 {
+    font-size: var(--prose-font-size-xl);
+}
+
+.prose h5 {
+    font-size: var(--prose-font-size-lg);
+}
+
+.prose h6 {
+    font-size: var(--prose-font-size-base);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Headings después de headings - menos espacio */
+.prose h1 + h2,
+.prose h2 + h3,
+.prose h3 + h4,
+.prose h4 + h5,
+.prose h5 + h6 {
+    margin-top: var(--prose-spacing-md);
+}
+
+/* --------------------------------------------------------------------------
+   Párrafos y texto
+   -------------------------------------------------------------------------- */
+
+.prose p {
+    margin-top: 0;
+    margin-bottom: var(--prose-spacing-lg);
+}
+
+.prose p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lead paragraph (primer párrafo destacado) */
+.prose .lead,
+.prose > p:first-of-type {
+    font-size: var(--prose-font-size-xl);
+    line-height: var(--prose-line-height-relaxed);
+    color: var(--prose-lead);
+}
+
+/* Strong / Bold */
+.prose strong,
+.prose b {
+    color: var(--prose-bold);
+    font-weight: 600;
+}
+
+/* Emphasis / Italic */
+.prose em,
+.prose i {
+    font-style: italic;
+}
+
+/* Small text */
+.prose small {
+    font-size: var(--prose-font-size-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
+
+.prose a {
+    color: var(--prose-links);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.prose a:hover {
+    color: var(--prose-links-hover);
+    text-decoration-color: var(--prose-links-hover);
+}
+
+.prose a:focus {
+    outline: 2px solid var(--prose-links);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Listas
+   -------------------------------------------------------------------------- */
+
+.prose ul,
+.prose ol {
+    margin-top: var(--prose-spacing-md);
+    margin-bottom: var(--prose-spacing-lg);
+    padding-left: var(--prose-spacing-lg);
+}
+
+.prose ul {
+    list-style-type: disc;
+}
+
+.prose ol {
+    list-style-type: decimal;
+}
+
+.prose li {
+    margin-top: var(--prose-spacing-xs);
+    margin-bottom: var(--prose-spacing-xs);
+    padding-left: var(--prose-spacing-xs);
+}
+
+.prose li::marker {
+    color: var(--prose-counters);
+}
+
+.prose ul::marker {
+    color: var(--prose-bullets);
+}
+
+/* Listas anidadas */
+.prose li > ul,
+.prose li > ol {
+    margin-top: var(--prose-spacing-xs);
+    margin-bottom: var(--prose-spacing-xs);
+}
+
+/* Lista de tareas (checkboxes) */
+.prose ul.task-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.prose ul.task-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--prose-spacing-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Blockquotes
+   -------------------------------------------------------------------------- */
+
+.prose blockquote {
+    font-style: italic;
+    color: var(--prose-quotes);
+    border-left: 4px solid var(--prose-quote-borders);
+    margin: var(--prose-spacing-lg) 0;
+    padding: var(--prose-spacing-md) var(--prose-spacing-lg);
+    background: var(--prose-code-bg);
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.prose blockquote p {
+    margin-bottom: var(--prose-spacing-sm);
+}
+
+.prose blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.prose blockquote cite {
+    display: block;
+    font-style: normal;
+    font-size: var(--prose-font-size-sm);
+    color: var(--prose-captions);
+    margin-top: var(--prose-spacing-sm);
+}
+
+.prose blockquote cite::before {
+    content: "— ";
+}
+
+/* Blockquote anidado */
+.prose blockquote blockquote {
+    margin-left: var(--prose-spacing-md);
+    border-left-color: var(--prose-bullets);
+}
+
+/* --------------------------------------------------------------------------
+   Código
+   -------------------------------------------------------------------------- */
+
+/* Código inline */
+.prose code {
+    color: var(--prose-code);
+    background: var(--prose-code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+/* Código dentro de enlaces - sin fondo */
+.prose a code {
+    background: transparent;
+    padding: 0;
+}
+
+/* Bloque de código */
+.prose pre {
+    color: var(--prose-pre-code);
+    background: var(--prose-pre-bg);
+    overflow-x: auto;
+    margin: var(--prose-spacing-lg) 0;
+    padding: var(--prose-spacing-md) var(--prose-spacing-lg);
+    border-radius: 0.5rem;
+    font-size: var(--prose-font-size-sm);
+    line-height: var(--prose-line-height-relaxed);
+}
+
+.prose pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    border-radius: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal Rule
+   -------------------------------------------------------------------------- */
+
+.prose hr {
+    border: none;
+    border-top: 1px solid var(--prose-hr);
+    margin: var(--prose-spacing-2xl) 0;
+}
+
+/* --------------------------------------------------------------------------
+   Imágenes y Figuras
+   -------------------------------------------------------------------------- */
+
+.prose img {
+    max-width: 100%;
+    height: auto;
+    margin: var(--prose-spacing-lg) 0;
+    border-radius: 0.5rem;
+}
+
+.prose figure {
+    margin: var(--prose-spacing-xl) 0;
+}
+
+.prose figure img {
+    margin: 0;
+}
+
+.prose figcaption {
+    color: var(--prose-captions);
+    font-size: var(--prose-font-size-sm);
+    text-align: center;
+    margin-top: var(--prose-spacing-sm);
+}
+
+/* Imagen centrada */
+.prose figure.figure-center {
+    text-align: center;
+}
+
+.prose figure.figure-center img {
+    display: inline-block;
+}
+
+/* Imagen full-width */
+.prose figure.figure-full {
+    margin-left: calc(-1 * var(--spacing-unit, 1rem));
+    margin-right: calc(-1 * var(--spacing-unit, 1rem));
+    max-width: none;
+    width: calc(100% + 2 * var(--spacing-unit, 1rem));
+}
+
+.prose figure.figure-full img {
+    width: 100%;
+    border-radius: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Tablas
+   -------------------------------------------------------------------------- */
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--prose-spacing-lg) 0;
+    font-size: var(--prose-font-size-sm);
+}
+
+.prose thead {
+    border-bottom: 2px solid var(--prose-th-borders);
+}
+
+.prose th {
+    font-weight: 600;
+    text-align: left;
+    padding: var(--prose-spacing-sm) var(--prose-spacing-md);
+    color: var(--prose-headings);
+}
+
+.prose td {
+    padding: var(--prose-spacing-sm) var(--prose-spacing-md);
+    border-bottom: 1px solid var(--prose-td-borders);
+}
+
+.prose tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Tabla con hover */
+.prose tbody tr:hover {
+    background: var(--prose-code-bg);
+}
+
+/* Tabla responsive */
+.prose .table-wrapper {
+    overflow-x: auto;
+    margin: var(--prose-spacing-lg) 0;
+}
+
+.prose .table-wrapper table {
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Definiciones
+   -------------------------------------------------------------------------- */
+
+.prose dl {
+    margin: var(--prose-spacing-lg) 0;
+}
+
+.prose dt {
+    font-weight: 600;
+    color: var(--prose-headings);
+    margin-top: var(--prose-spacing-md);
+}
+
+.prose dd {
+    margin-left: var(--prose-spacing-lg);
+    margin-top: var(--prose-spacing-xs);
+    color: var(--prose-body);
+}
+
+/* --------------------------------------------------------------------------
+   Abreviaturas y otros elementos
+   -------------------------------------------------------------------------- */
+
+.prose abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+.prose mark {
+    background: #fef08a;
+    padding: 0.1em 0.2em;
+    border-radius: 0.125rem;
+}
+
+.prose sup,
+.prose sub {
+    font-size: 0.75em;
+    line-height: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Variante oscura (invertida)
+   -------------------------------------------------------------------------- */
+
+.prose-invert {
+    --prose-body: #e2e8f0;
+    --prose-headings: #ffffff;
+    --prose-lead: #94a3b8;
+    --prose-links: #60a5fa;
+    --prose-links-hover: #93c5fd;
+    --prose-bold: #ffffff;
+    --prose-counters: #94a3b8;
+    --prose-bullets: #475569;
+    --prose-hr: #334155;
+    --prose-quotes: #e2e8f0;
+    --prose-quote-borders: #60a5fa;
+    --prose-captions: #94a3b8;
+    --prose-code: #e2e8f0;
+    --prose-code-bg: #334155;
+    --prose-pre-code: #e2e8f0;
+    --prose-pre-bg: #0f172a;
+    --prose-th-borders: #475569;
+    --prose-td-borders: #334155;
+}
+
+/* --------------------------------------------------------------------------
+   Espaciado entre elementos
+   -------------------------------------------------------------------------- */
+
+/* Reset para primer y último hijo */
+.prose > :first-child {
+    margin-top: 0;
+}
+
+.prose > :last-child {
+    margin-bottom: 0;
+}
+
+/* Elementos después de headings - sin margen superior extra */
+.prose h1 + *,
+.prose h2 + *,
+.prose h3 + *,
+.prose h4 + *,
+.prose h5 + *,
+.prose h6 + * {
+    margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive adjustments
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+    .prose {
+        font-size: var(--prose-font-size-sm);
+    }
+    
+    .prose h1 {
+        font-size: var(--prose-font-size-3xl);
+    }
+    
+    .prose h2 {
+        font-size: var(--prose-font-size-2xl);
+    }
+    
+    .prose h3 {
+        font-size: var(--prose-font-size-xl);
+    }
+    
+    .prose h4 {
+        font-size: var(--prose-font-size-lg);
+    }
+    
+    .prose blockquote {
+        padding-left: var(--prose-spacing-md);
+    }
+    
+    .prose pre {
+        padding: var(--prose-spacing-md);
+        border-radius: 0;
+        margin-left: calc(-1 * var(--spacing-unit, 1rem));
+        margin-right: calc(-1 * var(--spacing-unit, 1rem));
+    }
+    
+    .prose table {
+        font-size: var(--prose-font-size-xs);
+    }
+    
+    .prose th,
+    .prose td {
+        padding: var(--prose-spacing-xs) var(--prose-spacing-sm);
+    }
+}
+
+/* ==========================================================================
+   Utilidades de espaciado
+   ========================================================================== */
+
+/* Margin utilities */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.my-4 { margin-top: 1rem; margin-bottom: 1rem; }
+.my-8 { margin-top: 2rem; margin-bottom: 2rem; }
+
+/* Padding utilities */
+.pt-0 { padding-top: 0; }
+.pt-4 { padding-top: 1rem; }
+.pt-8 { padding-top: 2rem; }
+
+.pb-0 { padding-bottom: 0; }
+.pb-4 { padding-bottom: 1rem; }
+.pb-8 { padding-bottom: 2rem; }
+
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+/* --------------------------------------------------------------------------
+   Utilidades de texto
+   -------------------------------------------------------------------------- */
+
+.text-sm { font-size: var(--prose-font-size-sm); }
+.text-base { font-size: var(--prose-font-size-base); }
+.text-lg { font-size: var(--prose-font-size-lg); }
+.text-xl { font-size: var(--prose-font-size-xl); }
+.text-2xl { font-size: var(--prose-font-size-2xl); }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.leading-tight { line-height: var(--prose-line-height-tight); }
+.leading-normal { line-height: var(--prose-line-height-normal); }
+.leading-relaxed { line-height: var(--prose-line-height-relaxed); }
+.leading-loose { line-height: var(--prose-line-height-loose); }
+
+/* --------------------------------------------------------------------------
+   Utilidades de layout
+   -------------------------------------------------------------------------- */
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.max-w-prose { max-width: var(--prose-width); }
+.max-w-wide { max-width: var(--prose-width-wide); }
+.max-w-full { max-width: 100%; }
+
+.w-full { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   Utilidades visuales
+   -------------------------------------------------------------------------- */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
