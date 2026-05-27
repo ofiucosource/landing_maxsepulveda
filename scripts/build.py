@@ -11,7 +11,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from site_data import events, home_blocks, posts, projects, site  # noqa: E402
+from site_data import about_page, home_blocks, projects, site  # noqa: E402
 
 SPANISH_MONTHS = [
     "enero",
@@ -34,15 +34,10 @@ def main() -> None:
     write_file(ROOT / "index.html", render_redirect())
     write_file(ROOT / ".nojekyll", "")
     write_page("es", render_home_page())
+    write_page("es/sobre-max", render_about_page())
     write_page("es/proyectos", render_projects_index())
     for project in projects:
         write_page(f"es/proyectos/{project['slug']}", render_project_detail(project))
-    write_page("es/eventos", render_events_index())
-    for event in events:
-        write_page(f"es/eventos/{event['slug']}", render_event_detail(event))
-    write_page("es/blog", render_blog_index())
-    for post in posts:
-        write_page(f"es/blog/{post['slug']}", render_blog_detail(post))
 
 
 def write_page(route: str, content: str) -> None:
@@ -96,9 +91,8 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
             <a href="{page_url(current_path, '/es/')}" class="logo">Max Sepúlveda</a>
             <ul class="nav-menu">
                 {nav_item(current_path, '/es/', 'Inicio')}
+                {nav_item(current_path, '/es/sobre-max/', 'Sobre Max')}
                 {nav_item(current_path, '/es/proyectos/', 'Proyectos')}
-                {nav_item(current_path, '/es/blog/', 'Blog')}
-                {nav_item(current_path, '/es/eventos/', 'Eventos')}
             </ul>
             <div class="language-switcher" aria-label="Idioma">
                 <a href="{page_url(current_path, '/es/')}" class="lang-link active" hreflang="es">ES</a>
@@ -133,6 +127,17 @@ def render_home_page() -> str:
         body_class="home-page",
         current_path="/es/",
         content=f'<div class="sf-stack">{render_blocks(home_blocks, "/es/")}</div>',
+    )
+
+
+def render_about_page() -> str:
+    current_path = "/es/sobre-max/"
+    return layout(
+        title=about_page["title"],
+        body_class="about-page",
+        current_path=current_path,
+        content=f'<div class="sf-stack">{render_blocks(about_page["blocks"], current_path)}</div>',
+        description=about_page.get("description"),
     )
 
 
@@ -184,104 +189,6 @@ def render_project_detail(project: dict) -> str:
     return layout(project["title"], "project-detail", current_path, content, project["summary"])
 
 
-def render_events_index() -> str:
-    current_path = "/es/eventos/"
-    sorted_events = sorted(events, key=lambda event: event["start_date"], reverse=True)
-    cards = "\n".join(render_event_card(event, 2, current_path) for event in sorted_events)
-    content = f"""
-<section class="page-header">
-    <div class="container">
-        <h1>Eventos</h1>
-        <div class="intro prose prose-wide"><p>Exposiciones, residencias, talleres y participaciones que forman parte de la trayectoria de Max Sepúlveda.</p></div>
-    </div>
-</section>
-<section class="events-section">
-    <div class="container">
-        <div class="events-filter" aria-label="Filtro de eventos">
-            <a href="{page_url(current_path, '/es/eventos/')}" class="active">Pasados</a>
-        </div>
-        <div class="events-list">
-            {cards}
-        </div>
-    </div>
-</section>"""
-    return layout("Eventos", "events-index", current_path, content)
-
-
-def render_event_detail(event: dict) -> str:
-    current_path = f"/es/eventos/{event['slug']}/"
-    date_range = format_date(event["start_date"])
-    if event["end_date"] != event["start_date"]:
-        date_range = f"{date_range} - {format_date(event['end_date'])}"
-    content = f"""
-<article class="event-detail">
-    <header class="event-header">
-        <div class="container">
-            <span class="badge badge-past">Evento pasado</span>
-            <h1>{html(event['title'])}</h1>
-            <p class="summary">{html(event['summary'])}</p>
-            <div class="event-meta">
-                <div class="event-datetime"><strong>Fecha:</strong> {date_range}</div>
-                <div class="event-location"><strong>{html(event['location_name'])}</strong></div>
-            </div>
-        </div>
-    </header>
-    <div class="event-body container prose">
-        {event['description']}
-    </div>
-    <div class="event-tags container">
-        {render_tags(event.get('tags', []), '/es/eventos/', current_path)}
-    </div>
-    <footer class="event-footer container">
-        <a href="{page_url(current_path, '/es/eventos/')}" class="btn">&larr; Volver a eventos</a>
-    </footer>
-</article>"""
-    return layout(event["title"], "event-detail", current_path, content, event["summary"])
-
-
-def render_blog_index() -> str:
-    current_path = "/es/blog/"
-    sorted_posts = sorted(posts, key=lambda post: post["date"], reverse=True)
-    cards = "\n".join(render_post_card(post, current_path) for post in sorted_posts)
-    content = f"""
-<section class="page-header">
-    <div class="container">
-        <h1>Blog</h1>
-        <p class="intro">Notas, registros y reflexiones sobre arte comunitario, oficios textiles, cerámica y gestión cultural.</p>
-    </div>
-</section>
-<section class="posts-section">
-    <div class="container">
-        <div class="posts-list">
-            {cards}
-        </div>
-    </div>
-</section>"""
-    return layout("Blog", "blog-index", current_path, content)
-
-
-def render_blog_detail(post: dict) -> str:
-    current_path = f"/es/blog/{post['slug']}/"
-    content = f"""
-<article class="post-detail">
-    <header class="post-header">
-        <div class="container">
-            <time datetime="{post['date']}">{format_date(post['date'])}</time>
-            <h1>{html(post['title'])}</h1>
-            <p class="intro">{html(post['intro'])}</p>
-            {render_tags(post.get('tags', []), '/es/blog/', current_path)}
-        </div>
-    </header>
-    <div class="post-content">
-        {render_blocks(post['body'], current_path)}
-    </div>
-    <footer class="post-footer container">
-        <a href="{page_url(current_path, '/es/blog/')}" class="btn">&larr; Volver al blog</a>
-    </footer>
-</article>"""
-    return layout(post["title"], "blog-post", current_path, content, post["intro"])
-
-
 def render_blocks(blocks: list[dict], current_path: str) -> str:
     return "\n".join(render_block(block, current_path) for block in blocks)
 
@@ -291,11 +198,9 @@ def render_block(block: dict, current_path: str) -> str:
     if block_type == "hero":
         return render_hero(block, current_path)
     if block_type == "text_section":
-        return render_text_section(block)
+        return render_text_section(block, current_path)
     if block_type == "portfolio_grid":
         return render_portfolio_grid(block, current_path)
-    if block_type == "events_list":
-        return render_events_list(block, current_path)
     if block_type == "contact":
         return render_contact(block)
     if block_type == "quote":
@@ -304,24 +209,57 @@ def render_block(block: dict, current_path: str) -> str:
 
 
 def render_hero(block: dict, current_path: str) -> str:
-    return f"""<section class="sf-block sf-block--hero sf-variant--{variant(block.get('variant'))}">
-    <div class="sf-container sf-hero__content">
+    background = ""
+    if block.get("background_image"):
+        background_class = attr(block.get("background_class", ""))
+        background_style = f' style="background-image: url(\'{asset_url(current_path, block["background_image"])}\');"'
+        background = f'<div class="sf-hero__background {background_class}" aria-hidden="true"{background_style}></div>'
+
+    cta = ""
+    if block.get("cta"):
+        cta = f"""<div class="sf-hero__cta"><a href="{site_url(current_path, block['cta']['url'])}" class="btn btn-primary">{html(block['cta']['text'])}</a></div>"""
+
+    portrait = ""
+    if block.get("portrait_image"):
+        portrait = f'<div class="sf-hero__portrait" role="img" aria-label="{attr(block.get("portrait_alt", block["title"]))}" style="background-image: linear-gradient(180deg, rgba(250, 246, 241, 0.1), rgba(61, 43, 31, 0.05)), url(\'{asset_url(current_path, block["portrait_image"])}\');"></div>'
+
+    layout_class = " sf-hero__layout" if portrait else " sf-hero__content"
+    content = f"""<div class="sf-container{layout_class}">
+        <div class="sf-hero__content">
+            <h1 class="sf-hero__title">{html(block['title'])}</h1>
+            <p class="sf-hero__subtitle">{html(block['subtitle'])}</p>
+            {cta}
+        </div>
+        {portrait}
+    </div>""" if portrait else f"""<div class="sf-container sf-hero__content">
         <h1 class="sf-hero__title">{html(block['title'])}</h1>
         <p class="sf-hero__subtitle">{html(block['subtitle'])}</p>
-        <div class="sf-hero__cta"><a href="{site_url(current_path, block['cta']['url'])}" class="btn btn-primary">{html(block['cta']['text'])}</a></div>
-    </div>
+        {cta}
+    </div>"""
+
+    return f"""<section class="sf-block sf-block--hero sf-variant--{variant(block.get('variant'))}">
+    {background}
+    {content}
 </section>"""
 
 
-def render_text_section(block: dict) -> str:
+def render_text_section(block: dict, current_path: str) -> str:
     title = f'<h2 class="sf-text__title">{html(block["title"])}</h2>' if block.get("title") else ""
+    image = ""
+    text_class = "sf-text"
+    if block.get("image"):
+        text_class = f'sf-text sf-text--with-image sf-text--image-{attr(block.get("image_position", "right"))}'
+        image = f"""<div class="sf-text__image">
+                <img src="{asset_url(current_path, block['image'])}" alt="{attr(block.get('image_alt', block.get('title', 'Imagen')))}" loading="lazy">
+            </div>"""
     return f"""<section class="sf-block sf-block--text sf-variant--{variant(block.get('variant'))}">
     <div class="sf-container">
-        <div class="sf-text">
+        <div class="{text_class}">
             <div class="sf-text__content">
                 {title}
                 <div class="sf-text__body prose">{block['content']}</div>
             </div>
+            {image}
         </div>
     </div>
 </section>"""
@@ -339,25 +277,6 @@ def render_portfolio_grid(block: dict, current_path: str) -> str:
             <p class="sf-section-header__subtitle">{html(block['subtitle'])}</p>
         </div>
         <div class="sf-portfolio-grid projects-grid">
-            {cards}
-        </div>
-        {footer}
-    </div>
-</section>"""
-
-
-def render_events_list(block: dict, current_path: str) -> str:
-    sorted_events = sorted(events, key=lambda event: event["start_date"], reverse=True)
-    visible_events = sorted_events[: block.get("max_items", len(sorted_events))]
-    cards = "\n".join(render_compact_event_card(event, current_path) for event in visible_events)
-    footer = f'<div class="sf-section-footer"><a href="{page_url(current_path, "/es/eventos/")}" class="btn">Ver todos los eventos</a></div>' if block.get("show_link_to_all") else ""
-    return f"""<section class="sf-block sf-block--events-list sf-variant--{variant(block.get('variant'))}">
-    <div class="sf-container">
-        <div class="sf-section-header">
-            <h2 class="sf-section-header__title">{html(block['title'])}</h2>
-            <p class="sf-section-header__subtitle">{html(block['subtitle'])}</p>
-        </div>
-        <div class="sf-events-list events-list">
             {cards}
         </div>
         {footer}
@@ -400,47 +319,6 @@ def render_project_card(project: dict, heading_level: int, current_path: str) ->
         {render_tags(project.get('tags', [])[:4], '/es/proyectos/', current_path)}
     </div>
 </article>"""
-
-
-def render_post_card(post: dict, current_path: str) -> str:
-    return f"""<article class="post-item post-item--no-image">
-    <div class="post-content">
-        <time datetime="{post['date']}">{format_date(post['date'])}</time>
-        <h2><a href="{page_url(current_path, f"/es/blog/{post['slug']}/")}">{html(post['title'])}</a></h2>
-        <p>{html(post['intro'])}</p>
-        {render_tags(post.get('tags', []), '/es/blog/', current_path)}
-    </div>
-</article>"""
-
-
-def render_event_card(event: dict, heading_level: int, current_path: str) -> str:
-    return f"""<article class="event-card event-card--no-image">
-    <div class="event-info">
-        {render_date_tile(event['start_date'])}
-        <div class="event-details">
-            <h{heading_level}><a href="{page_url(current_path, f"/es/eventos/{event['slug']}/")}">{html(event['title'])}</a></h{heading_level}>
-            <p class="event-location">{html(event['location_name'])}</p>
-            <p>{html(truncate_words(event['summary'], 22))}</p>
-        </div>
-    </div>
-</article>"""
-
-
-def render_compact_event_card(event: dict, current_path: str) -> str:
-    return f"""<article class="event-card event-card--compact">
-    {render_date_tile(event['start_date'])}
-    <div class="event-details">
-        <h3><a href="{page_url(current_path, f"/es/eventos/{event['slug']}/")}">{html(event['title'])}</a></h3>
-        <p class="event-summary">{html(truncate_words(event['summary'], 20))}</p>
-        <p class="event-location">{html(event['location_name'])}</p>
-    </div>
-</article>"""
-
-
-def render_date_tile(date_string: str) -> str:
-    parsed = parse_date(date_string)
-    month = SPANISH_MONTHS[parsed.month - 1][:3]
-    return f'<div class="event-date"><span class="day">{parsed.day:02d}</span><span class="month">{html(month)}</span></div>'
 
 
 def render_tags(tags: list[str], base_path: str, current_path: str) -> str:

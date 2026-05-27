@@ -2,3 +2,8 @@ node_modules/
 .DS_Store
 *.log
 _site/
+__pycache__/
+*.pyc
+Fotos Wetransfer/
+assets/images/header.jpg
+assets/images/perfil.jpg

@@ -6,12 +6,9 @@ Versión estática en HTML, CSS y JavaScript del sitio Max Sepúlveda. No usa Dj
 
 - `/`
 - `/es/`
+- `/es/sobre-max/`
 - `/es/proyectos/`
 - `/es/proyectos/<slug>/`
-- `/es/eventos/`
-- `/es/eventos/<slug>/`
-- `/es/blog/`
-- `/es/blog/<slug>/`
 
 ## Desarrollo
 
@@ -20,7 +17,7 @@ python3 scripts/build.py
 python3 -m http.server 4173
 ```
 
-La raíz redirige a `/es/`. La navegación principal solo apunta al contenido español disponible.
+La raíz redirige a `/es/`. La navegación principal solo apunta al contenido español disponible: Inicio, Sobre Max y Proyectos.
 
 ## GitHub Pages
 
