@@ -1,11 +1,102 @@
 site = {
     "name": "Max Sepúlveda",
     "title_suffix": "Portfolio",
-    "description": "Portfolio de Max Sepúlveda, artista visual, artesano y gestor cultural chileno.",
+    "description": "Portfolio profesional de Max Sepúlveda, artista visual, artesano y gestor cultural chileno. Más de 20 años de trayectoria en arte colaborativo, cerámica y textiles.",
     "tagline": "Artista visual · Artesano · Gestor cultural",
     "email": "maxsepulvedaz@gmail.com",
+    "phone": "+56 9 8654 5810",
+    "phone_link": "+56986545810",
+    "location": "San Vicente de Tagua Tagua, Chile",
     "year": "2026",
+    "website": "https://maxsepulvedaartevisual.com",
+    "youtube": "https://www.youtube.com/watch?v=Z5c3R_87zzY",
 }
+
+disciplines = [
+    {
+        "name": "Alfarería",
+        "description": "Piezas utilitarias y escultóricas creadas con técnicas ancestrales aprendidas de maestros alfareros de Latinoamérica.",
+        "icon": "pottery",
+    },
+    {
+        "name": "Cerámica",
+        "description": "Cerámica gres, bruñido, engobes y vidriados. Exploración de formas tradicionales con una mirada contemporánea.",
+        "icon": "ceramic",
+    },
+    {
+        "name": "Bordado",
+        "description": "Bordado comunitario, mapas textiles colectivos y arpillera. El bordado como herramienta de participación y transformación social.",
+        "icon": "embroidery",
+    },
+    {
+        "name": "Telar y Tejido",
+        "description": "Telar mapuche, ponchos tradicionales, teñido natural con pigmentos vegetales y técnicas de tejido ancestral.",
+        "icon": "weaving",
+    },
+    {
+        "name": "Batik y Pintura en Seda",
+        "description": "Técnica batik sobre seda con tintes naturales. Motivos precolombinos, contemporáneos y experimentación cromática.",
+        "icon": "batik",
+    },
+    {
+        "name": "Dirección Audiovisual",
+        "description": "Dirección de arte y realización de documentales que registran y difunden procesos creativos comunitarios.",
+        "icon": "video",
+    },
+]
+
+milestones = [
+    {
+        "year": "2002",
+        "title": "Proyecto 'Desde la Óptica Wlachinsky'",
+        "description": "Participa en proyecto de creación artística en Valdivia, financiado por Fondart Regional de Los Ríos. Primer acercamiento al cruce entre artesanía y artes visuales.",
+    },
+    {
+        "year": "2006",
+        "title": "Fondart — Widüfe Kuyfiche",
+        "description": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Exposición en la Sala Samuel Román de Rancagua.",
+    },
+    {
+        "year": "2012",
+        "title": "Bordado Urbano — Calama",
+        "description": "Intervención de arte público colaborativo. Mapa textil de 3×2 metros bordado por más de un centenar de habitantes de Calama.",
+    },
+    {
+        "year": "2015",
+        "title": "Catálogo Artesanía en Pandemia",
+        "description": "Seleccionado para el catálogo del Ministerio de las Culturas que reconoce a artesanos con destacada trayectoria y oficio.",
+    },
+    {
+        "year": "2016",
+        "title": "Bordado Charrúa de la Memoria",
+        "description": "Ganador de los Fondos Concursables para la Cultura del MEC uruguayo. Mapa textil colectivo de la costa de Rocha, Uruguay.",
+    },
+    {
+        "year": "2016",
+        "title": "Residencia Red Cultura — Alicahue",
+        "description": "Residencia de arte colaborativo en el Valle de Alicahue, Región de Valparaíso. Trabajo con comunidades locales en intervenciones artísticas territoriales.",
+    },
+    {
+        "year": "2018",
+        "title": "Residencia y Exposición — Nueva Zelanda",
+        "description": "Exposición individual 'Textiles y Alfarería del Tagua Tagua' en la School of Art de Dunedin. Intercambio cultural con la tradición maorí.",
+    },
+    {
+        "year": "2019",
+        "title": "Costa Rica Fashion Week",
+        "description": "Presenta creaciones de moda textil con identidad chilena en la semana de la moda de Costa Rica, integrando artesanía tradicional en el diseño contemporáneo.",
+    },
+    {
+        "year": "2020",
+        "title": "Mediación Artística Digital",
+        "description": "Adapta su labor al formato virtual durante la pandemia. Cápsulas de formación en bordado y arpillera para comunidades, reconociendo buenas prácticas de mediación.",
+    },
+    {
+        "year": "2022",
+        "title": "Reconocimiento Regional O'Higgins",
+        "description": "Homenaje por su aporte al desarrollo cultural local en el marco del Día del Artesano. Más de 25 años dedicados al arte colaborativo y la gestión cultural.",
+    },
+]
 
 projects = [
     {
@@ -16,6 +107,8 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-urbano/",
         "tags": ["Arte Comunitario", "Textil", "Calama", "Documental"],
+        "image": "assets/images/proyectos/intervenciones/Mapa Bordado Atacameño.jpg",
+        "gallery": [],
         "content": [
             {
                 "type": "text_section",
@@ -39,6 +132,8 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-charrua-de-la-memoria/",
         "tags": ["Arte Comunitario", "Textil", "Uruguay", "Premios"],
+        "image": "assets/images/proyectos/intervenciones/mx.jpg",
+        "gallery": [],
         "content": [
             {
                 "type": "text_section",
@@ -56,6 +151,8 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/residencia-artistica-en-nueva-zelanda/",
         "tags": ["Exposición", "Internacional", "Nueva Zelanda", "Cerámica", "Textil"],
+        "image": "assets/images/proyectos/alfareria/DSC05942.JPG",
+        "gallery": [],
         "content": [
             {
                 "type": "text_section",
@@ -72,6 +169,8 @@ projects = [
         "summary": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Proyecto FONDART 2006.",
         "featured": True,
         "tags": ["Investigación", "Cerámica", "Fondart", "Patrimonio"],
+        "image": "assets/images/proyectos/alfareria/DSC05935.JPG",
+        "gallery": [],
         "content": [
             {
                 "type": "text_section",
@@ -88,6 +187,8 @@ projects = [
         "summary": "Serie de intervenciones colaborativas en que comunidades crean murales de telas y bordados para espacios públicos. Incluye el mural 'Inti Ray' en Calama, financiado por Codelco.",
         "featured": True,
         "tags": ["Arte Comunitario", "Textil", "Muralismo", "Codelco"],
+        "image": "assets/images/proyectos/intervenciones/20240703_201741.jpg",
+        "gallery": [],
         "content": [
             {
                 "type": "text_section",
@@ -104,6 +205,8 @@ projects = [
         "summary": "Residencia del programa Red Cultura en la Región de Valparaíso (2016), trabajando con comunidades locales.",
         "featured": False,
         "tags": ["Arte Comunitario", "Residencia", "Valparaíso", "Red Cultura"],
+        "image": "assets/images/proyectos/general/foto residencia.jpg",
+        "gallery": [],
         "content": [
             {
                 "type": "text_section",
@@ -117,7 +220,7 @@ projects = [
 
 about_page = {
     "title": "Sobre Max",
-    "description": "Biografía, trayectoria y enfoque artístico de Max Sepúlveda, artista visual, artesano y gestor cultural chileno.",
+    "description": "Biografía, trayectoria y enfoque artístico de Max Sepúlveda, artista visual, artesano y gestor cultural chileno. Más de 20 años de experiencia en arte colaborativo, cerámica y textiles.",
     "blocks": [
         {
             "type": "hero",
@@ -138,6 +241,12 @@ about_page = {
             "image_position": "right",
             "image_alt": "Max Sepúlveda trabajando sobre un mural",
             "variant": "default",
+        },
+        {
+            "type": "timeline",
+            "title": "Trayectoria",
+            "subtitle": "Hitos y proyectos clave en más de 20 años de carrera artística.",
+            "milestones": milestones,
         },
         {
             "type": "quote",
@@ -177,7 +286,7 @@ about_page = {
         {
             "type": "text_section",
             "title": "Hitos y reconocimientos",
-            "content": "<p>Entre los hitos más significativos de su trayectoria se encuentran el proyecto <strong>Wid\u00fcfe Kuyfiche - Alfarero Ancestral</strong>, financiado por Fondart; el desarrollo de <strong>Bordado Urbano</strong> en Calama; y el proyecto <strong>Bordado Charr\u00faa de la Memoria</strong>, reconocido por los Fondos Concursables para la Cultura del Uruguay.</p><p>Tambi\u00e9n destacan su residencia y exposici\u00f3n en la School of Art de Dunedin, Nueva Zelanda, su participaci\u00f3n en Costa Rica Fashion Week y su trabajo sostenido de mediaci\u00f3n art\u00edstica y formaci\u00f3n de oficios en espacios comunitarios e institucionales.</p>",
+            "content": "<p>Entre los hitos más significativos de su trayectoria se encuentran el proyecto <strong>Widüfe Kuyfiche - Alfarero Ancestral</strong>, financiado por Fondart; el desarrollo de <strong>Bordado Urbano</strong> en Calama; y el proyecto <strong>Bordado Charrúa de la Memoria</strong>, reconocido por los Fondos Concursables para la Cultura del Uruguay.</p><p>También destacan su residencia y exposición en la School of Art de Dunedin, Nueva Zelanda, su participación en Costa Rica Fashion Week y su trabajo sostenido de mediación artística y formación de oficios en espacios comunitarios e institucionales.</p>",
             "variant": "default",
         },
         {
@@ -200,12 +309,19 @@ about_page = {
             "title": "Contacto",
             "text": "Si quieres conocer más sobre su trabajo, proponer una colaboración o invitarlo a un proyecto, puedes escribirle directamente.",
             "email": "maxsepulvedaz@gmail.com",
+            "phone": "+56 9 8654 5810",
+            "phone_link": "+56986545810",
             "social_links": [
                 {
                     "platform": "instagram",
                     "label": "Instagram de Max Sepúlveda",
                     "url": "https://www.instagram.com/maxartevisual/",
-                }
+                },
+                {
+                    "platform": "youtube",
+                    "label": "Artefacto 02x04 — Max Sepúlveda",
+                    "url": "https://www.youtube.com/watch?v=Z5c3R_87zzY",
+                },
             ],
             "variant": "default",
         },
@@ -216,7 +332,7 @@ home_blocks = [
     {
         "type": "hero",
         "title": "Max Sepúlveda",
-        "subtitle": "Arte colaborativo, cerámica y textiles. Obra construida con comunidades de Chile y el mundo.",
+        "subtitle": "Artista visual, artesano y gestor cultural. Más de 20 años construyendo obra colaborativa con comunidades de Chile y el mundo.",
         "cta": {"text": "Ver Proyectos", "url": "/es/proyectos/"},
         "background_image": "assets/images/header.jpg",
         "background_class": "sf-hero__background--header",
@@ -225,13 +341,24 @@ home_blocks = [
         "variant": "default",
     },
     {
+        "type": "skills",
+        "title": "Disciplinas",
+        "subtitle": "Técnicas y oficios que convergen en su práctica artística.",
+    },
+    {
         "type": "portfolio_grid",
-        "title": "Proyectos",
+        "title": "Proyectos destacados",
         "subtitle": "Una selección de obras y procesos colaborativos representativos de su trayectoria.",
         "show_featured_only": True,
-        "max_items": 6,
+        "max_items": 3,
         "show_link_to_all": True,
         "variant": "default",
+    },
+    {
+        "type": "timeline",
+        "title": "Trayectoria",
+        "subtitle": "Hitos y proyectos clave en más de 20 años de carrera.",
+        "max_items": 5,
     },
     {
         "type": "text_section",
@@ -245,11 +372,13 @@ home_blocks = [
     {
         "type": "contact",
         "title": "Contacto",
-        "text": "¿Interesado en colaborar, contratar un taller o adquirir obras? No dudes en escribirle.",
+        "text": "¿Interesado en colaborar, contratar un taller o conocer más sobre su obra? No dudes en escribirle.",
         "email": "maxsepulvedaz@gmail.com",
+        "phone": "+56 9 8654 5810",
+        "phone_link": "+56986545810",
         "social_links": [
             {"platform": "instagram", "url": "https://instagram.com/maxartevisual", "label": "Instagram"},
-            {"platform": "website", "url": "https://maxsepulvedaartevisual.com", "label": "Sitio web"},
+            {"platform": "youtube", "url": "https://www.youtube.com/watch?v=Z5c3R_87zzY", "label": "YouTube — Artefacto"},
         ],
         "variant": "default",
     },
