@@ -47,44 +47,29 @@ disciplines = [
 
 milestones = [
     {
-        "year": "2002",
-        "title": "Proyecto 'Desde la Óptica Wlachinsky'",
-        "description": "Participa en proyecto de creación artística en Valdivia, financiado por Fondart Regional de Los Ríos. Primer acercamiento al cruce entre artesanía y artes visuales.",
+        "year": "2025",
+        "title": "Exposición Alfarería Ancestral",
+        "description": "Exposición individual de alfarería en el Museo Escolar Laguna de Tagua Tagua y co-autoría en el libro histórico y patrimonial sobre la cuenca del río Tinguiririca.",
     },
     {
-        "year": "2006",
-        "title": "Fondart — Widüfe Kuyfiche",
-        "description": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Exposición en la Sala Samuel Román de Rancagua.",
+        "year": "2024",
+        "title": "Gestión Cultural y Práctica en México",
+        "description": "Se titula de Técnico de Nivel Superior en Arte y Gestión Cultural y realiza talleres y co-creaciones de murales textiles colaborativos en Oaxaca y Morelos, México.",
     },
     {
-        "year": "2012",
-        "title": "Bordado Urbano — Calama",
-        "description": "Intervención de arte público colaborativo. Mapa textil de 3×2 metros bordado por más de un centenar de habitantes de Calama.",
+        "year": "2023",
+        "title": "Bordado Atacameño de la Memoria",
+        "description": "Dirección e impartición del taller de bordado tradicional y exposición colectiva en San Pedro de Atacama y Santiago en colaboración con la comunidad y SQM.",
     },
     {
-        "year": "2015",
+        "year": "2022",
+        "title": "Reconocimiento Regional O'Higgins",
+        "description": "Homenaje por su aporte al desarrollo cultural local en el marco del Día del Artesano. Más de 25 años dedicados al arte colaborativo y la gestión cultural.",
+    },
+    {
+        "year": "2021",
         "title": "Catálogo Artesanía en Pandemia",
-        "description": "Seleccionado para el catálogo del Ministerio de las Culturas que reconoce a artesanos con destacada trayectoria y oficio.",
-    },
-    {
-        "year": "2016",
-        "title": "Bordado Charrúa de la Memoria",
-        "description": "Ganador de los Fondos Concursables para la Cultura del MEC uruguayo. Mapa textil colectivo de la costa de Rocha, Uruguay.",
-    },
-    {
-        "year": "2016",
-        "title": "Residencia Red Cultura — Alicahue",
-        "description": "Residencia de arte colaborativo en el Valle de Alicahue, Región de Valparaíso. Trabajo con comunidades locales en intervenciones artísticas territoriales.",
-    },
-    {
-        "year": "2018",
-        "title": "Residencia y Exposición — Nueva Zelanda",
-        "description": "Exposición individual 'Textiles y Alfarería del Tagua Tagua' en la School of Art de Dunedin. Intercambio cultural con la tradición maorí.",
-    },
-    {
-        "year": "2019",
-        "title": "Costa Rica Fashion Week",
-        "description": "Presenta creaciones de moda textil con identidad chilena en la semana de la moda de Costa Rica, integrando artesanía tradicional en el diseño contemporáneo.",
+        "description": "Seleccionado nacional para el catálogo del Ministerio de las Culturas que reconoce a artesanos con destacada trayectoria y oficio durante la emergencia sanitaria.",
     },
     {
         "year": "2020",
@@ -92,9 +77,39 @@ milestones = [
         "description": "Adapta su labor al formato virtual durante la pandemia. Cápsulas de formación en bordado y arpillera para comunidades, reconociendo buenas prácticas de mediación.",
     },
     {
-        "year": "2022",
-        "title": "Reconocimiento Regional O'Higgins",
-        "description": "Homenaje por su aporte al desarrollo cultural local en el marco del Día del Artesano. Más de 25 años dedicados al arte colaborativo y la gestión cultural.",
+        "year": "2019",
+        "title": "Costa Rica Fashion Week",
+        "description": "Presenta creaciones de moda textil con identidad chilena en la semana de la moda de Costa Rica, integrando artesanía tradicional en el diseño contemporáneo.",
+    },
+    {
+        "year": "2018",
+        "title": "Residencia y Exposición — Nueva Zelanda",
+        "description": "Exposición individual 'Textiles y Alfarería del Tagua Tagua' en la School of Art de Dunedin. Intercambio cultural con la tradición maorí.",
+    },
+    {
+        "year": "2016",
+        "title": "Residencia Red Cultura — Alicahue",
+        "description": "Residencia de arte colaborativo en el Valle de Alicahue, Región de Valparaíso. Trabajo con comunidades locales en intervenciones artísticas territoriales.",
+    },
+    {
+        "year": "2016",
+        "title": "Bordado Charrúa de la Memoria",
+        "description": "Ganador de los Fondos Concursables para la Cultura del MEC uruguayo. Mapa textil colectivo de la costa de Rocha, Uruguay.",
+    },
+    {
+        "year": "2012",
+        "title": "Bordado Urbano — Calama",
+        "description": "Intervención de arte público colaborativo. Mapa textil de 3×2 metros bordado por más de un centenar de habitantes de Calama.",
+    },
+    {
+        "year": "2006",
+        "title": "Fondart — Widüfe Kuyfiche",
+        "description": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Exposición en la Sala Samuel Román de Rancagua.",
+    },
+    {
+        "year": "2002",
+        "title": "Proyecto 'Desde la Óptica Wlachinsky'",
+        "description": "Participa en proyecto de creación artística en Valdivia, financiado por Fondart Regional de Los Ríos. Primer acercamiento al cruce entre artesanía y artes visuales.",
     },
 ]
 
@@ -227,11 +242,11 @@ about_page = {
             "title": "Sobre Max",
             "subtitle": "Biografía, obra y gestión cultural desde San Vicente de Tagua Tagua hacia comunidades de Chile y Latinoamérica.",
             "cta": {"text": "Ver Proyectos", "url": "/es/proyectos/"},
-            "background_image": "assets/images/header.jpg",
+            "background_image": "assets/images/header-8.jpg",
             "background_class": "sf-hero__background--header",
             "portrait_image": "assets/images/perfil.jpg",
             "portrait_alt": "Retrato de Max Sepúlveda",
-            "variant": "default",
+            "variant": "about",
         },
         {
             "type": "text_section",
@@ -334,7 +349,7 @@ home_blocks = [
         "title": "Max Sepúlveda",
         "subtitle": "Artista visual, artesano y gestor cultural. Más de 20 años construyendo obra colaborativa con comunidades de Chile y el mundo.",
         "cta": {"text": "Ver Proyectos", "url": "/es/proyectos/"},
-        "background_image": "assets/images/header.jpg",
+        "background_image": "assets/images/header-8.jpg",
         "background_class": "sf-hero__background--header",
         "portrait_image": "assets/images/perfil.jpg",
         "portrait_alt": "Retrato de Max Sepúlveda",

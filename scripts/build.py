@@ -277,6 +277,9 @@ def render_block(block: dict, current_path: str) -> str:
 
 
 def render_hero(block: dict, current_path: str) -> str:
+    variant = block.get("variant", "default")
+    variant_class = f" sf-block--hero--{variant}" if variant != "default" else ""
+
     background = ""
     if block.get("background_image"):
         background_class = attr(block.get("background_class", ""))
@@ -300,7 +303,7 @@ def render_hero(block: dict, current_path: str) -> str:
         {portrait}
     </div>"""
 
-    return f"""<section class="sf-block sf-block--hero">
+    return f"""<section class="sf-block sf-block--hero{variant_class}">
     {background}
     {content}
 </section>"""
