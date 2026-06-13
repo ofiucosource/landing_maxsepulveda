@@ -115,10 +115,13 @@ milestones = [
 
 projects = [
     {
-        "title": "Bordado Urbano",
+        "title": {"es": "Bordado Urbano", "en": "Urban Embroidery"},
         "slug": "bordado-urbano",
         "date": "2012-05-15",
-        "summary": "Proyecto de arte comunitario en Calama (2012). Los habitantes bordaron colectivamente un mapa de 3x2 metros representando sus sueños e historias.",
+        "summary": {
+            "es": "Proyecto de arte comunitario en Calama (2012). Los habitantes bordaron colectivamente un mapa de 3x2 metros representando sus sueños e historias.",
+            "en": "Community art project in Calama (2012). Residents collectively embroidered a 3x2 meter map representing their dreams and stories.",
+        },
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-urbano/",
         "tags": ["Arte Comunitario", "Textil", "Calama", "Documental"],
@@ -127,23 +130,32 @@ projects = [
         "content": [
             {
                 "type": "text_section",
-                "title": "Un tapiz de sueños colectivos",
-                "content": "<p>Proyecto de arte comunitario en el que los habitantes de Calama bordaron colectivamente un mapa de <strong>3 x 2 metros</strong> representando sus sueños e historias para la ciudad.</p><p>Fue una intervención pública realizada en distintas locaciones (ferias, paseos peatonales, mercados), acompañada por la filmación de un <strong>documental</strong> sobre la experiencia.</p><p>El resultado fue un tapiz urbano único, fruto del trabajo conjunto del artista con más de un centenar de participantes locales.</p>",
+                "title": {"es": "Un tapiz de sueños colectivos", "en": "A Tapestry of Collective Dreams"},
+                "content": {
+                    "es": "<p>Proyecto de arte comunitario en el que los habitantes de Calama bordaron colectivamente un mapa de <strong>3 x 2 metros</strong> representando sus sueños e historias para la ciudad.</p><p>Fue una intervención pública realizada en distintas locaciones (ferias, paseos peatonales, mercados), acompañada por la filmación de un <strong>documental</strong> sobre la experiencia.</p><p>El resultado fue un tapiz urbano único, fruto del trabajo conjunto del artista con más de un centenar de participantes locales.</p>",
+                    "en": "<p>Community art project where residents of Calama collectively embroidered a <strong>3 x 2 meter</strong> map representing their dreams and stories for the city.</p><p>It was a public intervention carried out in different locations (fairs, pedestrian walkways, markets), accompanied by the filming of a <strong>documentary</strong> about the experience.</p><p>The result was a unique urban tapestry, the fruit of collaborative work between the artist and over a hundred local participants.</p>",
+                },
                 "variant": "default",
             },
             {
                 "type": "quote",
-                "quote": "El bordado es una herramienta convocante que invita a la participación de personas de todas las edades.",
+                "quote": {
+                    "es": "El bordado es una herramienta convocante que invita a la participación de personas de todas las edades.",
+                    "en": "Embroidery is a welcoming tool that invites people of all ages to participate.",
+                },
                 "author": "Max Sepúlveda",
                 "variant": "highlight",
             },
         ],
     },
     {
-        "title": "Bordado Charrúa de la Memoria",
+        "title": {"es": "Bordado Charrúa de la Memoria", "en": "Charrúa Embroidery of Memory"},
         "slug": "bordado-charrua-de-la-memoria",
         "date": "2016-11-20",
-        "summary": "Mapa textil colectivo de la costa de Rocha, Uruguay. Ganador de los Fondos Concursables para la Cultura del MEC uruguayo (2016).",
+        "summary": {
+            "es": "Mapa textil colectivo de la costa de Rocha, Uruguay. Ganador de los Fondos Concursables para la Cultura del MEC uruguayo (2016).",
+            "en": "Collective textile map of the coast of Rocha, Uruguay. Winner of the Competitive Funds for Culture from the Uruguayan MEC (2016).",
+        },
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-charrua-de-la-memoria/",
         "tags": ["Arte Comunitario", "Textil", "Uruguay", "Premios"],
@@ -159,10 +171,13 @@ projects = [
         ],
     },
     {
-        "title": "Textiles y Alfarería del Tagua Tagua",
+        "title": {"es": "Textiles y Alfarería del Tagua Tagua", "en": "Textiles and Pottery of Tagua Tagua"},
         "slug": "textiles-y-alfareria-del-tagua-tagua",
         "date": "2018-08-10",
-        "summary": "Exposición individual en la School of Art de Dunedin, Nueva Zelanda (2018). Diálogo entre la identidad cultural de Tagua Tagua y la tradición maorí.",
+        "summary": {
+            "es": "Exposición individual en la School of Art de Dunedin, Nueva Zelanda (2018). Diálogo entre la identidad cultural de Tagua Tagua y la tradición maorí.",
+            "en": "Solo exhibition at the School of Art in Dunedin, New Zealand (2018). Dialogue between the cultural identity of Tagua Tagua and Māori tradition.",
+        },
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/residencia-artistica-en-nueva-zelanda/",
         "tags": ["Exposición", "Internacional", "Nueva Zelanda", "Cerámica", "Textil"],
@@ -178,10 +193,13 @@ projects = [
         ],
     },
     {
-        "title": "Widüfe Kuyfiche – Alfarero Ancestral",
+        "title": {"es": "Widüfe Kuyfiche – Alfarero Ancestral", "en": "Widüfe Kuyfiche – Ancestral Potter"},
         "slug": "widufe-kuyfiche-alfarero-ancestral",
         "date": "2006-03-01",
-        "summary": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Proyecto FONDART 2006.",
+        "summary": {
+            "es": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Proyecto FONDART 2006.",
+            "en": "Research and rescue of indigenous pottery from central Chile. FONDART 2006 project.",
+        },
         "featured": True,
         "tags": ["Investigación", "Cerámica", "Fondart", "Patrimonio"],
         "image": "assets/images/proyectos/alfareria/DSC05935.JPG",
@@ -196,7 +214,7 @@ projects = [
         ],
     },
     {
-        "title": "Murales Textiles Colaborativos",
+        "title": {"es": "Murales Textiles Colaborativos", "en": "Collaborative Textile Murals"},
         "slug": "murales-textiles-colaborativos",
         "date": "2020-01-15",
         "summary": "Serie de intervenciones colaborativas en que comunidades crean murales de telas y bordados para espacios públicos. Incluye el mural 'Inti Ray' en Calama, financiado por Codelco.",
@@ -214,10 +232,13 @@ projects = [
         ],
     },
     {
-        "title": "Residencia Artística Alicahue",
+        "title": {"es": "Residencia Artística Alicahue", "en": "Alicahue Artistic Residency"},
         "slug": "residencia-artistica-alicahue",
         "date": "2016-10-01",
-        "summary": "Residencia del programa Red Cultura en la Región de Valparaíso (2016), trabajando con comunidades locales.",
+        "summary": {
+            "es": "Residencia del programa Red Cultura en la Región de Valparaíso (2016), trabajando con comunidades locales.",
+            "en": "Residency of the Red Cultura program in the Valparaíso Region (2016), working with local communities.",
+        },
         "featured": False,
         "tags": ["Arte Comunitario", "Residencia", "Valparaíso", "Red Cultura"],
         "image": "assets/images/proyectos/general/foto residencia.jpg",
