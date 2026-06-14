@@ -31,7 +31,7 @@ jobs:
       - name: Prepare artifact
         run: |
           mkdir -p _site
-          cp -r index.html es en assets .nojekyll _site/
+          cp -r index.html es assets .nojekyll _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
