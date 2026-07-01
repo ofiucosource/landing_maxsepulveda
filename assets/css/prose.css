@@ -50,24 +50,24 @@
     --prose-width-full: 100%;
     
     /* Colores para prosa (heredan del tema) */
-    --prose-body: var(--color-text, #1e293b);
-    --prose-headings: var(--color-text, #1e293b);
-    --prose-lead: var(--color-text-light, #64748b);
-    --prose-links: var(--color-primary, #2563eb);
-    --prose-links-hover: var(--color-primary-dark, #1d4ed8);
-    --prose-bold: var(--color-text, #1e293b);
-    --prose-counters: var(--color-text-light, #64748b);
-    --prose-bullets: var(--color-border, #e2e8f0);
-    --prose-hr: var(--color-border, #e2e8f0);
-    --prose-quotes: var(--color-text, #1e293b);
-    --prose-quote-borders: var(--color-primary, #2563eb);
-    --prose-captions: var(--color-text-light, #64748b);
-    --prose-code: var(--color-text, #1e293b);
-    --prose-code-bg: var(--color-background-alt, #f8fafc);
+    --prose-body: var(--color-text, #221c16);
+    --prose-headings: var(--color-text, #221c16);
+    --prose-lead: var(--color-text-light, #6f6558);
+    --prose-links: var(--bronze-deep, #83603c);
+    --prose-links-hover: var(--bronze, #a2764a);
+    --prose-bold: var(--color-text, #221c16);
+    --prose-counters: var(--color-text-light, #6f6558);
+    --prose-bullets: var(--color-border, #d8d0c2);
+    --prose-hr: var(--color-border, #d8d0c2);
+    --prose-quotes: var(--color-text, #221c16);
+    --prose-quote-borders: var(--bronze, #a2764a);
+    --prose-captions: var(--color-text-light, #6f6558);
+    --prose-code: var(--color-text, #221c16);
+    --prose-code-bg: var(--color-background-alt, #ede6da);
     --prose-pre-code: #e2e8f0;
-    --prose-pre-bg: #1e293b;
-    --prose-th-borders: var(--color-border, #e2e8f0);
-    --prose-td-borders: var(--color-border, #e2e8f0);
+    --prose-pre-bg: #1b1713;
+    --prose-th-borders: var(--color-border, #d8d0c2);
+    --prose-td-borders: var(--color-border, #d8d0c2);
 }
 
 /* --------------------------------------------------------------------------
@@ -490,7 +490,7 @@
 }
 
 .prose mark {
-    background: #fef08a;
+    background: rgba(166, 124, 82, 0.22);
     padding: 0.1em 0.2em;
     border-radius: 0.125rem;
 }

@@ -199,11 +199,15 @@ def render_projects_index() -> str:
     current_path = "/es/proyectos/"
     cards = "\n".join(render_project_card(project, 2, current_path) for project in projects)
     other_items = "".join(f"<li>{html(item)}</li>" for item in other_workshops)
+    header_image = asset_url(current_path, "assets/images/proyectos-header.jpg")
     content = f"""
-<section class="page-header">
-    <div class="container">
+<section class="page-header page-header--image">
+    <div class="page-header__background" aria-hidden="true" style="background-image: url('{header_image}');"></div>
+    <div class="page-header__scrim" aria-hidden="true"></div>
+    <div class="container page-header__content">
+        <p class="page-header__kicker">Portafolio</p>
         <h1>Proyectos</h1>
-        <div class="intro prose prose-wide"><p>Una selección de trabajos en arte comunitario, textil, cerámica, investigación patrimonial, circulación internacional y gestión cultural.</p></div>
+        <div class="intro"><p>Una selección de trabajos en arte comunitario, textil, cerámica, investigación patrimonial, circulación internacional y gestión cultural.</p></div>
     </div>
 </section>
 <section class="projects-section">
@@ -216,8 +220,9 @@ def render_projects_index() -> str:
 <section class="sf-block sf-block--simple-list">
     <div class="sf-container">
         <div class="sf-section-header">
+            <p class="sf-section-header__kicker">Registro</p>
             <h2 class="sf-section-header__title">Otros talleres y residencias</h2>
-            <p class="sf-section-header__subtitle">Registros mencionados en el documento de referencia, pendientes de desarrollo como página propia.</p>
+            <p class="sf-section-header__subtitle">Procesos y residencias de arte colaborativo realizados en distintos territorios.</p>
         </div>
         <ul class="simple-list">{other_items}</ul>
     </div>
@@ -243,6 +248,7 @@ def render_project_detail(project: dict) -> str:
 <article class="project-detail">
     <header class="project-header">
         <div class="container">
+            <p class="project-header__kicker">Proyecto</p>
             <h1>{html(project['title'])}</h1>
             <p class="summary">{html(project['summary'])}</p>
             <div class="project-meta">
@@ -312,6 +318,10 @@ def render_hero(block: dict, current_path: str) -> str:
     if block.get("portrait_image"):
         portrait = f'<div class="sf-hero__portrait" role="img" aria-label="{attr(block.get("portrait_alt", block["title"]))}" style="background-image: url(\'{asset_url(current_path, block["portrait_image"])}\');"></div>'
 
+    scroll_cue = ""
+    if variant == "minimal":
+        scroll_cue = """<a class="sf-hero__scroll" href="#alfareria" aria-label="Bajar al contenido"><span class="sf-hero__scroll-label">Explorar</span><span class="sf-hero__scroll-line" aria-hidden="true"></span></a>"""
+
     content = f"""<div class="sf-container sf-hero__layout">
         <div class="sf-hero__content">
             <h1 class="sf-hero__title">{html(block['title'])}</h1>
@@ -319,7 +329,8 @@ def render_hero(block: dict, current_path: str) -> str:
             {cta}
         </div>
         {portrait}
-    </div>"""
+    </div>
+    {scroll_cue}"""
 
     return f"""<section class="sf-block sf-block--hero{background_class_modifier}{variant_class}">
     {background}
@@ -331,24 +342,46 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
     header = f"""<section class="sf-block sf-block--discipline-intro">
     <div class="sf-container">
         <div class="sf-section-header">
+            <p class="sf-section-header__kicker">Max Sepúlveda</p>
             <h2 class="sf-section-header__title">{html(block['title'])}</h2>
             <p class="sf-section-header__subtitle">{html(block['subtitle'])}</p>
         </div>
     </div>
 </section>"""
     sections = []
-    for discipline in disciplines:
-        sections.append(
-            f"""<section class="sf-block sf-block--discipline-panel" id="{attr(discipline['anchor'])}">
-    <div class="discipline-panel__image" aria-hidden="true" style="background-image: url('{asset_url(current_path, discipline['image'])}');"></div>
+    for index, discipline in enumerate(disciplines, start=1):
+        number = f"{index:02d}"
+        image_url = asset_url(current_path, discipline["image"])
+        panel_variant = discipline.get("panel", "fullbleed")
+        if panel_variant == "plate":
+            sections.append(
+                f"""<section class="sf-block sf-block--discipline-panel discipline-panel--plate" id="{attr(discipline['anchor'])}">
+    <div class="discipline-panel__image" aria-hidden="true" style="background-image: url('{image_url}');"></div>
+    <div class="discipline-panel__overlay" aria-hidden="true"></div>
+    <div class="sf-container discipline-panel__content discipline-panel__content--split">
+        <div class="discipline-panel__text-col">
+            <p class="discipline-panel__kicker"><span class="discipline-panel__num">{number}</span>Obra y oficio</p>
+            <h2 class="discipline-panel__title">{html(discipline['name'])}</h2>
+            <p class="discipline-panel__text">{html(discipline['description'])}</p>
+        </div>
+        <figure class="discipline-panel__plate">
+            <img src="{image_url}" alt="{attr(discipline['name'])}" loading="lazy">
+        </figure>
+    </div>
+</section>"""
+            )
+        else:
+            sections.append(
+                f"""<section class="sf-block sf-block--discipline-panel" id="{attr(discipline['anchor'])}">
+    <div class="discipline-panel__image" aria-hidden="true" style="background-image: url('{image_url}');"></div>
     <div class="discipline-panel__overlay" aria-hidden="true"></div>
     <div class="sf-container discipline-panel__content">
-        <p class="discipline-panel__kicker">Obra y oficio</p>
+        <p class="discipline-panel__kicker"><span class="discipline-panel__num">{number}</span>Obra y oficio</p>
         <h2 class="discipline-panel__title">{html(discipline['name'])}</h2>
         <p class="discipline-panel__text">{html(discipline['description'])}</p>
     </div>
 </section>"""
-        )
+            )
     return header + "\n" + "\n".join(sections)
 
 
@@ -382,6 +415,7 @@ def render_portfolio_grid(block: dict, current_path: str) -> str:
     return f"""<section class="sf-block sf-block--portfolio-grid">
     <div class="sf-container">
         <div class="sf-section-header">
+            <p class="sf-section-header__kicker">Selección</p>
             <h2 class="sf-section-header__title">{html(block['title'])}</h2>
             <p class="sf-section-header__subtitle">{html(block['subtitle'])}</p>
         </div>
@@ -500,19 +534,26 @@ def render_quote(block: dict) -> str:
 
 
 def render_project_card(project: dict, heading_level: int, current_path: str) -> str:
-    img_html = ""
-    card_class = "project-card"
     project_url = page_url(current_path, f"/es/proyectos/{project['slug']}/")
+    tags = project.get("tags", [])[:3]
+    tags_html = f'<p class="project-card__tags">{html(" · ".join(tags))}</p>' if tags else ""
+    year = project.get("date", "")[:4]
+    year_html = f'<span class="project-card__year">{html(year)}</span>' if year else ""
+    img_html = ""
     if project.get("image"):
-        card_class = "project-card project-card--has-image"
-        img_html = f'<a href="{project_url}" class="project-card__image" aria-hidden="true" tabindex="-1"><img src="{asset_url(current_path, project["image"])}" alt="" loading="lazy"></a>'
-    return f"""<article class="{card_class}">
-    {img_html}
-    <div class="project-info">
-        <h{heading_level}><a href="{project_url}">{html(project['title'])}</a></h{heading_level}>
-        <p>{html(truncate_words(project['summary'], 20))}</p>
-        {render_tags(project.get('tags', [])[:3], '/es/proyectos/', current_path)}
-    </div>
+        img_html = f'<img src="{asset_url(current_path, project["image"])}" alt="" loading="lazy">'
+    return f"""<article class="project-card">
+    <a href="{project_url}" class="project-card__link">
+        <div class="project-card__media">{img_html}</div>
+        <div class="project-card__veil" aria-hidden="true"></div>
+        <div class="project-card__body">
+            {tags_html}
+            <h{heading_level} class="project-card__title">{html(project['title'])}</h{heading_level}>
+            <p class="project-card__summary">{html(truncate_words(project['summary'], 18))}</p>
+            <span class="project-card__cta">Ver proyecto<span class="project-card__cta-arrow" aria-hidden="true">&rarr;</span></span>
+        </div>
+        {year_html}
+    </a>
 </article>"""
 
 
