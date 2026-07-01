@@ -5,3 +5,10 @@ _site/
 __pycache__/
 *.pyc
 Fotos Wetransfer/
+
+# Contexto local de desarrollo (no publicar)
+_context/
+Fotos Web anterior/
+max-sepulveda-web-md/
+image-descriptions.json
+scripts/generate_image_descriptions.py
