@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import date
 from html import escape
 from pathlib import Path
+import json
 import posixpath
 import re
 import shutil
@@ -12,6 +13,17 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from site_data import about_page, disciplines, home_blocks, milestones, other_workshops, projects, site  # noqa: E402
+
+IMAGE_MANIFEST_PATH = ROOT / "src" / "image_manifest.json"
+
+
+def load_image_manifest() -> dict:
+    if IMAGE_MANIFEST_PATH.exists():
+        return json.loads(IMAGE_MANIFEST_PATH.read_text(encoding="utf-8"))
+    return {}
+
+
+IMAGE_MANIFEST = load_image_manifest()
 
 SPANISH_MONTHS = [
     "enero",
@@ -163,7 +175,7 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
             <p class="footer-copy">&copy; {html(site['year'])} {html(site['name'])}. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="{asset_url(current_path, 'assets/js/main.js')}"></script>
+    <script src="{asset_url(current_path, 'assets/js/main.js')}" defer></script>
 </body>
 </html>
 """
@@ -239,7 +251,7 @@ def render_project_detail(project: dict) -> str:
     gallery_html = ""
     if project.get("gallery"):
         items = "\n".join(
-            f'<figure class="sf-gallery__item"><a href="{asset_url(current_path, img)}" class="sf-gallery__link" target="_blank"><img src="{asset_url(current_path, img)}" alt="" loading="lazy"></a></figure>'
+            f'<figure class="sf-gallery__item"><a href="{asset_url(current_path, img)}" class="sf-gallery__link" target="_blank">{render_image(current_path, img, "")}</a></figure>'
             for img in project["gallery"]
         )
         gallery_html = f'<section class="sf-block sf-block--gallery"><div class="sf-container"><div class="sf-gallery sf-gallery--cols-masonry">{items}</div></div></section>'
@@ -365,7 +377,7 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
             <p class="discipline-panel__text">{html(discipline['description'])}</p>
         </div>
         <figure class="discipline-panel__plate">
-            <img src="{image_url}" alt="{attr(discipline['name'])}" loading="lazy">
+            {render_image(current_path, discipline['image'], discipline['name'])}
         </figure>
     </div>
 </section>"""
@@ -392,7 +404,7 @@ def render_text_section(block: dict, current_path: str) -> str:
     if block.get("image"):
         text_class = f'sf-text sf-text--with-image sf-text--image-{attr(block.get("image_position", "right"))}'
         image = f"""<div class="sf-text__image">
-                <img src="{asset_url(current_path, block['image'])}" alt="{attr(block.get('image_alt', block.get('title', 'Imagen')))}" loading="lazy">
+                {render_image(current_path, block['image'], block.get('image_alt', block.get('title', 'Imagen')))}
             </div>"""
     return f"""<section class="sf-block sf-block--text">
     <div class="sf-container">
@@ -541,7 +553,7 @@ def render_project_card(project: dict, heading_level: int, current_path: str) ->
     year_html = f'<span class="project-card__year">{html(year)}</span>' if year else ""
     img_html = ""
     if project.get("image"):
-        img_html = f'<img src="{asset_url(current_path, project["image"])}" alt="" loading="lazy">'
+        img_html = render_image(current_path, project["image"], "")
     return f"""<article class="project-card">
     <a href="{project_url}" class="project-card__link">
         <div class="project-card__media">{img_html}</div>
@@ -628,6 +640,24 @@ def page_url(current_path: str, target_path: str) -> str:
 
 def asset_url(current_path: str, asset_path: str) -> str:
     return relative_url(current_path, asset_path.strip("/"), is_directory=False)
+
+
+def render_image(current_path: str, image_path: str, alt: str) -> str:
+    """Renderiza <img loading="lazy" width height>, envuelto en <picture> con
+    fuente WebP cuando `scripts/optimize_images.py` ya registro esa imagen en
+    src/image_manifest.json. Si aun no fue procesada, cae a un <img> simple."""
+    normalized = image_path.strip("/")
+    meta = IMAGE_MANIFEST.get(normalized)
+    src = asset_url(current_path, normalized)
+    dims = ""
+    if meta and meta.get("width") and meta.get("height"):
+        dims = f' width="{meta["width"]}" height="{meta["height"]}"'
+    img_html = f'<img src="{src}" alt="{attr(alt)}" loading="lazy"{dims}>'
+    if meta and meta.get("webp"):
+        webp_path = re.sub(r"\.(jpe?g|png)$", ".webp", normalized, flags=re.IGNORECASE)
+        webp_src = asset_url(current_path, webp_path)
+        return f'<picture><source srcset="{webp_src}" type="image/webp">{img_html}</picture>'
+    return img_html
 
 
 def site_url(current_path: str, url: str) -> str:

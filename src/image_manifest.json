@@ -1,0 +1,312 @@
+{
+  "assets/images/disciplinas/alfareria.jpg": {
+    "height": 1350,
+    "webp": true,
+    "width": 1800
+  },
+  "assets/images/disciplinas/arte-colaborativo.jpg": {
+    "height": 1199,
+    "webp": true,
+    "width": 1800
+  },
+  "assets/images/disciplinas/audiovisuales.jpeg": {
+    "height": 211,
+    "webp": true,
+    "width": 376
+  },
+  "assets/images/disciplinas/batik-y-bordado.jpg": {
+    "height": 1800,
+    "webp": true,
+    "width": 1181
+  },
+  "assets/images/disciplinas/bordado.jpg": {
+    "height": 1786,
+    "webp": true,
+    "width": 1689
+  },
+  "assets/images/disciplinas/ceramica.jpeg": {
+    "height": 225,
+    "webp": true,
+    "width": 290
+  },
+  "assets/images/disciplinas/tecnicas-de-tenido-por-reserva.jpeg": {
+    "height": 1013,
+    "webp": true,
+    "width": 613
+  },
+  "assets/images/disciplinas/tejidos.jpg": {
+    "height": 1800,
+    "webp": true,
+    "width": 1800
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-01.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-02.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-03.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-04.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-05.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-06.jpg": {
+    "height": 900,
+    "webp": true,
+    "width": 1200
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-01.jpg": {
+    "height": 337,
+    "webp": true,
+    "width": 600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-02.jpg": {
+    "height": 337,
+    "webp": true,
+    "width": 600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-03.jpg": {
+    "height": 337,
+    "webp": true,
+    "width": 600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-04.jpg": {
+    "height": 337,
+    "webp": true,
+    "width": 600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-05.jpg": {
+    "height": 393,
+    "webp": true,
+    "width": 700
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-06.jpg": {
+    "height": 337,
+    "webp": true,
+    "width": 600
+  },
+  "assets/images/gallery/ceramica/ceramica-01.jpg": {
+    "height": 658,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/ceramica/ceramica-02.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/ceramica/ceramica-03.jpg": {
+    "height": 669,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/ceramica/ceramica-04.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/ceramica/ceramica-05.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/ceramica/ceramica-06.jpg": {
+    "height": 400,
+    "webp": true,
+    "width": 600
+  },
+  "assets/images/gallery/ceramica/ceramica-07.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/ceramica/ceramica-08.jpg": {
+    "height": 961,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-01.jpg": {
+    "height": 720,
+    "webp": true,
+    "width": 960
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-02.jpg": {
+    "height": 960,
+    "webp": true,
+    "width": 720
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-03.jpg": {
+    "height": 960,
+    "webp": true,
+    "width": 446
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-04.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-05.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-06.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-07.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/costa-rica-fashion-week/costa-rica-fashion-week-08.jpg": {
+    "height": 702,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/murales/mural-01.jpg": {
+    "height": 700,
+    "webp": true,
+    "width": 465
+  },
+  "assets/images/gallery/murales/mural-02.jpg": {
+    "height": 372,
+    "webp": true,
+    "width": 700
+  },
+  "assets/images/gallery/murales/mural-03.jpg": {
+    "height": 700,
+    "webp": true,
+    "width": 502
+  },
+  "assets/images/gallery/murales/mural-04.jpg": {
+    "height": 368,
+    "webp": true,
+    "width": 700
+  },
+  "assets/images/gallery/murales/mural-05.jpg": {
+    "height": 700,
+    "webp": true,
+    "width": 481
+  },
+  "assets/images/gallery/murales/mural-06.jpg": {
+    "height": 359,
+    "webp": true,
+    "width": 700
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-01.jpg": {
+    "height": 248,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-02.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-03.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-04.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-05.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-06.jpg": {
+    "height": 533,
+    "webp": true,
+    "width": 800
+  },
+  "assets/images/header-8.jpg": {
+    "height": 1200,
+    "webp": true,
+    "width": 2000
+  },
+  "assets/images/header.jpg": {
+    "height": 1200,
+    "webp": true,
+    "width": 2000
+  },
+  "assets/images/max-sepulveda-hero.jpg": {
+    "height": 1126,
+    "webp": true,
+    "width": 1397
+  },
+  "assets/images/perfil.jpg": {
+    "height": 1500,
+    "webp": true,
+    "width": 2000
+  },
+  "assets/images/proyectos-header.jpg": {
+    "height": 922,
+    "webp": true,
+    "width": 2000
+  },
+  "assets/images/proyectos/alfareria/DSC05935.JPG": {
+    "height": 675,
+    "webp": true,
+    "width": 900
+  },
+  "assets/images/proyectos/alfareria/DSC05942.JPG": {
+    "height": 675,
+    "webp": true,
+    "width": 900
+  },
+  "assets/images/proyectos/general/20160109_170617.jpg": {
+    "height": 540,
+    "webp": true,
+    "width": 900
+  },
+  "assets/images/proyectos/general/IMG-20151119-WA0000.jpeg": {
+    "height": 540,
+    "webp": true,
+    "width": 900
+  },
+  "assets/images/proyectos/general/foto residencia.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 900
+  },
+  "assets/images/proyectos/general/stand CRFW.jpg": {
+    "height": 600,
+    "webp": true,
+    "width": 900
+  },
+  "assets/images/proyectos/intervenciones/20240703_201741.jpg": {
+    "height": 675,
+    "webp": true,
+    "width": 900
+  },
+  "assets/images/proyectos/intervenciones/Mapa Bordado Atacameño.jpg": {
+    "height": 900,
+    "webp": true,
+    "width": 591
+  },
+  "assets/images/proyectos/intervenciones/mx.jpg": {
+    "height": 773,
+    "webp": true,
+    "width": 900
+  }
+}
