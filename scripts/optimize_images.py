@@ -195,7 +195,10 @@ def optimize_image(path: Path, max_long_edge: int) -> tuple[int, int]:
             new_size = (max(1, round(width * scale)), max(1, round(height * scale)))
             im = im.resize(new_size, Image.LANCZOS)
 
-        im.save(path, format="JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+        if path.suffix.lower() == ".png":
+            im.save(path, format="PNG", optimize=True)
+        else:
+            im.save(path, format="JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
         im.save(path.with_suffix(".webp"), format="WEBP", quality=WEBP_QUALITY, method=6)
         return im.size
 

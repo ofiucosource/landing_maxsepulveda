@@ -492,7 +492,7 @@ body.project-detail .site-header {
 }
 
 .home-page .sf-block--hero--minimal .sf-hero__background::after {
-    background: linear-gradient(to top, rgba(18, 14, 11, 0.88) 0%, rgba(18, 14, 11, 0.32) 46%, rgba(18, 14, 11, 0.42) 100%);
+    background: linear-gradient(to top, rgba(18, 14, 11, 0.92) 0%, rgba(18, 14, 11, 0.48) 46%, rgba(18, 14, 11, 0.56) 100%);
 }
 
 .home-page .sf-block--hero--minimal .sf-hero__layout {
@@ -505,6 +505,15 @@ body.project-detail .site-header {
     display: flex;
     flex-direction: column;
     max-width: none;
+}
+
+.home-page .sf-block--hero--minimal .sf-hero__portrait {
+    position: absolute;
+    right: clamp(1.5rem, 8vw, 6rem);
+    bottom: clamp(9rem, 20vh, 13rem);
+    width: clamp(150px, 16vw, 230px);
+    opacity: 0.82;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
 }
 
 .home-page .sf-block--hero--minimal .sf-hero__title {
@@ -1173,6 +1182,18 @@ article.project-detail {
     line-height: 1.4;
 }
 
+.sf-block--text--portrait-reference .sf-text__image {
+    display: flex;
+    justify-content: center;
+}
+
+.sf-block--text--portrait-reference .sf-text__image img {
+    width: auto;
+    max-width: min(100%, 260px);
+    max-height: none;
+    object-fit: contain;
+}
+
 /* ==========================================================================
    Skills (legado)
    ========================================================================== */
@@ -1333,12 +1354,12 @@ article.project-detail {
 }
 
 .discipline-panel--plate .discipline-panel__image {
-    filter: blur(30px) saturate(1.15) brightness(0.5);
-    transform: scale(1.22);
+    filter: blur(36px) saturate(1.1) brightness(0.44);
+    transform: scale(1.36);
 }
 
 .discipline-panel--plate.is-visible .discipline-panel__image {
-    transform: scale(1.16);
+    transform: scale(1.28);
 }
 
 .discipline-panel--plate .discipline-panel__overlay {
@@ -1365,6 +1386,7 @@ article.project-detail {
     max-height: 62vh;
     max-width: 100%;
     width: auto;
+    object-fit: contain;
     box-shadow: var(--shadow-plate);
 }
 

@@ -85,7 +85,7 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
 
     base_url = "https://maxsepulvedaartevisual.com"
     canonical = f"{base_url}{current_path}"
-    image_url = f"{base_url}/assets/images/perfil.jpg"
+    image_url = f"{base_url}/assets/images/max-sepulveda-retrato.png"
 
     json_ld = f"""{{
   "@context": "https://schema.org",
@@ -401,12 +401,14 @@ def render_text_section(block: dict, current_path: str) -> str:
     title = f'<h2 class="sf-text__title">{html(block["title"])}</h2>' if block.get("title") else ""
     image = ""
     text_class = "sf-text"
+    variant = block.get("variant", "default")
+    variant_class = f" sf-block--text--{attr(variant)}" if variant != "default" else ""
     if block.get("image"):
         text_class = f'sf-text sf-text--with-image sf-text--image-{attr(block.get("image_position", "right"))}'
         image = f"""<div class="sf-text__image">
                 {render_image(current_path, block['image'], block.get('image_alt', block.get('title', 'Imagen')))}
             </div>"""
-    return f"""<section class="sf-block sf-block--text">
+    return f"""<section class="sf-block sf-block--text{variant_class}">
     <div class="sf-container">
         <div class="{text_class}">
             <div class="sf-text__content">
