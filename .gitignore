@@ -5,6 +5,7 @@ _site/
 __pycache__/
 *.pyc
 Fotos Wetransfer/
+imagenes nuevas/
 
 # Contexto local de desarrollo (no publicar)
 _context/

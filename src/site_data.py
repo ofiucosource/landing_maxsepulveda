@@ -143,7 +143,7 @@ milestones = [
     },
     {
         "year": "2016",
-        "title": "Widüfe Kuyfiche – Alfarero Ancestral",
+        "title": "Widufe Kuyfiche – Alfarero Ancestral",
         "description": "Fondo del Ministerio de las Culturas, las Artes y el Patrimonio de Chile para crear y producir 22 piezas de alfarería que ponen en valor el método ancestral Tagua Tagua. Itinerancia por 10 centros culturales de la Región de O'Higgins y posteriormente Nueva Zelanda.",
     },
     {
@@ -213,14 +213,14 @@ projects = [
         ],
     },
     {
-        "title": "Textiles y Alfarería del Tagua Tagua",
+        "title": "Residencia Artística en Nueva Zelanda",
         "slug": "textiles-y-alfareria-del-tagua-tagua",
         "date": "2018-08-10",
         "summary": "Residencia artística en la Escuela de Arte del Instituto Politécnico de Dunedin, Nueva Zelanda (2018), con exposición individual, taller de alfarería ancestral Tagua Tagua, mediación cultural y publicación en Revista Scope.",
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/residencia-artistica-en-nueva-zelanda/",
         "tags": ["Exposición", "Internacional", "Nueva Zelanda", "Cerámica", "Textil"],
-        "image": "assets/images/proyectos/alfareria/DSC05942.JPG",
+        "image": "assets/images/gallery/nueva-zelanda/nueva-zelanda-02.jpg",
         "gallery": gallery(
             "nueva-zelanda",
             [
@@ -242,7 +242,7 @@ projects = [
         ],
     },
     {
-        "title": "Widüfe Kuyfiche – Alfarero Ancestral",
+        "title": "Exposición Widufe Kuyfiche – Alfarero Ancestral",
         "slug": "widufe-kuyfiche-alfarero-ancestral",
         "date": "2016-03-01",
         "summary": "Creación de 22 piezas de alfarería que ponen en valor el método ancestral Tagua Tagua. Proyecto financiado por el Ministerio de las Culturas (2016), itinerante por la Región de O'Higgins y Nueva Zelanda.",
@@ -250,17 +250,8 @@ projects = [
         "tags": ["Investigación", "Cerámica", "Alfarería ancestral", "Patrimonio"],
         "image": "assets/images/proyectos/alfareria/DSC05935.JPG",
         "gallery": gallery(
-            "ceramica",
-            [
-                "ceramica-01.jpg",
-                "ceramica-02.jpg",
-                "ceramica-03.jpg",
-                "ceramica-04.jpg",
-                "ceramica-05.jpg",
-                "ceramica-06.jpg",
-                "ceramica-07.jpg",
-                "ceramica-08.jpg",
-            ],
+            "alfareria",
+            [f"alfareria-{i:02d}.jpg" for i in range(1, 34)],
         ),
         "content": [
             {
@@ -275,7 +266,7 @@ projects = [
         "title": "Murales Textiles Colaborativos",
         "slug": "murales-textiles-colaborativos",
         "date": "2020-01-15",
-        "summary": "Serie de intervenciones colaborativas en que comunidades crean murales de telas y bordados para espacios públicos. Incluye el mural 'Inti Ray' en Calama, financiado por Codelco.",
+        "summary": "Registro fotográfico de murales textiles colaborativos realizados por Max Sepúlveda junto a comunidades locales.",
         "featured": True,
         "tags": ["Arte Comunitario", "Textil", "Muralismo", "Codelco"],
         "image": "assets/images/proyectos/intervenciones/20240703_201741.jpg",
@@ -293,8 +284,8 @@ projects = [
         "content": [
             {
                 "type": "text_section",
-                "title": "Mosaicos Comunitarios",
-                "content": "<p>Diversas intervenciones lideradas por Sepúlveda donde comunidades completas crean <strong>murales hechos de telas y bordados</strong> que se instalan en espacios públicos locales a modo de mosaico comunitario.</p><p>Un ejemplo destacado es el mural <strong>'Inti Ray'</strong> en Calama, resultado del proyecto <em>Rescate del Patrimonio e Identidad Cultural Textil de los Pobladores de la Inti Ray</em>, financiado por <strong>Codelco</strong> dentro del programa Calama Participa. La obra fue conformada por múltiples paños bordados o tejidos por diferentes manos, representando símbolos y relatos de la comunidad.</p><p>Estas obras colectivas se han realizado en poblados rurales y barrios urbanos de distintas regiones, fortaleciendo el sentido de identidad y pertenencia de sus autores colectivos.</p>",
+                "title": "Murales textiles colaborativos",
+                "content": "<p>Registro fotográfico de murales textiles colaborativos realizados por Max Sepúlveda junto a comunidades locales.</p>",
                 "variant": "default",
             },
         ],
@@ -346,7 +337,49 @@ projects = [
             {
                 "type": "text_section",
                 "title": "Textil, oficio y diseño contemporáneo",
-                "content": "<p>El artista fue invitado a <strong>Costa Rica Fashion Week 2019</strong> para exponer sus obras y las obras de la <strong>Cooperativa Textil Tagua Tagua</strong>.</p><p>Durante su participación compartió una charla llamada <em>Intervención Social a través del Arte Textil</em>, impartió un <strong>taller de batik</strong> y realizó una entrevista a los medios de comunicación nacionales.</p>",
+                "content": "<p>El artista fue invitado a <strong>Costa Rica Fashion Week 2019</strong> para exponer sus obras y las obras de la <strong>Cooperativa Textil Tagua Tagua</strong>.</p><p>Durante su participación compartió una charla llamada <em>Intervención Social a través del Arte Textil</em>, impartió un <strong>taller de batik</strong> y realizó una entrevista a los medios de comunicación nacional.</p>",
+                "variant": "default",
+            },
+        ],
+    },
+    {
+        "title": "Resultados Taller de Técnicas Textiles en San Vicente de Tagua Tagua",
+        "slug": "resultados-taller-tecnicas-textiles-san-vicente",
+        "date": "2024-06-15",
+        "summary": "Registro fotográfico de los resultados del taller de técnicas textiles dirigido por Max Sepúlveda en San Vicente de Tagua Tagua.",
+        "featured": False,
+        "tags": ["Taller", "Textil", "Formación"],
+        "image": "assets/images/gallery/taller-san-vicente/taller-san-vicente-01.jpg",
+        "gallery": gallery(
+            "taller-san-vicente",
+            [f"taller-san-vicente-{i:02d}.jpg" for i in range(1, 41)],
+        ),
+        "content": [
+            {
+                "type": "text_section",
+                "title": "Resultados del taller",
+                "content": "<p>Registro fotográfico de los resultados del <strong>taller de técnicas textiles</strong> dirigido por Max Sepúlveda en <strong>San Vicente de Tagua Tagua</strong>.</p>",
+                "variant": "default",
+            },
+        ],
+    },
+    {
+        "title": "Resultados del Taller de Bordado y batik en San Pedro de Atacama",
+        "slug": "resultados-taller-bordado-batik-san-pedro-de-atacama",
+        "date": "2023-06-15",
+        "summary": "Registro fotográfico de los resultados del taller de bordado y batik dirigido por Max Sepúlveda en San Pedro de Atacama.",
+        "featured": False,
+        "tags": ["Taller", "Bordado", "Batik"],
+        "image": "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-01.jpg",
+        "gallery": gallery(
+            "taller-bordado-batik-san-pedro",
+            [f"taller-bordado-batik-san-pedro-{i:02d}.jpg" for i in range(1, 16)],
+        ),
+        "content": [
+            {
+                "type": "text_section",
+                "title": "Resultados del taller",
+                "content": "<p>Registro fotográfico de los resultados del <strong>taller de bordado y batik</strong> dirigido por Max Sepúlveda en <strong>San Pedro de Atacama</strong>.</p>",
                 "variant": "default",
             },
         ],
@@ -465,8 +498,6 @@ exhibitions = [
 ]
 
 other_workshops = [
-    "Resultados Taller de Técnicas Textiles en San Vicente de Tagua Tagua",
-    "Resultados del taller de Bordado en San Pedro de Atacama",
     "Residencia de Arte Colaborativo Alhue",
     "Residencia de Arte Colaborativo en Alicahue",
     "Residencia de Arte Colaborativo en Baquedano",

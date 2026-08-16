@@ -64,6 +64,171 @@
     "webp": true,
     "width": 1800
   },
+  "assets/images/gallery/alfareria/alfareria-01.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1218
+  },
+  "assets/images/gallery/alfareria/alfareria-02.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1067
+  },
+  "assets/images/gallery/alfareria/alfareria-03.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-04.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1210
+  },
+  "assets/images/gallery/alfareria/alfareria-05.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-06.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 986
+  },
+  "assets/images/gallery/alfareria/alfareria-07.jpg": {
+    "height": 740,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-08.jpg": {
+    "height": 1377,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-09.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1332
+  },
+  "assets/images/gallery/alfareria/alfareria-10.jpg": {
+    "height": 1079,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-11.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-12.jpg": {
+    "height": 1185,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-13.jpg": {
+    "height": 1123,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-14.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1102
+  },
+  "assets/images/gallery/alfareria/alfareria-15.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1176
+  },
+  "assets/images/gallery/alfareria/alfareria-16.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1209
+  },
+  "assets/images/gallery/alfareria/alfareria-17.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1150
+  },
+  "assets/images/gallery/alfareria/alfareria-18.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1299
+  },
+  "assets/images/gallery/alfareria/alfareria-19.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1436
+  },
+  "assets/images/gallery/alfareria/alfareria-20.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1399
+  },
+  "assets/images/gallery/alfareria/alfareria-21.jpg": {
+    "height": 799,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-22.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1067
+  },
+  "assets/images/gallery/alfareria/alfareria-23.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-24.jpg": {
+    "height": 1157,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-25.jpg": {
+    "height": 1206,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-26.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1003
+  },
+  "assets/images/gallery/alfareria/alfareria-27.jpg": {
+    "height": 1496,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-28.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1224
+  },
+  "assets/images/gallery/alfareria/alfareria-29.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1076
+  },
+  "assets/images/gallery/alfareria/alfareria-30.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1466
+  },
+  "assets/images/gallery/alfareria/alfareria-31.jpg": {
+    "height": 1102,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-32.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/alfareria/alfareria-33.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1067
+  },
   "assets/images/gallery/bordado-charrua/bordado-charrua-01.jpg": {
     "height": 600,
     "webp": true,
@@ -263,6 +428,281 @@
     "height": 533,
     "webp": true,
     "width": 800
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-01.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1569
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-02.jpg": {
+    "height": 1599,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-03.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1557
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-04.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1581
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-05.jpg": {
+    "height": 1576,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-06.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1562
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-07.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1584
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-08.jpg": {
+    "height": 1598,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-09.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1570
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-10.jpg": {
+    "height": 1560,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-11.jpg": {
+    "height": 1581,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-12.jpg": {
+    "height": 1596,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-13.jpg": {
+    "height": 1577,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-14.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1588
+  },
+  "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-15.jpg": {
+    "height": 1280,
+    "webp": true,
+    "width": 1280
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-01.jpg": {
+    "height": 1075,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-02.jpg": {
+    "height": 1057,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-03.jpg": {
+    "height": 1075,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-04.jpg": {
+    "height": 1087,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-05.jpg": {
+    "height": 1076,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-06.jpg": {
+    "height": 1109,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-07.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1128
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-08.jpg": {
+    "height": 1061,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-09.jpg": {
+    "height": 1108,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-10.jpg": {
+    "height": 1083,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-11.jpg": {
+    "height": 1206,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-12.jpg": {
+    "height": 1194,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-13.jpg": {
+    "height": 1211,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-14.jpg": {
+    "height": 1208,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-15.jpg": {
+    "height": 1205,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-16.jpg": {
+    "height": 1208,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-17.jpg": {
+    "height": 1258,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-18.jpg": {
+    "height": 1178,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-19.jpg": {
+    "height": 1171,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-20.jpg": {
+    "height": 1202,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-21.jpg": {
+    "height": 1103,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-22.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1120
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-23.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1091
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-24.jpg": {
+    "height": 1173,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-25.jpg": {
+    "height": 1092,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-26.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1067
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-27.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1067
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-28.jpg": {
+    "height": 1115,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-29.jpg": {
+    "height": 1058,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-30.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1081
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-31.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1067
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-32.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1067
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-33.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-34.jpg": {
+    "height": 1108,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-35.jpg": {
+    "height": 1050,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-36.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-37.jpg": {
+    "height": 1115,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-38.jpg": {
+    "height": 1067,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-39.jpg": {
+    "height": 1600,
+    "webp": true,
+    "width": 1028
+  },
+  "assets/images/gallery/taller-san-vicente/taller-san-vicente-40.jpg": {
+    "height": 1066,
+    "webp": true,
+    "width": 1600
   },
   "assets/images/header-8.jpg": {
     "height": 1200,
