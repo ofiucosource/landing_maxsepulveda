@@ -301,7 +301,7 @@ def render_block(block: dict, current_path: str) -> str:
     if block_type == "timeline":
         return render_timeline(block, current_path)
     if block_type == "contact":
-        return render_contact(block)
+        return render_contact(block, current_path)
     if block_type == "quote":
         return render_quote(block)
     if block_type == "name_list":
@@ -518,14 +518,15 @@ def render_dated_list(block: dict) -> str:
 </section>"""
 
 
-def render_contact(block: dict) -> str:
+def render_contact(block: dict, current_path: str) -> str:
     links = "\n".join(render_social_link(link) for link in block.get("social_links", []))
     phone_html = ""
     if block.get("phone") and block.get("phone_link"):
         phone_html = f'<div class="sf-contact__phone"><a href="tel:{attr(block["phone_link"])}" class="sf-contact__phone-link">{html(block["phone"])}</a></div>'
     resume_html = ""
     if block.get("resume"):
-        resume_html = f'<div class="sf-contact__email"><a href="{attr(block["resume"]["url"])}" class="sf-contact__email-link" target="_blank" rel="noopener">{html(block["resume"]["label"])} &rarr;</a></div>'
+        resume_url = asset_url(current_path, block["resume"]["url"])
+        resume_html = f'<div class="sf-contact__email"><a href="{resume_url}" class="sf-contact__email-link" target="_blank" rel="noopener">{html(block["resume"]["label"])} &rarr;</a></div>'
     return f"""<section class="sf-block sf-block--contact">
     <div class="sf-container">
         <div class="sf-contact">
