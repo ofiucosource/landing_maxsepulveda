@@ -37,7 +37,7 @@ disciplines = [
     },
     {
         "name": "Bordado",
-        "description": "Exploración con puntadas tradicionales, mapas textiles colectivos y procesos comunitarios de memoria.",
+        "description": "Exploración con 15 puntadas tradicionales.",
         "icon": "embroidery",
         "image": "assets/images/disciplinas/bordado.jpeg",
         "anchor": "bordado",
@@ -53,7 +53,7 @@ disciplines = [
     },
     {
         "name": "Tejidos",
-        "description": "Telar mapuche, telar de peine, telar cuadrado, telar artístico, cordonería andina y joyería textil.",
+        "description": "Telar mapuche, telar de peine, telar cuadrado, telar artístico, cordonería andina y joyería textil. Lanigrafía: técnica de pegado de lanas y cordones sobre superficies de madera o cartón.",
         "icon": "weaving",
         "image": "assets/images/disciplinas/tejidos.jpeg",
         "anchor": "tejidos",
@@ -142,9 +142,9 @@ milestones = [
         "description": "Intervención de arte público colaborativo. Mapa textil de 3×2 metros bordado por más de un centenar de habitantes de Calama.",
     },
     {
-        "year": "2006",
-        "title": "Fondart — Widüfe Kuyfiche",
-        "description": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Exposición en la Sala Samuel Román de Rancagua.",
+        "year": "2016",
+        "title": "Widüfe Kuyfiche – Alfarero Ancestral",
+        "description": "Fondo del Ministerio de las Culturas, las Artes y el Patrimonio de Chile para crear y producir 22 piezas de alfarería que ponen en valor el método ancestral Tagua Tagua. Itinerancia por 10 centros culturales de la Región de O'Higgins y posteriormente Nueva Zelanda.",
     },
     {
         "year": "2002",
@@ -158,7 +158,7 @@ projects = [
         "title": "Bordado Urbano",
         "slug": "bordado-urbano",
         "date": "2012-05-15",
-        "summary": "Proyecto de arte comunitario en Calama (2012). Los habitantes bordaron colectivamente un mapa de 3x2 metros representando sus sueños e historias.",
+        "summary": "Proyecto colaborativo en Calama (2012): los habitantes bordaron colectivamente un mapa de 3x2 metros con sus sueños, historias y aspiraciones, junto a un documental con músicos, cantautores y bailarines de la ciudad.",
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-urbano/",
         "tags": ["Arte Comunitario", "Textil", "Calama", "Documental"],
@@ -178,14 +178,8 @@ projects = [
             {
                 "type": "text_section",
                 "title": "Un tapiz de sueños colectivos",
-                "content": "<p>Proyecto de arte comunitario en el que los habitantes de Calama bordaron colectivamente un mapa de <strong>3 x 2 metros</strong> representando sus sueños e historias para la ciudad.</p><p>Fue una intervención pública realizada en distintas locaciones (ferias, paseos peatonales, mercados), acompañada por la filmación de un <strong>documental</strong> sobre la experiencia.</p><p>El resultado fue un tapiz urbano único, fruto del trabajo conjunto del artista con más de un centenar de participantes locales.</p>",
+                "content": "<p>El <em>Bordado Urbano</em> fue un proyecto colaborativo ejecutado por el artista Max Sepúlveda en la ciudad de <strong>Calama, Chile</strong>, en el año <strong>2012</strong>. Se realizaron intervenciones públicas en donde los participantes bordaron un mapa de <strong>3 x 2 metros</strong> sobre el cual se plasmaron, a través de puntos bordados de colores, los sueños, historias de amor y desamor, aspiraciones, carencias, abundancias, conflictos y el futuro para su ciudad.</p><p>Al mismo tiempo se realizó un <strong>documental</strong> de la experiencia, en donde también participaron bandas de músicos, cantautores y bailarines de Calama.</p><p>La obra colaborativa, bordada por la gente entrevistada, los participantes y el artista textil Max Sepúlveda, se realizó en diversas locaciones de Calama, como las <strong>ferias rotativas, el Paseo Ramírez, el Mercado Modelo, el sector La Cascada, colegios y plazas de la ciudad</strong>: locaciones que fueron el disparador de esta búsqueda identitaria que se inmortalizó a través del lenguaje audiovisual.</p>",
                 "variant": "default",
-            },
-            {
-                "type": "quote",
-                "quote": "El bordado es una herramienta convocante que invita a la participación de personas de todas las edades.",
-                "author": "Max Sepúlveda",
-                "variant": "highlight",
             },
         ],
     },
@@ -193,7 +187,7 @@ projects = [
         "title": "Bordado Charrúa de la Memoria",
         "slug": "bordado-charrua-de-la-memoria",
         "date": "2016-11-20",
-        "summary": "Mapa textil colectivo de la costa de Rocha, Uruguay. Ganador de los Fondos Concursables para la Cultura del MEC uruguayo (2016).",
+        "summary": "Proyecto colaborativo de Max Sepúlveda y el colectivo Cine del Cono Sur en cinco balnearios de Rocha, Uruguay (2016), financiado por el Fondo Concursable para la Cultura del MEC.",
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-charrua-de-la-memoria/",
         "tags": ["Arte Comunitario", "Textil", "Uruguay", "Premios"],
@@ -213,7 +207,7 @@ projects = [
             {
                 "type": "text_section",
                 "title": "Rescatando la memoria costera",
-                "content": "<p>Proyecto ganador de los <strong>Fondos Concursables para la Cultura</strong> del Ministerio de Educación y Cultura de Uruguay.</p><p>Consistió en la creación de un mapa textil colectivo de la costa de Rocha, bordado in situ por habitantes y visitantes en <strong>cinco localidades costeras</strong>.</p><p>Durante el proceso, la gente compartió anécdotas sobre los lugares que dejaron huella en sus vidas: historias de amor, aventuras, desventuras —y también lo que se perdió, lo que cambiaría y lo que falta en su entorno. Sepúlveda actuó como facilitador: enseñó técnicas de bordado en el momento, de modo que incluso quienes nunca habían bordado pudieron contribuir con sus puntadas.</p><p>El proyecto culminó con la exhibición del mapa bordado y la proyección del documental en las mismas comunidades donde se gestó, así como en Montevideo y circuitos internacionales.</p>",
+                "content": "<p>El <em>Bordado Charrúa de la Memoria</em> fue un proyecto colaborativo ejecutado por el artista Max Sepúlveda y el colectivo de <strong>Cine del Cono Sur</strong> en <strong>cinco balnearios de la Provincia de Rocha, Uruguay</strong>, en el año <strong>2016</strong>, gracias a la adjudicación del <strong>Fondo Concursable para la Cultura del Ministerio de Educación y Cultura de Uruguay</strong>.</p><p>Se realizaron intervenciones públicas en donde los participantes bordaron un mapa de <strong>3 x 2 metros</strong> sobre el cual se plasmaron, a través de puntos bordados de colores, su balneario, su pueblo, su comunidad. En este proceso nos contaron sobre los lugares que dejaron huellas en sus vidas, sus historias de amor, aventuras y desventuras, lugares mágicos e identitarios, lo que se perdió, lo que cambiaría y lo que le falta a su entorno, como también los lugares que deben conservarse y protegerse.</p><p>Junto a los participantes de la experiencia se unieron artistas cantautores, músicos y bailarines, quienes apoyaron la narración plasmada a través de un <strong>documental</strong>.</p>",
                 "variant": "default",
             },
         ],
@@ -222,7 +216,7 @@ projects = [
         "title": "Textiles y Alfarería del Tagua Tagua",
         "slug": "textiles-y-alfareria-del-tagua-tagua",
         "date": "2018-08-10",
-        "summary": "Exposición individual en la School of Art de Dunedin, Nueva Zelanda (2018). Diálogo entre la identidad cultural de Tagua Tagua y la tradición maorí.",
+        "summary": "Residencia artística en la Escuela de Arte del Instituto Politécnico de Dunedin, Nueva Zelanda (2018), con exposición individual, taller de alfarería ancestral Tagua Tagua, mediación cultural y publicación en Revista Scope.",
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/residencia-artistica-en-nueva-zelanda/",
         "tags": ["Exposición", "Internacional", "Nueva Zelanda", "Cerámica", "Textil"],
@@ -242,7 +236,7 @@ projects = [
             {
                 "type": "text_section",
                 "title": "Intercambio Cultural Chile-Nueva Zelanda",
-                "content": "<p>Exposición individual realizada en la <strong>School of Art de Dunedin</strong>, como resultado de una residencia artística en Nueva Zelanda.</p><p>La muestra presentó una selección de obras en cerámica y textil inspiradas en la identidad cultural de <strong>Tagua Tagua</strong> y su diálogo con la tradición maorí.</p><p>Como parte de la residencia, Sepúlveda ofreció un <strong>taller de alfarería ancestral</strong> en el estudio de cerámica de la escuela, compartiendo técnicas tradicionales chilenas con estudiantes neozelandeses. El intercambio enriqueció su práctica, incorporando influencias del arte oceánico.</p>",
+                "content": "<p>En el año <strong>2018</strong> el artista realizó una <strong>residencia artística en la Escuela de Arte del Instituto Politécnico de Dunedin, Nueva Zelanda</strong>, que incluyó una exposición individual llamada <em>Textiles y Alfarería del Tagua Tagua</em>.</p><p>En el estudio cerámico de la misma escuela organizó un <strong>taller de alfarería ancestral con la técnica Tagua Tagua</strong>, dirigido a alumnos, profesores y artistas de la institución. De igual forma, realizó jornadas de <strong>mediación cultural</strong> de sus obras, tanto en la sala de exposiciones como en el Hub del edificio principal de la institución académica.</p><p>Además, publicó un artículo en la <strong>Revista Scope Contemporary Research Topics Art and Design</strong> sobre su experiencia en la residencia artística.</p>",
                 "variant": "default",
             },
         ],
@@ -250,10 +244,10 @@ projects = [
     {
         "title": "Widüfe Kuyfiche – Alfarero Ancestral",
         "slug": "widufe-kuyfiche-alfarero-ancestral",
-        "date": "2006-03-01",
-        "summary": "Investigación y rescate de la alfarería indígena de la zona central de Chile. Proyecto FONDART 2006.",
+        "date": "2016-03-01",
+        "summary": "Creación de 22 piezas de alfarería que ponen en valor el método ancestral Tagua Tagua. Proyecto financiado por el Ministerio de las Culturas (2016), itinerante por la Región de O'Higgins y Nueva Zelanda.",
         "featured": True,
-        "tags": ["Investigación", "Cerámica", "Fondart", "Patrimonio"],
+        "tags": ["Investigación", "Cerámica", "Alfarería ancestral", "Patrimonio"],
         "image": "assets/images/proyectos/alfareria/DSC05935.JPG",
         "gallery": gallery(
             "ceramica",
@@ -272,7 +266,7 @@ projects = [
             {
                 "type": "text_section",
                 "title": "Hacedores de Greda",
-                "content": "<p>Proyecto financiado por el <strong>Fondo Nacional de Desarrollo Cultural y las Artes (FONDART)</strong>.</p><p>Consistió en una investigación y rescate de la alfarería indígena de la zona central de Chile, que culminó en una exposición exhibida en la <strong>Sala Samuel Román</strong> de la Casa de la Cultura de Rancagua. La muestra presentó piezas de cerámica inspiradas en técnicas prehispánicas, poniendo en valor el oficio del alfarero tradicional.</p><p><em>Widüfe</em> en mapudungun significa 'alfarero' o 'hacedor de greda'. Fue un hito temprano en la carrera de Sepúlveda, consolidando su vínculo con el patrimonio de la zona central de Chile.</p>",
+                "content": "<p>En el año <strong>2016</strong>, gracias a la adjudicación de un fondo del <strong>Ministerio de las Culturas, las Artes y el Patrimonio de Chile</strong>, el artista creó y produjo <strong>22 piezas de alfarería</strong> poniendo en valor el método ancestral Tagua Tagua: obras de tipo ornamental y utilitarias inspiradas en la alfarería precolombina regional.</p><p>Las piezas presentan influencias de la cultura <strong>Inca, Mapuche, Diaguita y Atacameña</strong>, de las antiguas culturas <strong>Bato y Llolleo</strong> (300 a. C. - 800 d. C.) y de la posterior cultura <strong>Aconcagua</strong> (900 d. C.).</p><p>La itinerancia de la muestra se realizó en <strong>10 centros culturales de la Región de O'Higgins</strong> durante dos años y, posteriormente, en <strong>Nueva Zelanda</strong>.</p>",
                 "variant": "default",
             },
         ],
@@ -331,7 +325,7 @@ projects = [
         "title": "Costa Rica Fashion Week 2019",
         "slug": "costa-rica-fashion-week-2019",
         "date": "2019-08-01",
-        "summary": "Participación internacional con textiles, ponchos y piezas de diseño de autor en Costa Rica Fashion Week 2019.",
+        "summary": "Invitación a exponer sus obras y las de la Cooperativa Textil Tagua Tagua en Costa Rica Fashion Week 2019, con charla, taller de batik y entrevistas a medios.",
         "featured": True,
         "tags": ["Textil", "Moda", "Internacional", "Costa Rica"],
         "image": "assets/images/proyectos/general/stand CRFW.jpg",
@@ -352,7 +346,7 @@ projects = [
             {
                 "type": "text_section",
                 "title": "Textil, oficio y diseño contemporáneo",
-                "content": "<p>En 2019 Max Sepúlveda participó en <strong>Costa Rica Fashion Week</strong>, presentando piezas textiles y vestuario con identidad chilena en un contexto internacional de moda y diseño.</p><p>La participación permitió mostrar ponchos, tramas, aplicaciones textiles y accesorios de autor como una extensión contemporánea de técnicas tradicionales. El proyecto abrió un diálogo entre artesanía, diseño escénico, circulación internacional y oficio textil latinoamericano.</p><p>Esta instancia forma parte de su trayectoria internacional y de su interés por llevar los lenguajes textiles a nuevos soportes: del mural comunitario al cuerpo, de la memoria local a la pasarela.</p>",
+                "content": "<p>El artista fue invitado a <strong>Costa Rica Fashion Week 2019</strong> para exponer sus obras y las obras de la <strong>Cooperativa Textil Tagua Tagua</strong>.</p><p>Durante su participación compartió una charla llamada <em>Intervención Social a través del Arte Textil</em>, impartió un <strong>taller de batik</strong> y realizó una entrevista a los medios de comunicación nacionales.</p>",
                 "variant": "default",
             },
         ],
@@ -498,7 +492,7 @@ about_page = {
         {
             "type": "text_section",
             "title": "Biografía",
-            "content": "<p><strong>Maximiliano 'Max' Sepúlveda Zúñiga</strong> (n. 1974) es un artista visual, artesano y gestor cultural oriundo de San Vicente de Tagua Tagua, Chile. Su trabajo abarca <strong>alfarería, cerámica, textiles, arte colaborativo y dirección de arte audiovisual</strong>, disciplinas en las que ha desarrollado una amplia producción creativa por más de veinte años.</p><p>Se formó junto a maestros artesanos y artistas visuales de Latinoamérica, complementando su aprendizaje en Chile, Argentina y México. Esa formación multicultural atraviesa su obra y su manera de trabajar con comunidades, integrando técnicas tradicionales con una mirada contemporánea y territorial.</p>",
+            "content": "<p><strong>Max Sepúlveda nació en 1974 en San Vicente de Tagua Tagua, Chile.</strong></p><p>Posee un vasto trabajo creativo y productivo en los oficios artesanales de <strong>alfarería, cerámica y textiles</strong>, poniendo en valor el diseño precolombino de forma contemporánea y experimentando con la fusión de técnicas. Su inspiración viene de los territorios y comunidades en donde crea sus obras individuales, talleres de transmisión de conocimientos y obras de arte colaborativas que nacen desde el diálogo comunitario: el artista y la comunidad reflexionan sobre su idiosincrasia, la memoria, la identidad, el patrimonio natural y cultural, los conflictos, las carencias y las abundancias de lo cotidiano. Desde ese encuentro comunitario afectivo co-crea obras de arte que visibilizan dichos tópicos como fuente de inspiración.</p><p>El artista concibe los oficios que comparte y al arte comunitario y colaborativo como poderosas <strong>herramientas de transformación social y personal</strong>. A través de los distintos procesos artísticos, Max busca generar conciencia sobre la importancia de la organización social, su empoderamiento, la creación de redes de apoyo, la autocrítica y la evaluación colectiva de errores y aciertos para contribuir a mejorar la calidad de vida.</p><p>Su formación ha sido con <strong>maestros artesanos y artistas visuales latinoamericanos</strong>. Es Técnico Profesional en Arte y Gestión Cultural del Instituto AIEP de la Universidad Andrés Bello de Santiago de Chile, cursó un Diplomado en Formación Pedagógica para Artesanos en la Universidad Metropolitana de Ciencias de la Educación de Santiago de Chile y realizó una Pasantía en Arte Textil en la <strong>Universidad Iberoamericana de Ciudad de México</strong>, entre otros estudios.</p>",
             "image": "assets/images/max-sepulveda-retrato.png",
             "image_position": "right",
             "image_alt": "Retrato de Max Sepúlveda",
@@ -548,7 +542,7 @@ about_page = {
         {
             "type": "text_section",
             "title": "Hitos y reconocimientos",
-            "content": "<p>Entre los hitos más significativos de su trayectoria se encuentran el proyecto <strong>Widüfe Kuyfiche - Alfarero Ancestral</strong>, financiado por Fondart; el desarrollo de <strong>Bordado Urbano</strong> en Calama; y el proyecto <strong>Bordado Charrúa de la Memoria</strong>, reconocido por los Fondos Concursables para la Cultura del Uruguay.</p><p>También destacan su residencia y exposición en la School of Art de Dunedin, Nueva Zelanda, su participación en Costa Rica Fashion Week y su trabajo sostenido de mediación artística y formación de oficios en espacios comunitarios e institucionales.</p>",
+            "content": "<p>Entre los hitos más significativos de su trayectoria se encuentran el proyecto <strong>Widüfe Kuyfiche - Alfarero Ancestral</strong>, financiado por el Ministerio de las Culturas, las Artes y el Patrimonio de Chile; el desarrollo de <strong>Bordado Urbano</strong> en Calama; y el proyecto <strong>Bordado Charrúa de la Memoria</strong>, reconocido por los Fondos Concursables para la Cultura del Uruguay.</p><p>También destacan su residencia y exposición en la School of Art de Dunedin, Nueva Zelanda, su participación en Costa Rica Fashion Week y su trabajo sostenido de mediación artística y formación de oficios en espacios comunitarios e institucionales.</p>",
             "variant": "default",
         },
         {
@@ -593,7 +587,7 @@ about_page = {
         {
             "type": "contact",
             "title": "Contacto",
-            "text": "Si quieres conocer más sobre su trabajo, proponer una colaboración o invitarlo a un proyecto, puedes escribirle directamente.",
+            "text": "Contacto para contratar sus servicios, colaboraciones y voluntariados.",
             "email": "maxsepulvedaz@gmail.com",
             "phone": "+56 9 8654 5810",
             "phone_link": "+56986545810",
@@ -647,7 +641,7 @@ home_blocks = [
     {
         "type": "contact",
         "title": "Contacto",
-        "text": "¿Interesado en colaborar, contratar un taller o conocer más sobre su obra? No dudes en escribirle.",
+        "text": "Contacto para contratar sus servicios, colaboraciones y voluntariados.",
         "email": "maxsepulvedaz@gmail.com",
         "phone": "+56 9 8654 5810",
         "phone_link": "+56986545810",
