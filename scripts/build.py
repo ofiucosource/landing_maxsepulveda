@@ -12,7 +12,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from site_data import about_page, disciplines, home_blocks, milestones, other_workshops, projects, site  # noqa: E402
+from site_data import about_page, disciplines, home_blocks, other_workshops, projects, site  # noqa: E402
 
 IMAGE_MANIFEST_PATH = ROOT / "src" / "image_manifest.json"
 
@@ -523,6 +523,9 @@ def render_contact(block: dict) -> str:
     phone_html = ""
     if block.get("phone") and block.get("phone_link"):
         phone_html = f'<div class="sf-contact__phone"><a href="tel:{attr(block["phone_link"])}" class="sf-contact__phone-link">{html(block["phone"])}</a></div>'
+    resume_html = ""
+    if block.get("resume"):
+        resume_html = f'<div class="sf-contact__email"><a href="{attr(block["resume"]["url"])}" class="sf-contact__email-link" target="_blank" rel="noopener">{html(block["resume"]["label"])} &rarr;</a></div>'
     return f"""<section class="sf-block sf-block--contact">
     <div class="sf-container">
         <div class="sf-contact">
@@ -530,6 +533,7 @@ def render_contact(block: dict) -> str:
             <p class="sf-contact__text">{html(block['text'])}</p>
             <div class="sf-contact__email"><a href="mailto:{attr(block['email'])}" class="sf-contact__email-link">{html(block['email'])}</a></div>
             {phone_html}
+            {resume_html}
             <div class="sf-contact__social">{links}</div>
         </div>
     </div>

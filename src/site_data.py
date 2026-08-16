@@ -85,74 +85,6 @@ disciplines = [
     },
 ]
 
-milestones = [
-    {
-        "year": "2025",
-        "title": "Exposición Alfarería Ancestral",
-        "description": "Exposición individual de alfarería en el Museo Escolar Laguna de Tagua Tagua y co-autoría en el libro histórico y patrimonial sobre la cuenca del río Tinguiririca.",
-    },
-    {
-        "year": "2024",
-        "title": "Gestión Cultural y Práctica en México",
-        "description": "Se titula de Técnico de Nivel Superior en Arte y Gestión Cultural y realiza talleres y co-creaciones de murales textiles colaborativos en Oaxaca y Morelos, México.",
-    },
-    {
-        "year": "2023",
-        "title": "Bordado Atacameño de la Memoria",
-        "description": "Dirección e impartición del taller de bordado tradicional y exposición colectiva en San Pedro de Atacama y Santiago en colaboración con la comunidad y SQM.",
-    },
-    {
-        "year": "2022",
-        "title": "Reconocimiento Regional O'Higgins",
-        "description": "Homenaje por su aporte al desarrollo cultural local en el marco del Día del Artesano. Más de 25 años dedicados al arte colaborativo y la gestión cultural.",
-    },
-    {
-        "year": "2021",
-        "title": "Catálogo Artesanía en Pandemia",
-        "description": "Seleccionado nacional para el catálogo del Ministerio de las Culturas que reconoce a artesanos con destacada trayectoria y oficio durante la emergencia sanitaria.",
-    },
-    {
-        "year": "2020",
-        "title": "Mediación Artística Digital",
-        "description": "Adapta su labor al formato virtual durante la pandemia. Cápsulas de formación en bordado y arpillera para comunidades, reconociendo buenas prácticas de mediación.",
-    },
-    {
-        "year": "2019",
-        "title": "Costa Rica Fashion Week",
-        "description": "Presenta creaciones de moda textil con identidad chilena en la semana de la moda de Costa Rica, integrando artesanía tradicional en el diseño contemporáneo.",
-    },
-    {
-        "year": "2018",
-        "title": "Residencia y Exposición — Nueva Zelanda",
-        "description": "Exposición individual 'Textiles y Alfarería del Tagua Tagua' en la School of Art de Dunedin. Intercambio cultural con la tradición maorí.",
-    },
-    {
-        "year": "2016",
-        "title": "Residencia Red Cultura — Alicahue",
-        "description": "Residencia de arte colaborativo en el Valle de Alicahue, Región de Valparaíso. Trabajo con comunidades locales en intervenciones artísticas territoriales.",
-    },
-    {
-        "year": "2016",
-        "title": "Bordado Charrúa de la Memoria",
-        "description": "Ganador de los Fondos Concursables para la Cultura del MEC uruguayo. Mapa textil colectivo de la costa de Rocha, Uruguay.",
-    },
-    {
-        "year": "2012",
-        "title": "Bordado Urbano — Calama",
-        "description": "Intervención de arte público colaborativo. Mapa textil de 3×2 metros bordado por más de un centenar de habitantes de Calama.",
-    },
-    {
-        "year": "2016",
-        "title": "Widufe Kuyfiche – Alfarero Ancestral",
-        "description": "Fondo del Ministerio de las Culturas, las Artes y el Patrimonio de Chile para crear y producir 22 piezas de alfarería que ponen en valor el método ancestral Tagua Tagua. Itinerancia por 10 centros culturales de la Región de O'Higgins y posteriormente Nueva Zelanda.",
-    },
-    {
-        "year": "2002",
-        "title": "Proyecto 'Desde la Óptica Wlachinsky'",
-        "description": "Participa en proyecto de creación artística en Valdivia, financiado por Fondart Regional de Los Ríos. Primer acercamiento al cruce entre artesanía y artes visuales.",
-    },
-]
-
 projects = [
     {
         "title": "Bordado Urbano",
@@ -404,15 +336,15 @@ institutions = [
     "Escuela Alcaman de Doñihue",
     "Escuela de Joyería Joyarte de Valdivia",
     "Instituto de Desarrollo Agropecuario de Chile INDAP",
-    "Fundación PRODEMU Pro Desarrollo de la Mujer de Chile",
+    "Fundación Pro Desarrollo de la Mujer de Chile PRODEMU",
     "Corporación de Cultura y Turismo de Calama",
     "Codelco Chile",
     "Centro Cultural Daniel Omar Favero y Centro de Desarrollo Sustentable Mamaroja en Argentina",
-    "Agrupación Cultural Rapa Nui Maohi o Rapa Nui",
+    "Agrupación Cultural Rapa Nui \"Maohi o Rapa Nui\"",
     "Servicio Nacional de la Mujer de Chile",
     "Municipalidad de Rancagua",
     "Fondo de Solidaridad e Inversión Social FOSIS Chile",
-    "Casa Taller Recreo-Arte Textil en Viña del Mar",
+    "Casa Taller Recreo-Arte Textil en Viña del Mar, Chile",
     "Escuela Textil Factoría Violeta",
     "Municipalidad de Oberá, Argentina",
 ]
@@ -435,7 +367,7 @@ collaborations = [
     "Instituto San Vicente",
     "Universidad Autónoma de México",
     "Instituto Chileno-Guatemalteco de Cultura",
-    "Corporación de Cultura de la Municipalidad de Viña del Mar",
+    "Corporación de Cultura de la Municipalidad de Viña del Mar, Chile",
     "Secretaría de Cultura del Gobierno de México",
     "Corporación Unificada Nacional de Educación Superior de Colombia",
     "Ministerio de Cultura de Costa Rica",
@@ -469,7 +401,7 @@ collaborations = [
 awards = [
     {"year": "2021", "title": "Seleccionado nacional para el Catálogo Artesanía en Pandemia del Ministerio de las Culturas, las Artes y el Patrimonio de Chile."},
     {"year": "2015", "title": "Reconocimiento al Artesano 2015, Municipalidad de San Vicente de Tagua Tagua, Chile."},
-    {"year": "2014", "title": "Reconocimiento por selección del cortometraje Bordado Urbano en el I Festival de Textiles de México, Universidad Autónoma de México."},
+    {"year": "2014", "title": "Reconocimiento por selección del cortometraje \"Bordado Urbano\" en el I Festival de Textiles de México, Universidad Autónoma de México."},
     {"year": "2006", "title": "Primer lugar en el III Concurso de Alfombras Guatemaltecas, Corporación de Cultura de la Municipalidad de Viña del Mar, Chile."},
 ]
 
@@ -478,23 +410,23 @@ exhibitions = [
     {"year": "2025", "title": "Exposición colectiva Alfarería Ancestral, Museo Escolar Laguna de Tagua Tagua, San Vicente de Tagua Tagua, Chile."},
     {"year": "2024", "title": "Exposición colectiva Art Santiago 2024 en el Centro Cultural Gabriela Mistral GAM, Santiago, Chile."},
     {"year": "2023", "title": "Exposición colectiva de egreso Pieza Única, Instituto Profesional AIEP, Santiago, Chile."},
-    {"year": "2023", "title": "Exposición colectiva Bordado Atacameño de la Memoria, San Pedro de Atacama y Edificio Corporativo SQM, Santiago, Chile."},
+    {"year": "2023", "title": "Exposición colectiva Bordado Atacameño de la Memoria, Sede Comunitaria Algarrobo, San Pedro de Atacama y Edificio Corporativo de la empresa SQM, Santiago, Chile."},
     {"year": "2023", "title": "Exposición colectiva Memorias de la Artesanía, UNAR, Museo Regional de Rancagua y Museo de Artes Decorativas, Santiago, Chile."},
     {"year": "2022", "title": "Exposición colectiva Artesanías para Violeta, UNAR, Sala Nemesio Antúnez UMCE, Santiago, Chile."},
     {"year": "2021", "title": "Exposición colectiva Artesanía en Pandemia, una Pieza Para el Sello de Excelencia, UNAR, Centro Cultural Montecarmelo, Santiago, Chile."},
     {"year": "2018", "title": "Exposición individual Textiles y Alfarería del Tagua Tagua, Escuela de Arte de Dunedin, Otago Polytechnic, Nueva Zelanda."},
-    {"year": "2016-2018", "title": "Exposición individual Widufe Kuyfiche - Alfarero Ancestral, itinerancia por centros culturales de la Región de O'Higgins."},
+    {"year": "2016-2018", "title": "Exposición individual Widufe Kuyfiche - Alfarero Ancestral, centros culturales de San Vicente de Tagua Tagua, San Fernando, Chépica, Santa Cruz, Rengo, Pichilemu, Lolol, Machalí, Codegua y Pichidegua."},
     {"year": "2015", "title": "Exposición colectiva II Feria de Artesanías Iberoamericanas, Centro Cultural Palacio de la Moneda, Santiago, Chile."},
     {"year": "2015", "title": "Exposición colectiva Expo Cachapoal, Plaza de los Héroes de Rancagua, Copa América 2015, Chile."},
     {"year": "2012", "title": "Exposición individual Retrospectiva, Hall del Edificio de CODELCO, Calama, Chile."},
     {"year": "2012", "title": "Exposición colectiva Ckoitchi, Sala de Arte Pablo Neruda de Calama, Chile."},
     {"year": "2011", "title": "Exposición colectiva Ponle Color al Invierno, Corporación Cultural Municipal de Valparaíso, Chile."},
-    {"year": "2010", "title": "Exposición colectiva El Litoral Vive, Oberá, Puerto Rico y Posadas, Misiones, Argentina."},
+    {"year": "2010", "title": "Exposición colectiva El Litoral Vive, Casas de la Cultura de las ciudades de Oberá, Puerto Rico y Posadas en Misiones, Argentina."},
     {"year": "2008", "title": "Exposición individual Entre Chile y México, Sala de Arte Contemporáneo de la Casa de la Cultura de Rancagua, Chile."},
-    {"year": "2006", "title": "Exposición individual Arte Rupestre Regional en Tapices de Batik y Shibori, Rancagua, San Fernando y Pichilemu, Chile."},
+    {"year": "2006", "title": "Exposición individual Arte Rupestre Regional en Tapices de Batik y Shibori, Casa de la Cultura de Rancagua, Museo Lircunlauta de San Fernando y Centro Cultural Agustín Ross Edwards de Pichilemu, Chile."},
     {"year": "2005", "title": "Exposición individual Reservando el Color, Gobernación Provincial de Cachapoal, Rancagua, Chile."},
     {"year": "2002", "title": "Exposición colectiva Petroglifos del Río Cipreses y El Hombre, SITIARTE, Rancagua, Chile."},
-    {"year": "2001", "title": "Exposición colectiva, Corporación Cultural Municipal de Valdivia, Chile."},
+    {"year": "2001", "title": "Exposición colectiva de Batik, Corporación Cultural Municipal de Valdivia, Chile."},
 ]
 
 other_workshops = [
@@ -528,59 +460,6 @@ about_page = {
             "image_position": "right",
             "image_alt": "Retrato de Max Sepúlveda",
             "variant": "portrait-reference",
-        },
-        {
-            "type": "timeline",
-            "title": "Trayectoria",
-            "subtitle": "Hitos y proyectos clave en más de 20 años de carrera artística.",
-            "milestones": milestones,
-        },
-        {
-            "type": "quote",
-            "quote": "Vincular a la comunidad desde la sensibilidad, generando lazos que van más allá de lo cotidiano. El arte comunitario y colaborativo es una herramienta de transformación social.",
-            "author": "Max Sepúlveda",
-            "source": "Filosofía de Arte Colaborativo",
-            "variant": "highlight",
-        },
-        {
-            "type": "text_section",
-            "title": "Obra y enfoque",
-            "content": "<p>La práctica de Max cruza <strong>cerámica, alfarería, bordado, telar, batik, pintura en seda y dirección de arte audiovisual</strong>. Su lenguaje mezcla oficios tradicionales, memoria local y experimentación material para construir relatos visuales con fuerte contenido social.</p><p>Muchas de sus obras nacen de procesos participativos: artista y comunidad reflexionan sobre el territorio, sus problemáticas e identidad, y desde ese diálogo co-crean piezas que visibilizan patrimonio, historias y vínculos afectivos.</p>",
-            "variant": "default",
-        },
-        {
-            "type": "text_section",
-            "title": "Trayectoria y gestión cultural",
-            "content": "<p>A lo largo de su trayectoria ha realizado talleres, seminarios, residencias y exposiciones en distintas regiones de Chile y en países como Uruguay, Costa Rica, México y Nueva Zelanda. Su trabajo ha llegado a espacios comunitarios, museos, escuelas de arte y programas públicos de formación.</p><p>Como gestor cultural, impulsa proyectos que empoderan a las comunidades y dejan capacidades instaladas: rescate patrimonial, formación en oficios, mediación artística y creación colaborativa. Ha trabajado con instituciones como el <strong>Museo Violeta Parra</strong>, la <strong>Fundación Superación de la Pobreza</strong> y programas como <strong>Red Cultura</strong>.</p>",
-            "image": "assets/images/header.jpg",
-            "image_position": "left",
-            "image_alt": "Registro de trabajo comunitario liderado por Max Sepúlveda",
-            "variant": "default",
-        },
-        {
-            "type": "text_section",
-            "title": "Trayectoria internacional",
-            "content": "<p>La obra de Max ha trascendido su territorio de origen mediante exposiciones, residencias y colaboraciones en distintos países. Ha desarrollado proyectos y muestras en <strong>Uruguay, Costa Rica, México y Nueva Zelanda</strong>, además de compartir su trabajo en diversas regiones de Chile.</p><p>Ese recorrido internacional no aparece como una expansión desligada de lo local, sino como una forma de tender puentes entre culturas, oficios y memorias. En cada contexto, su práctica dialoga con comunidades, saberes artesanales y símbolos territoriales para construir procesos de intercambio y co-creación.</p>",
-            "variant": "default",
-        },
-        {
-            "type": "quote",
-            "quote": "Su objetivo es visibilizar, valorar, proteger y revitalizar las identidades locales a través del arte.",
-            "author": "Max Sepúlveda",
-            "source": "Visión artística y territorial",
-            "variant": "highlight",
-        },
-        {
-            "type": "text_section",
-            "title": "Hitos y reconocimientos",
-            "content": "<p>Entre los hitos más significativos de su trayectoria se encuentran el proyecto <strong>Widüfe Kuyfiche - Alfarero Ancestral</strong>, financiado por el Ministerio de las Culturas, las Artes y el Patrimonio de Chile; el desarrollo de <strong>Bordado Urbano</strong> en Calama; y el proyecto <strong>Bordado Charrúa de la Memoria</strong>, reconocido por los Fondos Concursables para la Cultura del Uruguay.</p><p>También destacan su residencia y exposición en la School of Art de Dunedin, Nueva Zelanda, su participación en Costa Rica Fashion Week y su trabajo sostenido de mediación artística y formación de oficios en espacios comunitarios e institucionales.</p>",
-            "variant": "default",
-        },
-        {
-            "type": "text_section",
-            "title": "Exposiciones y publicaciones",
-            "content": "<p>Su trabajo también ha circulado en documentales, entrevistas y publicaciones especializadas que profundizan en el cruce entre arte, oficio y comunidad.</p><ul><li><strong>Artefacto 02x04:</strong> episodio dedicado a su trayectoria como alfarero y artista textil.</li><li><strong>Documentales de proyecto:</strong> registros audiovisuales de <em>Bordado Urbano</em> y <em>Bordado Charrúa</em>, donde participó además como director de arte.</li><li><strong>Catálogos y libros:</strong> presencia en publicaciones sobre artesanía chilena contemporánea y en el libro <em>Arte Textil y Resistencia</em>.</li></ul>",
-            "variant": "default",
         },
         {
             "type": "name_list",
@@ -622,6 +501,7 @@ about_page = {
             "email": "maxsepulvedaz@gmail.com",
             "phone": "+56 9 8654 5810",
             "phone_link": "+56986545810",
+            "resume": {"label": "Currículo completo", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
             "social_links": [
                 {
                     "platform": "instagram",
