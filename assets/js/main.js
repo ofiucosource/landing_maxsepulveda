@@ -149,22 +149,4 @@ function initScrollReveals() {
 
         revealObserver.observe(el);
     });
-
-    // Zoom de entrada para paneles de disciplina
-    const panels = document.querySelectorAll('.sf-block--discipline-panel');
-
-    const panelObserver = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.25
-    });
-
-    panels.forEach(function (panel) {
-        panelObserver.observe(panel);
-    });
 }

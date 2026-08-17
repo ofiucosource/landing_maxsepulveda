@@ -63,6 +63,7 @@ disciplines = [
         "name": "Lanigrafía",
         "description": "Técnica de pegado de lanas y cordones sobre superficies de madera o cartón.",
         "icon": "weaving",
+        "image": "assets/images/disciplinas/lanigrafia.jpeg",
         "anchor": "lanigrafia",
         "panel": "fullbleed",
     },
@@ -101,7 +102,7 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-urbano/",
         "tags": ["Arte Comunitario", "Textil", "Calama", "Documental"],
-        "image": "assets/images/proyectos/intervenciones/Mapa Bordado Atacameño.jpg",
+        "image": "assets/images/gallery/bordado-urbano/bordado-urbano-05.jpg",
         "gallery": gallery(
             "bordado-urbano",
             [
@@ -218,6 +219,8 @@ projects = [
                 "mural-04.jpg",
                 "mural-05.jpg",
                 "mural-06.jpg",
+                "mural-07.jpg",
+                "mural-08.jpg",
             ],
         ),
         "content": [
@@ -225,28 +228,6 @@ projects = [
                 "type": "text_section",
                 "title": "Murales textiles colaborativos",
                 "content": "<p>Registro fotográfico de murales textiles colaborativos realizados por Max Sepúlveda junto a comunidades locales.</p>",
-                "variant": "default",
-            },
-        ],
-    },
-    {
-        "title": "Residencia Artística Alicahue",
-        "slug": "residencia-artistica-alicahue",
-        "date": "2016-10-01",
-        "summary": "Residencia del programa Red Cultura en la Región de Valparaíso (2016), trabajando con comunidades locales.",
-        "featured": True,
-        "tags": ["Arte Comunitario", "Residencia", "Valparaíso", "Red Cultura"],
-        "image": "assets/images/proyectos/general/foto residencia.jpg",
-        "gallery": [
-            "assets/images/proyectos/general/foto residencia.jpg",
-            "assets/images/proyectos/general/20160109_170617.jpg",
-            "assets/images/proyectos/general/IMG-20151119-WA0000.jpeg",
-        ],
-        "content": [
-            {
-                "type": "text_section",
-                "title": "Arte colaborativo en el Valle de Alicahue",
-                "content": "<p>Seleccionado por el programa <strong>Red Cultura</strong> del Ministerio de las Culturas para una residencia de arte colaborativo en el <strong>Valle de Alicahue</strong>, Región de Valparaíso.</p><p>Durante la residencia, Sepúlveda trabajó junto a comunidades locales en intervenciones artísticas que partieron de la reflexión sobre el territorio, la memoria y la identidad del valle. El proceso buscó dejar capacidades instaladas y visibilizar el patrimonio cultural de la zona a través de la co-creación.</p>",
                 "variant": "default",
             },
         ],
@@ -436,29 +417,10 @@ exhibitions = [
     {"year": "2001", "title": "Exposición colectiva de Batik, Corporación Cultural Municipal de Valdivia, Chile."},
 ]
 
-other_workshops = [
-    "Residencia de Arte Colaborativo Alhue",
-    "Residencia de Arte Colaborativo en Alicahue",
-    "Residencia de Arte Colaborativo en Baquedano",
-    "Residencia de Arte Colaborativo en Tocopilla",
-    "Residencia de Arte Colaborativo en Antofagasta",
-]
-
 about_page = {
     "title": "Sobre Max",
     "description": "Biografía, trayectoria y enfoque artístico de Max Sepúlveda, artista visual, artesano y gestor cultural chileno. Más de 20 años de experiencia en arte colaborativo, cerámica y textiles.",
     "blocks": [
-        {
-            "type": "hero",
-            "title": "Sobre Max",
-            "subtitle": "Biografía, obra y gestión cultural desde San Vicente de Tagua Tagua hacia comunidades de Chile y Latinoamérica.",
-            "cta": {"text": "Ver Proyectos", "url": "/es/proyectos/"},
-            "background_image": "assets/images/max-sepulveda-retrato.png",
-            "background_class": "sf-hero__background--header",
-            "portrait_image": "assets/images/max-sepulveda-retrato.png",
-            "portrait_alt": "Retrato de Max Sepúlveda",
-            "variant": "about",
-        },
         {
             "type": "text_section",
             "title": "Biografía",

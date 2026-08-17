@@ -77,6 +77,17 @@
     "webp": true,
     "width": 800
   },
+  "assets/images/disciplinas/lanigrafia.jpeg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1800,
+    "webp": true,
+    "width": 1800
+  },
   "assets/images/disciplinas/tecnicas-de-tenido-por-reserva.jpeg": {
     "avif": true,
     "avif_variants": [
@@ -720,6 +731,22 @@
     "height": 359,
     "webp": true,
     "width": 700
+  },
+  "assets/images/gallery/murales/mural-07.jpg": {
+    "avif": true,
+    "avif_variants": [],
+    "height": 900,
+    "webp": true,
+    "width": 591
+  },
+  "assets/images/gallery/murales/mural-08.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480
+    ],
+    "height": 773,
+    "webp": true,
+    "width": 900
   },
   "assets/images/gallery/nueva-zelanda/nueva-zelanda-01.jpg": {
     "avif": true,

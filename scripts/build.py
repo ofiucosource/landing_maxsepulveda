@@ -12,7 +12,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from site_data import about_page, disciplines, home_blocks, other_workshops, projects, site  # noqa: E402
+from site_data import about_page, disciplines, home_blocks, projects, site  # noqa: E402
 
 IMAGE_MANIFEST_PATH = ROOT / "src" / "image_manifest.json"
 
@@ -210,7 +210,6 @@ def render_about_page() -> str:
 def render_projects_index() -> str:
     current_path = "/es/proyectos/"
     cards = "\n".join(render_project_card(project, 2, current_path) for project in projects)
-    other_items = "".join(f"<li>{html(item)}</li>" for item in other_workshops)
     header_image = css_background(current_path, "assets/images/proyectos-header.jpg")
     content = f"""
 <section class="page-header page-header--image">
@@ -227,16 +226,6 @@ def render_projects_index() -> str:
         <div class="projects-grid">
             {cards}
         </div>
-    </div>
-</section>
-<section class="sf-block sf-block--simple-list">
-    <div class="sf-container">
-        <div class="sf-section-header">
-            <p class="sf-section-header__kicker">Registro</p>
-            <h2 class="sf-section-header__title">Otros talleres y residencias</h2>
-            <p class="sf-section-header__subtitle">Procesos y residencias de arte colaborativo realizados en distintos territorios.</p>
-        </div>
-        <ul class="simple-list">{other_items}</ul>
     </div>
 </section>"""
     return layout("Proyectos", "projects-index", current_path, content)
@@ -364,15 +353,12 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
 </section>"""
     sections = []
     for index, discipline in enumerate(disciplines, start=1):
-        number = f"{index:02d}"
-        kicker = f'<p class="discipline-panel__kicker"><span class="discipline-panel__num">{number}</span>Obra y oficio</p>'
         title = f'<h2 class="discipline-panel__title">{html(discipline["name"])}</h2>'
         text = f'<p class="discipline-panel__text">{html(discipline["description"])}</p>'
         if not discipline.get("image"):
             sections.append(
                 f"""<section class="sf-block sf-block--discipline-panel discipline-panel--text-only" id="{attr(discipline['anchor'])}">
     <div class="sf-container discipline-panel__content discipline-panel__content--centered">
-        {kicker}
         {title}
         {text}
     </div>
@@ -380,36 +366,15 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
             )
             continue
         image = render_image(current_path, discipline["image"], "", sizes="100vw")
-        panel_variant = discipline.get("panel", "fullbleed")
-        if panel_variant == "plate":
-            sections.append(
-                f"""<section class="sf-block sf-block--discipline-panel discipline-panel--plate" id="{attr(discipline['anchor'])}">
+        sections.append(
+            f"""<section class="sf-block sf-block--discipline-panel" id="{attr(discipline['anchor'])}">
     <div class="discipline-panel__image" aria-hidden="true">{image}</div>
-    <div class="discipline-panel__overlay" aria-hidden="true"></div>
-    <div class="sf-container discipline-panel__content discipline-panel__content--split">
-        <div class="discipline-panel__text-col">
-            {kicker}
-            {title}
-            {text}
-        </div>
-        <figure class="discipline-panel__plate">
-            {render_image(current_path, discipline['image'], discipline['name'], sizes='(min-width: 768px) 40vw, 80vw')}
-        </figure>
-    </div>
-</section>"""
-            )
-        else:
-            sections.append(
-                f"""<section class="sf-block sf-block--discipline-panel" id="{attr(discipline['anchor'])}">
-    <div class="discipline-panel__image" aria-hidden="true">{image}</div>
-    <div class="discipline-panel__overlay" aria-hidden="true"></div>
     <div class="sf-container discipline-panel__content">
-        {kicker}
         {title}
         {text}
     </div>
 </section>"""
-            )
+        )
     return header + "\n" + "\n".join(sections)
 
 
