@@ -1364,11 +1364,16 @@ article.project-detail {
 }
 
 .discipline-panel__image {
-    background-size: cover;
-    background-position: center;
     transform: scale(1.06);
     transition: transform 1.6s var(--ease-out-expo);
     will-change: transform;
+}
+
+.discipline-panel__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sf-block--discipline-panel.is-visible .discipline-panel__image {

@@ -7,15 +7,18 @@ Flujo:
 
 Que hace:
     1. Escanea `index.html` + `es/**/*.html` en busca de toda referencia real
-       a `assets/images/...` (src="...", href="...", content="...",
-       background-image:url('...')) para construir el set de imagenes en uso.
+       a `assets/images/...` (src="...", srcset="...", href="...",
+       content="...", background-image:url('...')) para construir el set de
+       imagenes en uso.
     2. Para cada imagen en uso:
-       - Respalda el original intacto en `_context/originals/<misma-ruta>`
-         (solo la primera vez; si ya existe un respaldo no lo pisa).
+       - Usa el respaldo intacto en `_context/originals/<misma-ruta>` como
+         fuente (evita doble compresion); si no existe, usa el archivo actual.
        - La redimensiona (preservando proporcion, sin ampliar) a un limite de
          lado largo segun la carpeta, y la recomprime como JPEG.
        - Genera un `.webp` hermano con la misma imagen ya redimensionada.
-       - Registra ancho/alto/webp en `src/image_manifest.json`, que
+       - Genera un `.avif` hermano (tamaño completo) y variantes
+         `-480w/-800w/-1200w.avif` para <picture srcset>.
+       - Registra ancho/alto/formatos en `src/image_manifest.json`, que
          `scripts/build.py` usa para emitir <picture> con width/height reales.
     3. Mueve cualquier imagen bajo `assets/images/` que NO este en uso a
        `_context/images-unused/<misma-ruta>` (carpeta local, ignorada por
@@ -47,14 +50,22 @@ UNUSED_DIR = CONTEXT_DIR / "images-unused"
 
 RASTER_SUFFIXES = {".jpg", ".jpeg", ".png"}
 JPEG_QUALITY = 80
-WEBP_QUALITY = 78
+WEBP_QUALITY = 60
+AVIF_QUALITY = 50
+AVIF_SPEED = 6
+VARIANT_WIDTHS = (480, 800, 1200)
+
+SRCSET_PATTERN = re.compile(r'srcset="([^"]+)"')
 
 REF_PATTERNS = [
     re.compile(r'src="([^"]+)"'),
+    SRCSET_PATTERN,
     re.compile(r'href="([^"]+)"'),
     re.compile(r'content="([^"]+)"'),
     re.compile(r"url\('([^']+)'\)"),
 ]
+
+VARIANT_RE = re.compile(r"^(?P<base>.+)-(?P<width>\d+)w$")
 
 
 def main() -> None:
@@ -95,7 +106,7 @@ def main() -> None:
 
         backup_original(rel, path)
         try:
-            width, height = optimize_image(path, target_long_edge(rel))
+            width, height, variants = optimize_image(rel, path, target_long_edge(rel))
         except Exception as exc:  # noqa: BLE001 - queremos seguir con el resto de imagenes
             print(f"  [error] {rel}: {exc}", file=sys.stderr)
             continue
@@ -103,12 +114,28 @@ def main() -> None:
         size_after = path.stat().st_size
         webp_path = path.with_suffix(".webp")
         webp_size = webp_path.stat().st_size if webp_path.exists() else 0
+        avif_path = path.with_suffix(".avif")
+        avif_size = avif_path.stat().st_size if avif_path.exists() else 0
+        variant_sizes = sum(
+            (path.parent / f"{path.stem}-{w}w.avif").stat().st_size
+            for w in variants
+            if (path.parent / f"{path.stem}-{w}w.avif").exists()
+        )
 
-        manifest[rel] = {"width": width, "height": height, "webp": webp_path.exists()}
+        manifest[rel] = {
+            "width": width,
+            "height": height,
+            "webp": webp_path.exists(),
+            "avif": avif_path.exists(),
+            "avif_variants": variants,
+        }
         total_before += size_before
-        total_after += size_after + webp_size
+        total_after += size_after + webp_size + avif_size + variant_sizes
         processed += 1
-        print(f"  {rel}: {size_before / 1024:.0f} KB -> {size_after / 1024:.0f} KB (+ webp {webp_size / 1024:.0f} KB)")
+        print(
+            f"  {rel}: {size_before / 1024:.0f} KB -> {size_after / 1024:.0f} KB "
+            f"(webp {webp_size / 1024:.0f} KB, avif {avif_size / 1024:.0f} KB, variantes {variants})"
+        )
 
     if args.dry_run:
         print("\n[dry-run] no se escribio el manifiesto ni se archivo nada.")
@@ -127,7 +154,8 @@ def main() -> None:
     if processed:
         print(
             f"\nProcesadas {processed} imagenes en uso: "
-            f"{total_before / 1024 / 1024:.1f} MB -> {total_after / 1024 / 1024:.1f} MB (incluye JPEG + WebP)"
+            f"{total_before / 1024 / 1024:.1f} MB -> {total_after / 1024 / 1024:.1f} MB "
+            "(incluye JPEG + WebP + AVIF y variantes)"
         )
     if skipped_missing:
         print(f"Advertencia: {skipped_missing} referencias no se encontraron en disco.")
@@ -145,15 +173,22 @@ def find_used_images(root: Path) -> set[str]:
         text = html_file.read_text(encoding="utf-8")
         for pattern in REF_PATTERNS:
             for raw in pattern.findall(text):
-                idx = raw.find("assets/images/")
-                if idx == -1:
-                    continue
-                used.add(raw[idx:])
+                refs = raw.split(",") if pattern is SRCSET_PATTERN else [raw]
+                for ref in refs:
+                    if pattern is SRCSET_PATTERN:
+                        token = ref.strip().split(" ", 1)[0]
+                    else:
+                        token = ref.strip()
+                    idx = token.find("assets/images/")
+                    if idx == -1:
+                        continue
+                    used.add(token[idx:])
     return used
 
 
 def used_stems(used: set[str]) -> set[str]:
-    """Rutas sin extension, para poder reconocer el .webp hermano de una imagen en uso."""
+    """Rutas sin extension, para poder reconocer hermanos (.webp/.avif) y
+    variantes (-NNNw.avif) de una imagen en uso."""
     stems = set()
     for rel in used:
         p = Path(rel)
@@ -182,25 +217,56 @@ def backup_original(rel: str, path: Path) -> None:
     shutil.copy2(path, backup_path)
 
 
-def optimize_image(path: Path, max_long_edge: int) -> tuple[int, int]:
-    with Image.open(path) as im:
-        im = ImageOps.exif_transpose(im)
-        if im.mode != "RGB":
-            im = im.convert("RGB")
+def open_source(rel: str, path: Path) -> Image.Image:
+    """Abre la fuente mas limpia disponible: el respaldo intacto si tiene la
+    misma o mayor resolucion que el archivo actual. Si el respaldo es menor
+    (p. ej. una version antigua), se usa el archivo actual."""
+    original = ORIGINALS_DIR / rel
+    if original.exists():
+        try:
+            with Image.open(original) as candidate:
+                if max(candidate.size) >= max(Image.open(path).size):
+                    return Image.open(original)
+        except Exception:
+            pass
+    return Image.open(path)
 
-        width, height = im.size
-        long_edge = max(width, height)
-        if long_edge > max_long_edge:
-            scale = max_long_edge / long_edge
-            new_size = (max(1, round(width * scale)), max(1, round(height * scale)))
-            im = im.resize(new_size, Image.LANCZOS)
 
-        if path.suffix.lower() == ".png":
-            im.save(path, format="PNG", optimize=True)
-        else:
-            im.save(path, format="JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
-        im.save(path.with_suffix(".webp"), format="WEBP", quality=WEBP_QUALITY, method=6)
-        return im.size
+def optimize_image(rel: str, path: Path, max_long_edge: int) -> tuple[int, int, list[int]]:
+    raw = open_source(rel, path)
+    try:
+        im = ImageOps.exif_transpose(raw)
+        im.load()
+    finally:
+        raw.close()
+    if im.mode != "RGB":
+        im = im.convert("RGB")
+
+    width, height = im.size
+    long_edge = max(width, height)
+    if long_edge > max_long_edge:
+        scale = max_long_edge / long_edge
+        new_size = (max(1, round(width * scale)), max(1, round(height * scale)))
+        im = im.resize(new_size, Image.LANCZOS)
+
+    if path.suffix.lower() == ".png":
+        im.save(path, format="PNG", optimize=True)
+    else:
+        im.save(path, format="JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+    im.save(path.with_suffix(".webp"), format="WEBP", quality=WEBP_QUALITY, method=6)
+    im.save(path.with_suffix(".avif"), format="AVIF", quality=AVIF_QUALITY, speed=AVIF_SPEED)
+
+    variants: list[int] = []
+    for variant in VARIANT_WIDTHS:
+        if variant >= width * 0.8:
+            continue
+        scale = variant / width
+        variant_size = (variant, max(1, round(height * scale)))
+        variant_path = path.parent / f"{path.stem}-{variant}w.avif"
+        with im.resize(variant_size, Image.LANCZOS) as variant_im:
+            variant_im.save(variant_path, format="AVIF", quality=AVIF_QUALITY, speed=AVIF_SPEED)
+        variants.append(variant)
+    return im.size[0], im.size[1], variants
 
 
 def archive_unused(used: set[str], stems: set[str]) -> list[str]:
@@ -214,15 +280,23 @@ def archive_unused(used: set[str], stems: set[str]) -> list[str]:
         rel = rel_path.as_posix()
         if rel in used:
             continue
-        if path.suffix.lower() == ".webp":
-            stem_rel = (rel_path.parent / rel_path.stem).as_posix()
-            if stem_rel in stems:
-                continue  # webp hermano de una imagen en uso, recien generado
+        if path.suffix.lower() in {".webp", ".avif"} and is_keepable(rel_path, stems):
+            continue  # hermano o variante de una imagen en uso
         dest = UNUSED_DIR / rel_path
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(str(path), str(dest))
         archived.append(rel)
     return archived
+
+
+def is_keepable(rel_path: Path, stems: set[str]) -> bool:
+    """Un archivo es mantenible si su tallo (ruta sin extension) coincide con
+    una imagen en uso o con una variante '-NNNw' de ella."""
+    stem = (rel_path.parent / rel_path.stem).as_posix()
+    if stem in stems:
+        return True
+    match = VARIANT_RE.match(stem)
+    return bool(match and match.group("base") in stems)
 
 
 if __name__ == "__main__":

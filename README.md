@@ -35,7 +35,7 @@ python3 scripts/optimize_images.py
 python3 scripts/build.py
 ```
 
-El primer build genera el HTML para que el script detecte qué imágenes están realmente en uso. El script respalda el original intacto en `_context/originals/`, redimensiona y recomprime la imagen en `assets/images/`, genera un `.webp` hermano, y registra ancho/alto en `src/image_manifest.json` (versionado, lo usa `build.py` para emitir `<picture>` con `width`/`height` reales). El segundo build regenera el HTML ya con esos datos. Las imágenes de `assets/images/` que no estén enlazadas en `site_data.py` se mueven automáticamente a `_context/images-unused/` (no se borran).
+El primer build genera el HTML para que el script detecte qué imágenes están realmente en uso. El script usa como fuente el original intacto respaldado en `_context/originals/`, redimensiona y recomprime la imagen en `assets/images/`, genera un `.webp` hermano, un `.avif` hermano y variantes responsivas `-480w/-800w/-1200w.avif` para el `<picture srcset>`, y registra ancho/alto en `src/image_manifest.json` (versionado, lo usa `build.py` para emitir `<picture>` con `width`/`height` reales). El segundo build regenera el HTML ya con esos datos. Las imágenes de `assets/images/` que no estén enlazadas en `site_data.py` se mueven automáticamente a `_context/images-unused/` (no se borran).
 
 ## GitHub Pages
 

@@ -132,7 +132,7 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="{asset_url(current_path, 'assets/images/favicon.svg')}" type="image/svg+xml">
     <link rel="stylesheet" href="{asset_url(current_path, 'assets/css/main.css')}">
     <link rel="stylesheet" href="{asset_url(current_path, 'assets/css/prose.css')}">
@@ -211,7 +211,7 @@ def render_projects_index() -> str:
     current_path = "/es/proyectos/"
     cards = "\n".join(render_project_card(project, 2, current_path) for project in projects)
     other_items = "".join(f"<li>{html(item)}</li>" for item in other_workshops)
-    header_image = asset_url(current_path, "assets/images/proyectos-header.jpg")
+    header_image = css_background(current_path, "assets/images/proyectos-header.jpg")
     content = f"""
 <section class="page-header page-header--image">
     <div class="page-header__background" aria-hidden="true" style="background-image: url('{header_image}');"></div>
@@ -251,7 +251,7 @@ def render_project_detail(project: dict) -> str:
     gallery_html = ""
     if project.get("gallery"):
         items = "\n".join(
-            f'<figure class="sf-gallery__item"><a href="{asset_url(current_path, img)}" class="sf-gallery__link" target="_blank">{render_image(current_path, img, "")}</a></figure>'
+            f'<figure class="sf-gallery__item"><a href="{asset_url(current_path, img)}" class="sf-gallery__link" target="_blank">{render_image(current_path, img, "", sizes=GALLERY_SIZES)}</a></figure>'
             for img in project["gallery"]
         )
         gallery_html = f'<section class="sf-block sf-block--gallery"><div class="sf-container"><div class="sf-gallery sf-gallery--cols-masonry">{items}</div></div></section>'
@@ -319,7 +319,7 @@ def render_hero(block: dict, current_path: str) -> str:
     background = ""
     if block.get("background_image"):
         background_class = attr(block.get("background_class", ""))
-        background_style = f' style="background-image: url(\'{asset_url(current_path, block["background_image"])}\');"'
+        background_style = f' style="background-image: url(\'{css_background(current_path, block["background_image"])}\');"'
         background = f'<div class="sf-hero__background {background_class}" aria-hidden="true"{background_style}></div>'
 
     cta = ""
@@ -328,7 +328,7 @@ def render_hero(block: dict, current_path: str) -> str:
 
     portrait = ""
     if block.get("portrait_image"):
-        portrait = f'<div class="sf-hero__portrait" role="img" aria-label="{attr(block.get("portrait_alt", block["title"]))}" style="background-image: url(\'{asset_url(current_path, block["portrait_image"])}\');"></div>'
+        portrait = f'<div class="sf-hero__portrait" role="img" aria-label="{attr(block.get("portrait_alt", block["title"]))}" style="background-image: url(\'{css_background(current_path, block["portrait_image"])}\');"></div>'
 
     scroll_cue = ""
     if variant == "minimal":
@@ -379,12 +379,12 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
 </section>"""
             )
             continue
-        image_url = asset_url(current_path, discipline["image"])
+        image = render_image(current_path, discipline["image"], "", sizes="100vw")
         panel_variant = discipline.get("panel", "fullbleed")
         if panel_variant == "plate":
             sections.append(
                 f"""<section class="sf-block sf-block--discipline-panel discipline-panel--plate" id="{attr(discipline['anchor'])}">
-    <div class="discipline-panel__image" aria-hidden="true" style="background-image: url('{image_url}');"></div>
+    <div class="discipline-panel__image" aria-hidden="true">{image}</div>
     <div class="discipline-panel__overlay" aria-hidden="true"></div>
     <div class="sf-container discipline-panel__content discipline-panel__content--split">
         <div class="discipline-panel__text-col">
@@ -393,7 +393,7 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
             {text}
         </div>
         <figure class="discipline-panel__plate">
-            {render_image(current_path, discipline['image'], discipline['name'])}
+            {render_image(current_path, discipline['image'], discipline['name'], sizes='(min-width: 768px) 40vw, 80vw')}
         </figure>
     </div>
 </section>"""
@@ -401,7 +401,7 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
         else:
             sections.append(
                 f"""<section class="sf-block sf-block--discipline-panel" id="{attr(discipline['anchor'])}">
-    <div class="discipline-panel__image" aria-hidden="true" style="background-image: url('{image_url}');"></div>
+    <div class="discipline-panel__image" aria-hidden="true">{image}</div>
     <div class="discipline-panel__overlay" aria-hidden="true"></div>
     <div class="sf-container discipline-panel__content">
         {kicker}
@@ -422,7 +422,7 @@ def render_text_section(block: dict, current_path: str) -> str:
     if block.get("image"):
         text_class = f'sf-text sf-text--with-image sf-text--image-{attr(block.get("image_position", "right"))}'
         image = f"""<div class="sf-text__image">
-                {render_image(current_path, block['image'], block.get('image_alt', block.get('title', 'Imagen')))}
+                {render_image(current_path, block['image'], block.get('image_alt', block.get('title', 'Imagen')), sizes='(min-width: 768px) 430px, 80vw')}
             </div>"""
     return f"""<section class="sf-block sf-block--text{variant_class}">
     <div class="sf-container">
@@ -534,6 +534,10 @@ def render_dated_list(block: dict) -> str:
 </section>"""
 
 
+GALLERY_SIZES = "(min-width: 1024px) 26vw, (min-width: 640px) 48vw, 94vw"
+CARD_SIZES = "(min-width: 1100px) 33vw, (min-width: 720px) 50vw, 94vw"
+
+
 def render_contact(block: dict, current_path: str) -> str:
     links = "\n".join(render_social_link(link) for link in block.get("social_links", []))
     phone_html = ""
@@ -576,7 +580,7 @@ def render_project_card(project: dict, heading_level: int, current_path: str) ->
     year_html = f'<span class="project-card__year">{html(year)}</span>' if year else ""
     img_html = ""
     if project.get("image"):
-        img_html = render_image(current_path, project["image"], "")
+        img_html = render_image(current_path, project["image"], "", sizes=CARD_SIZES)
     return f"""<article class="project-card">
     <a href="{project_url}" class="project-card__link">
         <div class="project-card__media">{img_html}</div>
@@ -665,9 +669,19 @@ def asset_url(current_path: str, asset_path: str) -> str:
     return relative_url(current_path, asset_path.strip("/"), is_directory=False)
 
 
-def render_image(current_path: str, image_path: str, alt: str) -> str:
-    """Renderiza <img loading="lazy" width height>, envuelto en <picture> con
-    fuente WebP cuando `scripts/optimize_images.py` ya registro esa imagen en
+def css_background(current_path: str, image_path: str) -> str:
+    """Devuelve la URL para background-image CSS: usa el .webp hermano si
+    existe (mas liviano y con soporte universal), si no el archivo original."""
+    webp_path = re.sub(r"\.(jpe?g|png)$", ".webp", image_path, flags=re.IGNORECASE)
+    if (ROOT / webp_path).exists():
+        return asset_url(current_path, webp_path)
+    return asset_url(current_path, image_path)
+
+
+def render_image(current_path: str, image_path: str, alt: str, *, sizes: str | None = None) -> str:
+    """Renderiza <img loading="lazy" width height decoding="async">, envuelto
+    en <picture> con fuente AVIF (srcset con variantes -480w/-800w/-1200w) y
+    WebP cuando `scripts/optimize_images.py` ya registro esa imagen en
     src/image_manifest.json. Si aun no fue procesada, cae a un <img> simple."""
     normalized = image_path.strip("/")
     meta = IMAGE_MANIFEST.get(normalized)
@@ -675,11 +689,24 @@ def render_image(current_path: str, image_path: str, alt: str) -> str:
     dims = ""
     if meta and meta.get("width") and meta.get("height"):
         dims = f' width="{meta["width"]}" height="{meta["height"]}"'
-    img_html = f'<img src="{src}" alt="{attr(alt)}" loading="lazy"{dims}>'
-    if meta and meta.get("webp"):
-        webp_path = re.sub(r"\.(jpe?g|png)$", ".webp", normalized, flags=re.IGNORECASE)
-        webp_src = asset_url(current_path, webp_path)
-        return f'<picture><source srcset="{webp_src}" type="image/webp">{img_html}</picture>'
+    img_html = f'<img src="{src}" alt="{attr(alt)}" loading="lazy"{dims} decoding="async">'
+    if meta and (meta.get("webp") or meta.get("avif")):
+        stem = re.sub(r"\.(jpe?g|png)$", "", normalized, flags=re.IGNORECASE)
+        sources = []
+        if meta.get("avif"):
+            entries = []
+            for variant in sorted(meta.get("avif_variants", [])):
+                entries.append(f"{asset_url(current_path, f'{stem}-{variant}w.avif')} {variant}w")
+            full_width = meta.get("width") or 0
+            entries.append(
+                f"{asset_url(current_path, f'{stem}.avif')} {full_width}w" if full_width else asset_url(current_path, f"{stem}.avif")
+            )
+            srcset_attr = f' sizes="{attr(sizes)}"' if sizes else ""
+            sources.append(f'<source type="image/avif" srcset="{", ".join(entries)}"{srcset_attr}>')
+        if meta.get("webp"):
+            webp_path = re.sub(r"\.(jpe?g|png)$", ".webp", normalized, flags=re.IGNORECASE)
+            sources.append(f'<source type="image/webp" srcset="{asset_url(current_path, webp_path)}">')
+        return f"<picture>{''.join(sources)}{img_html}</picture>"
     return img_html
 
 
