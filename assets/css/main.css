@@ -1304,10 +1304,15 @@ article.project-detail {
     padding: 0;
 }
 
+/* La regla genérica section.sf-block tiene mayor especificidad;
+   se neutraliza aquí para que los paneles queden pegados entre sí. */
+section.sf-block--discipline-panel {
+    padding: 0;
+}
+
 .discipline-panel__image {
     display: block;
     width: 100%;
-    max-height: 74vh;
     overflow: hidden;
     background: var(--ink);
 }
@@ -1315,28 +1320,38 @@ article.project-detail {
 .discipline-panel__image img {
     display: block;
     width: 100%;
-    height: 74vh;
+    height: 82vh;
     object-fit: cover;
 }
 
 .discipline-panel__content {
     width: 100%;
-    padding-top: clamp(3.5rem, 8vh, 5.5rem);
-    padding-bottom: clamp(4rem, 10vh, 6.5rem);
+    padding-top: clamp(1.75rem, 3.5vh, 2.5rem);
+    padding-bottom: clamp(3.5rem, 7vh, 5rem);
 }
 
 .discipline-panel__title {
-    margin: 0 0 1.1rem;
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    line-height: 1.02;
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    line-height: 1.08;
     color: var(--color-text);
     max-width: 14em;
+}
+
+/* Filete de bronce: acento editorial sobre el título */
+.discipline-panel__title::before {
+    content: "";
+    display: block;
+    width: clamp(2rem, 4vw, 3rem);
+    height: 2px;
+    margin-bottom: clamp(0.75rem, 1.8vh, 1.1rem);
+    background: var(--bronze);
 }
 
 .discipline-panel__text {
     max-width: 38em;
     margin: 0;
-    font-size: clamp(1.08rem, 1.7vw, 1.35rem);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
     line-height: 1.55;
     color: var(--color-text-light);
 }
@@ -2055,11 +2070,11 @@ article.project-detail {
     }
 
     .discipline-panel__image img {
-        height: 52vh;
+        height: 46vh;
     }
 
     .discipline-panel__title {
-        font-size: clamp(2.3rem, 11vw, 3.6rem);
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
     }
 
     .page-header--image {
