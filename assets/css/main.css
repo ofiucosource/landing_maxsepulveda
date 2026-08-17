@@ -555,6 +555,102 @@ body.project-detail .site-header {
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* --- Hero Home portada: centrado sobre fondo blanco --- */
+
+.home-page .sf-block--hero--portada {
+    min-height: 100vh;
+    min-height: 100svh;
+    text-align: center;
+}
+
+.home-page .sf-block--hero--portada .sf-hero__layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: var(--container-max);
+    padding-top: clamp(5rem, 14vh, 9rem);
+    padding-bottom: clamp(5rem, 14vh, 9rem);
+}
+
+.home-page .sf-block--hero--portada .sf-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: none;
+}
+
+.home-page .sf-block--hero--portada .sf-hero__title {
+    font-size: clamp(3.2rem, 10vw, 8rem);
+    font-weight: 600;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    line-height: 0.96;
+    margin: 0 0 1.8rem;
+    animation: heroRise 1.1s 0.15s var(--ease-out-expo) both;
+}
+
+.home-page .sf-block--hero--portada .sf-hero__subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(0.7rem, 1.1vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    max-width: none;
+    margin: 0;
+    animation: heroRise 1.1s var(--ease-out-expo) both;
+}
+
+.home-page .sf-block--hero--portada .sf-hero__scroll {
+    right: 50%;
+    transform: translateX(50%);
+    color: var(--color-text-light);
+}
+
+.home-page .sf-block--hero--portada .sf-hero__scroll:hover {
+    color: var(--ink);
+}
+
+.home-page .sf-block--hero--portada .sf-hero__scroll-line {
+    background: rgba(34, 28, 22, 0.28);
+}
+
+.home-page .sf-block--hero--portada .sf-hero__scroll-line::after {
+    background: var(--ink);
+}
+
+/* Navigation sobre la portada clara */
+.home-page .site-header:not(.is-scrolled) {
+    background: rgba(246, 242, 234, 0.92);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom-color: var(--hairline);
+}
+
+.home-page .site-header:not(.is-scrolled) .logo {
+    color: var(--color-text);
+}
+
+.home-page .site-header:not(.is-scrolled) .nav-menu a {
+    color: var(--color-text-light);
+}
+
+.home-page .site-header:not(.is-scrolled) .nav-menu a:hover,
+.home-page .site-header:not(.is-scrolled) .nav-menu a[aria-current="page"] {
+    color: var(--color-text);
+}
+
+.home-page .site-header:not(.is-scrolled) .header-contact__item {
+    color: var(--color-text-light);
+}
+
+.home-page .site-header:not(.is-scrolled) .header-contact__item:hover {
+    color: var(--bronze-deep);
+}
+
+.home-page .site-header:not(.is-scrolled) .menu-toggle span {
+    background: var(--color-text);
+}
+
 /* Indicador de scroll */
 .sf-hero__scroll {
     position: absolute;
@@ -1346,6 +1442,50 @@ article.project-detail {
     line-height: 1.55;
     color: rgba(255, 255, 255, 0.86);
     text-shadow: 0 1px 18px rgba(16, 12, 9, 0.55);
+}
+
+/* Variante sin imagen: fondo claro y contenido centrado */
+.discipline-panel--text-only {
+    align-items: center;
+    justify-content: center;
+    background: var(--paper-warm);
+}
+
+.discipline-panel--text-only .discipline-panel__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: clamp(6rem, 14vh, 9rem);
+    padding-bottom: clamp(6rem, 14vh, 9rem);
+}
+
+.discipline-panel--text-only .discipline-panel__kicker {
+    justify-content: center;
+    color: var(--color-text-light);
+}
+
+.discipline-panel--text-only .discipline-panel__num {
+    color: var(--bronze-deep);
+}
+
+.discipline-panel--text-only .discipline-panel__num::after {
+    background: rgba(34, 28, 22, 0.3);
+}
+
+.discipline-panel--text-only .discipline-panel__title {
+    color: var(--color-text);
+    text-shadow: none;
+}
+
+.discipline-panel--text-only .discipline-panel__text {
+    color: var(--color-text-light);
+    text-shadow: none;
+}
+
+.discipline-panel--text-only::after {
+    display: none;
 }
 
 /* Variante lámina: fondo blur + obra enmarcada */

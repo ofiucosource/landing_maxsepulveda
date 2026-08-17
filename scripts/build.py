@@ -351,18 +351,34 @@ def render_hero(block: dict, current_path: str) -> str:
 
 
 def render_discipline_showcase(block: dict, current_path: str) -> str:
-    header = f"""<section class="sf-block sf-block--discipline-intro">
+    header = ""
+    if block.get("show_header", True):
+        header = f"""<section class="sf-block sf-block--discipline-intro">
     <div class="sf-container">
         <div class="sf-section-header">
             <p class="sf-section-header__kicker">Max Sepúlveda</p>
-            <h2 class="sf-section-header__title">{html(block['title'])}</h2>
-            <p class="sf-section-header__subtitle">{html(block['subtitle'])}</p>
+            <h2 class="sf-section-header__title">{html(block.get("title", "Áreas de obra y oficio"))}</h2>
+            <p class="sf-section-header__subtitle">{html(block.get("subtitle", ""))}</p>
         </div>
     </div>
 </section>"""
     sections = []
     for index, discipline in enumerate(disciplines, start=1):
         number = f"{index:02d}"
+        kicker = f'<p class="discipline-panel__kicker"><span class="discipline-panel__num">{number}</span>Obra y oficio</p>'
+        title = f'<h2 class="discipline-panel__title">{html(discipline["name"])}</h2>'
+        text = f'<p class="discipline-panel__text">{html(discipline["description"])}</p>'
+        if not discipline.get("image"):
+            sections.append(
+                f"""<section class="sf-block sf-block--discipline-panel discipline-panel--text-only" id="{attr(discipline['anchor'])}">
+    <div class="sf-container discipline-panel__content discipline-panel__content--centered">
+        {kicker}
+        {title}
+        {text}
+    </div>
+</section>"""
+            )
+            continue
         image_url = asset_url(current_path, discipline["image"])
         panel_variant = discipline.get("panel", "fullbleed")
         if panel_variant == "plate":
@@ -372,9 +388,9 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
     <div class="discipline-panel__overlay" aria-hidden="true"></div>
     <div class="sf-container discipline-panel__content discipline-panel__content--split">
         <div class="discipline-panel__text-col">
-            <p class="discipline-panel__kicker"><span class="discipline-panel__num">{number}</span>Obra y oficio</p>
-            <h2 class="discipline-panel__title">{html(discipline['name'])}</h2>
-            <p class="discipline-panel__text">{html(discipline['description'])}</p>
+            {kicker}
+            {title}
+            {text}
         </div>
         <figure class="discipline-panel__plate">
             {render_image(current_path, discipline['image'], discipline['name'])}
@@ -388,9 +404,9 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
     <div class="discipline-panel__image" aria-hidden="true" style="background-image: url('{image_url}');"></div>
     <div class="discipline-panel__overlay" aria-hidden="true"></div>
     <div class="sf-container discipline-panel__content">
-        <p class="discipline-panel__kicker"><span class="discipline-panel__num">{number}</span>Obra y oficio</p>
-        <h2 class="discipline-panel__title">{html(discipline['name'])}</h2>
-        <p class="discipline-panel__text">{html(discipline['description'])}</p>
+        {kicker}
+        {title}
+        {text}
     </div>
 </section>"""
             )

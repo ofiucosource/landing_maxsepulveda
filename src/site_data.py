@@ -33,7 +33,7 @@ disciplines = [
         "icon": "ceramic",
         "image": "assets/images/disciplinas/ceramica.jpeg",
         "anchor": "ceramica",
-        "panel": "plate",
+        "panel": "fullbleed",
     },
     {
         "name": "Bordado",
@@ -53,10 +53,17 @@ disciplines = [
     },
     {
         "name": "Tejidos",
-        "description": "Telar mapuche, telar de peine, telar cuadrado, telar artístico, cordonería andina y joyería textil. Lanigrafía: técnica de pegado de lanas y cordones sobre superficies de madera o cartón.",
+        "description": "Telar mapuche, telar de peine, telar cuadrado, telar artístico, cordonería andina y joyería textil.",
         "icon": "weaving",
         "image": "assets/images/disciplinas/tejidos.jpeg",
         "anchor": "tejidos",
+        "panel": "fullbleed",
+    },
+    {
+        "name": "Lanigrafía",
+        "description": "Técnica de pegado de lanas y cordones sobre superficies de madera o cartón.",
+        "icon": "weaving",
+        "anchor": "lanigrafia",
         "panel": "fullbleed",
     },
     {
@@ -65,7 +72,7 @@ disciplines = [
         "icon": "batik",
         "image": "assets/images/disciplinas/tecnicas-de-tenido-por-reserva.jpeg",
         "anchor": "tecnicas-de-tenido-por-reserva",
-        "panel": "plate",
+        "panel": "fullbleed",
     },
     {
         "name": "Audiovisuales",
@@ -73,7 +80,7 @@ disciplines = [
         "icon": "video",
         "image": "assets/images/disciplinas/audiovisuales.jpeg",
         "anchor": "audiovisuales",
-        "panel": "plate",
+        "panel": "fullbleed",
     },
     {
         "name": "Arte colaborativo",
@@ -529,25 +536,11 @@ home_blocks = [
         "type": "hero",
         "title": "Max Sepúlveda",
         "subtitle": "Artista visual, artesano y gestor cultural.",
-        "background_image": "assets/images/max-sepulveda-retrato.png",
-        "background_class": "sf-hero__background--header",
-        "portrait_image": "assets/images/max-sepulveda-retrato.png",
-        "portrait_alt": "Retrato de Max Sepúlveda",
-        "variant": "minimal",
+        "variant": "portada",
     },
     {
         "type": "discipline_showcase",
-        "title": "Áreas de obra y oficio",
-        "subtitle": "Oficios, técnicas y procesos colaborativos que articulan su trabajo.",
-    },
-    {
-        "type": "text_section",
-        "title": "Sobre Max",
-        "content": "<p>Artista visual, artesano y gestor cultural oriundo de San Vicente de Tagua Tagua, Chile. Más de veinte años construyendo obra donde conviven la alfarería, el textil, el arte colaborativo y la dirección audiovisual.</p><p>Su trabajo nace del diálogo con comunidades: juntos reflexionan sobre el territorio, la memoria y la identidad, y desde ese encuentro co-crean obras que visibilizan patrimonio y vínculos afectivos.</p><p><a href=\"sobre-max/\">Conocer su trayectoria completa →</a></p>",
-        "image": "assets/images/max-sepulveda-retrato.png",
-        "image_position": "right",
-        "image_alt": "Retrato de Max Sepúlveda",
-        "variant": "portrait-reference",
+        "show_header": False,
     },
     {
         "type": "contact",
