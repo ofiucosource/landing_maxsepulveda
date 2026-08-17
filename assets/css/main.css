@@ -1957,35 +1957,60 @@ section.sf-block--discipline-panel {
 }
 
 /* ==========================================================================
-   Language switcher (legado)
+   Language switcher
    ========================================================================== */
 
 .language-switcher {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
 }
 
 .lang-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.25rem;
-    padding: 0.25rem 0.5rem;
+    min-width: 2rem;
+    padding: 0.2rem 0.45rem;
     border: 1px solid var(--hairline);
     color: var(--color-text-light);
     font-family: var(--font-sans);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.lang-link.active,
 .lang-link:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.lang-link.active {
     background: var(--ink);
     border-color: var(--ink);
     color: #ffffff;
     text-decoration: none;
+}
+
+.projects-index .site-header:not(.is-scrolled) .lang-link {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.projects-index .site-header:not(.is-scrolled) .lang-link:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.projects-index .site-header:not(.is-scrolled) .lang-link.active {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: var(--ink);
 }
 
 /* ==========================================================================
@@ -1995,6 +2020,10 @@ section.sf-block--discipline-panel {
 @media (max-width: 1080px) {
     .header-contact {
         display: none;
+    }
+
+    .language-switcher {
+        margin-left: auto;
     }
 }
 

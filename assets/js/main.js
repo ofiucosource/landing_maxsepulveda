@@ -24,7 +24,8 @@ function initActiveNavigation() {
         }
 
         const href = new URL(link.getAttribute('href'), window.location.href).pathname;
-        const isActive = href.endsWith('/es/') ? currentPath === href : currentPath.startsWith(href);
+        const isHome = href.endsWith('/es/') || href.endsWith('/en/') || href.endsWith('/es') || href.endsWith('/en');
+        const isActive = isHome ? currentPath === href : currentPath.startsWith(href);
 
         if (isActive) {
             link.setAttribute('aria-current', 'page');

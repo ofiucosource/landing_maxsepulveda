@@ -12,7 +12,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from site_data import about_page, disciplines, home_blocks, projects, site  # noqa: E402
+import site_data as data_es  # noqa: E402
+import site_data_en as data_en  # noqa: E402
 
 IMAGE_MANIFEST_PATH = ROOT / "src" / "image_manifest.json"
 
@@ -40,16 +41,134 @@ SPANISH_MONTHS = [
     "diciembre",
 ]
 
+ENGLISH_MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
+
+DATA = {
+    "es": {
+        "site": data_es.site,
+        "disciplines": data_es.disciplines,
+        "projects": data_es.projects,
+        "institutions": data_es.institutions,
+        "collaborations": data_es.collaborations,
+        "awards": data_es.awards,
+        "exhibitions": data_es.exhibitions,
+        "about_page": data_es.about_page,
+        "home_blocks": data_es.home_blocks,
+    },
+    "en": {
+        "site": data_en.site,
+        "disciplines": data_en.disciplines,
+        "projects": data_en.projects,
+        "institutions": data_en.institutions,
+        "collaborations": data_en.collaborations,
+        "awards": data_en.awards,
+        "exhibitions": data_en.exhibitions,
+        "about_page": data_en.about_page,
+        "home_blocks": data_en.home_blocks,
+    },
+}
+
+UI_STRINGS = {
+    "es": {
+        "lang": "es",
+        "locale": "es_CL",
+        "nav_home": "Inicio",
+        "nav_about": "Sobre Max",
+        "nav_projects": "Proyectos",
+        "main_nav_aria": "Navegación principal",
+        "menu_aria": "Menú de navegación",
+        "skip_content": "Saltar al contenido",
+        "all_rights_reserved": "Todos los derechos reservados.",
+        "kicker_portfolio": "Portafolio",
+        "kicker_project": "Proyecto",
+        "kicker_selection": "Selección",
+        "projects_title": "Proyectos",
+        "projects_intro": "Una selección de trabajos en arte comunitario, textil, cerámica, investigación patrimonial, circulación internacional y gestión cultural.",
+        "view_project": "Ver proyecto",
+        "view_all_projects": "Ver todos los proyectos",
+        "back_to_projects": "Volver a proyectos",
+        "scroll_explore": "Explorar",
+        "scroll_cue_aria": "Bajar al contenido",
+        "discipline_intro_title": "Áreas de obra y oficio",
+        "home_path": "/es/",
+        "about_path": "/es/sobre-max/",
+        "projects_path": "/es/proyectos/",
+        "job_title": "Artista visual, artesano y gestor cultural",
+    },
+    "en": {
+        "lang": "en",
+        "locale": "en_US",
+        "nav_home": "Home",
+        "nav_about": "About Max",
+        "nav_projects": "Projects",
+        "main_nav_aria": "Main navigation",
+        "menu_aria": "Navigation menu",
+        "skip_content": "Skip to content",
+        "all_rights_reserved": "All rights reserved.",
+        "kicker_portfolio": "Portfolio",
+        "kicker_project": "Project",
+        "kicker_selection": "Curated Selection",
+        "projects_title": "Projects",
+        "projects_intro": "A curated selection of work in community art, textiles, ceramics, heritage research, international residencies, and cultural management.",
+        "view_project": "View project",
+        "view_all_projects": "View all projects",
+        "back_to_projects": "Back to projects",
+        "scroll_explore": "Explore",
+        "scroll_cue_aria": "Scroll down to content",
+        "discipline_intro_title": "Areas of Work & Craft",
+        "home_path": "/en/",
+        "about_path": "/en/about/",
+        "projects_path": "/en/projects/",
+        "job_title": "Visual artist, artisan, and cultural manager",
+    },
+}
+
 
 def main() -> None:
     shutil.rmtree(ROOT / "es", ignore_errors=True)
-    write_file(ROOT / "index.html", render_redirect())
+    shutil.rmtree(ROOT / "en", ignore_errors=True)
+    write_file(ROOT / "index.html", render_root_redirect())
     write_file(ROOT / ".nojekyll", "")
-    write_page("es", render_home_page())
-    write_page("es/sobre-max", render_about_page())
-    write_page("es/proyectos", render_projects_index())
-    for project in projects:
-        write_page(f"es/proyectos/{project['slug']}", render_project_detail(project))
+
+    # Build Spanish version
+    build_language("es")
+
+    # Build English version
+    build_language("en")
+
+
+def build_language(lang: str) -> None:
+    data = DATA[lang]
+    t = UI_STRINGS[lang]
+
+    # Home
+    write_page(lang, render_home_page(lang))
+
+    # About
+    about_route = "es/sobre-max" if lang == "es" else "en/about"
+    write_page(about_route, render_about_page(lang))
+
+    # Projects index
+    projects_route = "es/proyectos" if lang == "es" else "en/projects"
+    write_page(projects_route, render_projects_index(lang))
+
+    # Project details
+    for project in data["projects"]:
+        project_route = f"es/proyectos/{project['slug']}" if lang == "es" else f"en/projects/{project['slug']}"
+        write_page(project_route, render_project_detail(project, lang))
 
 
 def write_page(route: str, content: str) -> None:
@@ -62,29 +181,59 @@ def write_file(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
-def render_redirect() -> str:
+def render_root_redirect() -> str:
+    site = DATA["es"]["site"]
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=es/">
     <title>{html(site['name'])} | {html(site['title_suffix'])}</title>
+    <link rel="canonical" href="https://maxsepulvedaartevisual.com/es/">
+    <link rel="alternate" hreflang="es" href="https://maxsepulvedaartevisual.com/es/">
+    <link rel="alternate" hreflang="en" href="https://maxsepulvedaartevisual.com/en/">
+    <link rel="alternate" hreflang="x-default" href="https://maxsepulvedaartevisual.com/es/">
+    <script>
+        (function() {{
+            try {{
+                var lang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+                var target = lang.startsWith('en') ? 'en/' : 'es/';
+                window.location.replace(target);
+            }} catch (e) {{
+                window.location.replace('es/');
+            }}
+        }})();
+    </script>
+    <meta http-equiv="refresh" content="0; url=es/">
 </head>
 <body>
-    <p>Redirigiendo a <a href="es/">/es/</a>.</p>
-    <script>window.location.replace('es/');</script>
+    <p>Redirigiendo / Redirecting... <a href="es/">Español</a> | <a href="en/">English</a></p>
 </body>
 </html>
 """
 
 
-def layout(title: str, body_class: str, current_path: str, content: str, description: str | None = None) -> str:
+def layout(
+    title: str,
+    body_class: str,
+    current_path: str,
+    content: str,
+    description: str | None = None,
+    lang: str = "es",
+    es_path: str = "/es/",
+    en_path: str = "/en/",
+) -> str:
+    data = DATA[lang]
+    site = data["site"]
+    t = UI_STRINGS[lang]
+
     description = description or site["description"]
     document_title = f"{site['name']} | {site['title_suffix']}" if title == site["name"] else f"{title} | {site['title_suffix']}"
 
     base_url = "https://maxsepulvedaartevisual.com"
     canonical = f"{base_url}{current_path}"
+    alternate_es = f"{base_url}{es_path}"
+    alternate_en = f"{base_url}{en_path}"
     image_url = f"{base_url}/assets/images/max-sepulveda-retrato.png"
 
     json_ld = f"""{{
@@ -93,7 +242,7 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
   "name": "{html(site['name'])}",
   "givenName": "Maximiliano",
   "familyName": "Sepúlveda Zúñiga",
-  "jobTitle": "Artista visual, artesano y gestor cultural",
+  "jobTitle": "{html(t['job_title'])}",
   "description": "{attr(description)}",
   "email": "{html(site['email'])}",
   "telephone": "{html(site['phone_link'])}",
@@ -113,19 +262,23 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
 }}"""
 
     return f"""<!DOCTYPE html>
-<html lang="es">
+<html lang="{lang}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{html(document_title)}</title>
     <meta name="description" content="{attr(description)}">
     <link rel="canonical" href="{canonical}">
+    <link rel="alternate" hreflang="es" href="{alternate_es}">
+    <link rel="alternate" hreflang="en" href="{alternate_en}">
+    <link rel="alternate" hreflang="x-default" href="{base_url}/es/">
 
     <meta property="og:title" content="{html(document_title)}">
     <meta property="og:description" content="{attr(description)}">
     <meta property="og:url" content="{canonical}">
     <meta property="og:image" content="{image_url}">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="{t['locale']}">
     <meta name="twitter:card" content="summary_large_image">
 
     <script type="application/ld+json">{json_ld}</script>
@@ -138,20 +291,24 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
     <link rel="stylesheet" href="{asset_url(current_path, 'assets/css/prose.css')}">
 </head>
 <body class="{attr(body_class)} static-site">
-    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+    <a href="#contenido" class="skip-link">{html(t['skip_content'])}</a>
     <header class="site-header">
-        <nav class="nav-container" aria-label="Navegación principal">
-            <a href="{page_url(current_path, '/es/')}" class="logo">Max Sepúlveda</a>
+        <nav class="nav-container" aria-label="{html(t['main_nav_aria'])}">
+            <a href="{page_url(current_path, t['home_path'])}" class="logo">Max Sepúlveda</a>
             <ul class="nav-menu">
-                {nav_item(current_path, '/es/', 'Inicio')}
-                {nav_item(current_path, '/es/sobre-max/', 'Sobre Max')}
-                {nav_item(current_path, '/es/proyectos/', 'Proyectos')}
+                {nav_item(current_path, t['home_path'], t['nav_home'])}
+                {nav_item(current_path, t['about_path'], t['nav_about'])}
+                {nav_item(current_path, t['projects_path'], t['nav_projects'])}
             </ul>
             <div class="header-contact">
                 <a href="mailto:{html(site['email'])}" class="header-contact__item header-contact__email">{html(site['email'])}</a>
                 <a href="tel:{html(site['phone_link'])}" class="header-contact__item header-contact__phone">{html(site['phone'])}</a>
             </div>
-            <button class="menu-toggle" aria-label="Menú de navegación" aria-expanded="false">
+            <div class="language-switcher" aria-label="Language selection">
+                <a href="{page_url(current_path, es_path)}" class="lang-link{' active' if lang == 'es' else ''}" hreflang="es" lang="es">ES</a>
+                <a href="{page_url(current_path, en_path)}" class="lang-link{' active' if lang == 'en' else ''}" hreflang="en" lang="en">EN</a>
+            </div>
+            <button class="menu-toggle" aria-label="{html(t['menu_aria'])}" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </nav>
@@ -172,7 +329,7 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
                     <span class="footer-location">{html(site['location'])}</span>
                 </div>
             </div>
-            <p class="footer-copy">&copy; {html(site['year'])} {html(site['name'])}. Todos los derechos reservados.</p>
+            <p class="footer-copy">&copy; {html(site['year'])} {html(site['name'])}. {html(t['all_rights_reserved'])}</p>
         </div>
     </footer>
     <script src="{asset_url(current_path, 'assets/js/main.js')}" defer></script>
@@ -182,43 +339,54 @@ def layout(title: str, body_class: str, current_path: str, content: str, descrip
 
 
 def nav_item(current_path: str, target_path: str, label: str) -> str:
-    is_active = current_path == target_path if target_path == "/es/" else current_path.startswith(target_path)
+    is_active = current_path == target_path if (target_path in ("/es/", "/en/")) else current_path.startswith(target_path)
     current = ' aria-current="page"' if is_active else ""
     return f'<li><a href="{page_url(current_path, target_path)}"{current}>{html(label)}</a></li>'
 
 
-def render_home_page() -> str:
+def render_home_page(lang: str) -> str:
+    data = DATA[lang]
+    current_path = f"/{lang}/"
     return layout(
-        title=site["name"],
+        title=data["site"]["name"],
         body_class="home-page",
-        current_path="/es/",
-        content=render_blocks(home_blocks, "/es/"),
+        current_path=current_path,
+        content=render_blocks(data["home_blocks"], current_path, lang),
+        lang=lang,
+        es_path="/es/",
+        en_path="/en/",
     )
 
 
-def render_about_page() -> str:
-    current_path = "/es/sobre-max/"
+def render_about_page(lang: str) -> str:
+    data = DATA[lang]
+    current_path = "/es/sobre-max/" if lang == "es" else "/en/about/"
     return layout(
-        title=about_page["title"],
+        title=data["about_page"]["title"],
         body_class="about-page",
         current_path=current_path,
-        content=render_blocks(about_page["blocks"], current_path),
-        description=about_page.get("description"),
+        content=render_blocks(data["about_page"]["blocks"], current_path, lang),
+        description=data["about_page"].get("description"),
+        lang=lang,
+        es_path="/es/sobre-max/",
+        en_path="/en/about/",
     )
 
 
-def render_projects_index() -> str:
-    current_path = "/es/proyectos/"
-    cards = "\n".join(render_project_card(project, 2, current_path) for project in projects)
+def render_projects_index(lang: str) -> str:
+    data = DATA[lang]
+    t = UI_STRINGS[lang]
+    current_path = "/es/proyectos/" if lang == "es" else "/en/projects/"
+    cards = "\n".join(render_project_card(project, 2, current_path, lang) for project in data["projects"])
     header_image = css_background(current_path, "assets/images/proyectos-header.jpg")
     content = f"""
 <section class="page-header page-header--image">
     <div class="page-header__background" aria-hidden="true" style="background-image: url('{header_image}');"></div>
     <div class="page-header__scrim" aria-hidden="true"></div>
     <div class="container page-header__content">
-        <p class="page-header__kicker">Portafolio</p>
-        <h1>Proyectos</h1>
-        <div class="intro"><p>Una selección de trabajos en arte comunitario, textil, cerámica, investigación patrimonial, circulación internacional y gestión cultural.</p></div>
+        <p class="page-header__kicker">{html(t['kicker_portfolio'])}</p>
+        <h1>{html(t['projects_title'])}</h1>
+        <div class="intro"><p>{html(t['projects_intro'])}</p></div>
     </div>
 </section>
 <section class="projects-section">
@@ -228,14 +396,26 @@ def render_projects_index() -> str:
         </div>
     </div>
 </section>"""
-    return layout("Proyectos", "projects-index", current_path, content)
+    return layout(
+        title=t["projects_title"],
+        body_class="projects-index",
+        current_path=current_path,
+        content=content,
+        lang=lang,
+        es_path="/es/proyectos/",
+        en_path="/en/projects/",
+    )
 
 
-def render_project_detail(project: dict) -> str:
-    current_path = f"/es/proyectos/{project['slug']}/"
+def render_project_detail(project: dict, lang: str) -> str:
+    t = UI_STRINGS[lang]
+    current_path = f"/es/proyectos/{project['slug']}/" if lang == "es" else f"/en/projects/{project['slug']}/"
+    es_path = f"/es/proyectos/{project['slug']}/"
+    en_path = f"/en/projects/{project['slug']}/"
+
     project_link = ""
     if project.get("live_url"):
-        project_link = f'<div class="project-links"><a href="{attr(project["live_url"])}" target="_blank" rel="noopener" class="btn btn-primary">Ver proyecto</a></div>'
+        project_link = f'<div class="project-links"><a href="{attr(project["live_url"])}" target="_blank" rel="noopener" class="btn btn-primary">{html(t["view_project"])}</a></div>'
 
     gallery_html = ""
     if project.get("gallery"):
@@ -249,48 +429,57 @@ def render_project_detail(project: dict) -> str:
 <article class="project-detail">
     <header class="project-header">
         <div class="container">
-            <p class="project-header__kicker">Proyecto</p>
+            <p class="project-header__kicker">{html(t['kicker_project'])}</p>
             <h1>{html(project['title'])}</h1>
             <p class="summary">{html(project['summary'])}</p>
             <div class="project-meta">
-                <time datetime="{project['date']}">{format_date(project['date'])}</time>
-                {render_tags(project.get('tags', []), '/es/proyectos/', current_path)}
+                <time datetime="{project['date']}">{format_date(project['date'], lang)}</time>
+                {render_tags(project.get('tags', []), t['projects_path'], current_path)}
             </div>
             {project_link}
         </div>
     </header>
     <div class="project-content">
-        {render_blocks(project['content'], current_path)}
+        {render_blocks(project['content'], current_path, lang)}
     </div>
     {gallery_html}
     <footer class="project-footer container">
-        <a href="{page_url(current_path, '/es/proyectos/')}" class="btn">&larr; Volver a proyectos</a>
+        <a href="{page_url(current_path, t['projects_path'])}" class="btn">&larr; {html(t['back_to_projects'])}</a>
     </footer>
 </article>"""
-    return layout(project["title"], "project-detail", current_path, content, project["summary"])
+    return layout(
+        title=project["title"],
+        body_class="project-detail",
+        current_path=current_path,
+        content=content,
+        description=project["summary"],
+        lang=lang,
+        es_path=es_path,
+        en_path=en_path,
+    )
 
 
-def render_blocks(blocks: list[dict], current_path: str) -> str:
-    rendered = "\n".join(render_block(block, current_path) for block in blocks)
+def render_blocks(blocks: list[dict], current_path: str, lang: str = "es") -> str:
+    rendered = "\n".join(render_block(block, current_path, lang) for block in blocks)
     return f'<div class="sf-stack">{rendered}</div>'
 
 
-def render_block(block: dict, current_path: str) -> str:
+def render_block(block: dict, current_path: str, lang: str = "es") -> str:
     block_type = block["type"]
     if block_type == "hero":
-        return render_hero(block, current_path)
+        return render_hero(block, current_path, lang)
     if block_type == "text_section":
-        return render_text_section(block, current_path)
+        return render_text_section(block, current_path, lang)
     if block_type == "portfolio_grid":
-        return render_portfolio_grid(block, current_path)
+        return render_portfolio_grid(block, current_path, lang)
     if block_type == "skills":
-        return render_skills(block, current_path)
+        return render_skills(block, current_path, lang)
     if block_type == "discipline_showcase":
-        return render_discipline_showcase(block, current_path)
+        return render_discipline_showcase(block, current_path, lang)
     if block_type == "timeline":
-        return render_timeline(block, current_path)
+        return render_timeline(block, current_path, lang)
     if block_type == "contact":
-        return render_contact(block, current_path)
+        return render_contact(block, current_path, lang)
     if block_type == "quote":
         return render_quote(block)
     if block_type == "name_list":
@@ -300,7 +489,8 @@ def render_block(block: dict, current_path: str) -> str:
     return ""
 
 
-def render_hero(block: dict, current_path: str) -> str:
+def render_hero(block: dict, current_path: str, lang: str = "es") -> str:
+    t = UI_STRINGS[lang]
     variant = block.get("variant", "default")
     variant_class = f" sf-block--hero--{variant}" if variant != "default" else ""
     background_class_modifier = " sf-hero--with-background" if block.get("background_image") else ""
@@ -321,7 +511,7 @@ def render_hero(block: dict, current_path: str) -> str:
 
     scroll_cue = ""
     if variant == "minimal":
-        scroll_cue = """<a class="sf-hero__scroll" href="#alfareria" aria-label="Bajar al contenido"><span class="sf-hero__scroll-label">Explorar</span><span class="sf-hero__scroll-line" aria-hidden="true"></span></a>"""
+        scroll_cue = f"""<a class="sf-hero__scroll" href="#alfareria" aria-label="{attr(t['scroll_cue_aria'])}"><span class="sf-hero__scroll-label">{html(t['scroll_explore'])}</span><span class="sf-hero__scroll-line" aria-hidden="true"></span></a>"""
 
     content = f"""<div class="sf-container sf-hero__layout">
         <div class="sf-hero__content">
@@ -339,14 +529,18 @@ def render_hero(block: dict, current_path: str) -> str:
 </section>"""
 
 
-def render_discipline_showcase(block: dict, current_path: str) -> str:
+def render_discipline_showcase(block: dict, current_path: str, lang: str = "es") -> str:
+    data = DATA[lang]
+    t = UI_STRINGS[lang]
+    disciplines = data["disciplines"]
+
     header = ""
     if block.get("show_header", True):
         header = f"""<section class="sf-block sf-block--discipline-intro">
     <div class="sf-container">
         <div class="sf-section-header">
             <p class="sf-section-header__kicker">Max Sepúlveda</p>
-            <h2 class="sf-section-header__title">{html(block.get("title", "Áreas de obra y oficio"))}</h2>
+            <h2 class="sf-section-header__title">{html(block.get("title", t["discipline_intro_title"]))}</h2>
             <p class="sf-section-header__subtitle">{html(block.get("subtitle", ""))}</p>
         </div>
     </div>
@@ -375,10 +569,10 @@ def render_discipline_showcase(block: dict, current_path: str) -> str:
     </div>
 </section>"""
         )
-    return header + "\n" + "\n".join(sections)
+    return header + ("\n" if header else "") + "\n".join(sections)
 
 
-def render_text_section(block: dict, current_path: str) -> str:
+def render_text_section(block: dict, current_path: str, lang: str = "es") -> str:
     title = f'<h2 class="sf-text__title">{html(block["title"])}</h2>' if block.get("title") else ""
     image = ""
     text_class = "sf-text"
@@ -402,15 +596,19 @@ def render_text_section(block: dict, current_path: str) -> str:
 </section>"""
 
 
-def render_portfolio_grid(block: dict, current_path: str) -> str:
-    visible = [p for p in projects if p.get("featured")] if block.get("show_featured_only") else projects
+def render_portfolio_grid(block: dict, current_path: str, lang: str = "es") -> str:
+    data = DATA[lang]
+    t = UI_STRINGS[lang]
+    all_projects = data["projects"]
+
+    visible = [p for p in all_projects if p.get("featured")] if block.get("show_featured_only") else all_projects
     visible = visible[: block.get("max_items", len(visible))]
-    cards = "\n".join(render_project_card(p, 3, current_path) for p in visible)
-    footer = f'<div class="sf-section-footer"><a href="{page_url(current_path, "/es/proyectos/")}" class="btn btn-outline">Ver todos los proyectos &rarr;</a></div>' if block.get("show_link_to_all") else ""
+    cards = "\n".join(render_project_card(p, 3, current_path, lang) for p in visible)
+    footer = f'<div class="sf-section-footer"><a href="{page_url(current_path, t["projects_path"])}" class="btn btn-outline">{html(t["view_all_projects"])} &rarr;</a></div>' if block.get("show_link_to_all") else ""
     return f"""<section class="sf-block sf-block--portfolio-grid">
     <div class="sf-container">
         <div class="sf-section-header">
-            <p class="sf-section-header__kicker">Selección</p>
+            <p class="sf-section-header__kicker">{html(t['kicker_selection'])}</p>
             <h2 class="sf-section-header__title">{html(block['title'])}</h2>
             <p class="sf-section-header__subtitle">{html(block['subtitle'])}</p>
         </div>
@@ -422,8 +620,9 @@ def render_portfolio_grid(block: dict, current_path: str) -> str:
 </section>"""
 
 
-def render_skills(block: dict, current_path: str) -> str:
-    items = "\n".join(render_skill_card(d) for d in disciplines)
+def render_skills(block: dict, current_path: str, lang: str = "es") -> str:
+    data = DATA[lang]
+    items = "\n".join(render_skill_card(d, lang) for d in data["disciplines"])
     return f"""<section class="sf-block sf-block--skills">
     <div class="sf-container">
         <div class="sf-section-header">
@@ -437,7 +636,7 @@ def render_skills(block: dict, current_path: str) -> str:
 </section>"""
 
 
-def render_skill_card(discipline: dict) -> str:
+def render_skill_card(discipline: dict, lang: str = "es") -> str:
     icon_html = skill_icon(discipline["icon"])
     return f"""<div class="skill-card">
     <div class="skill-card__icon">{icon_html}</div>
@@ -446,7 +645,8 @@ def render_skill_card(discipline: dict) -> str:
 </div>"""
 
 
-def render_timeline(block: dict, current_path: str) -> str:
+def render_timeline(block: dict, current_path: str, lang: str = "es") -> str:
+    milestones = block.get("items", [])
     items = milestones[: block.get("max_items", len(milestones))]
     rendered_items = "\n".join(
         f"""<div class="timeline__item">
@@ -503,7 +703,7 @@ GALLERY_SIZES = "(min-width: 1024px) 26vw, (min-width: 640px) 48vw, 94vw"
 CARD_SIZES = "(min-width: 1100px) 33vw, (min-width: 720px) 50vw, 94vw"
 
 
-def render_contact(block: dict, current_path: str) -> str:
+def render_contact(block: dict, current_path: str, lang: str = "es") -> str:
     links = "\n".join(render_social_link(link) for link in block.get("social_links", []))
     phone_html = ""
     if block.get("phone") and block.get("phone_link"):
@@ -537,8 +737,10 @@ def render_quote(block: dict) -> str:
 </section>"""
 
 
-def render_project_card(project: dict, heading_level: int, current_path: str) -> str:
-    project_url = page_url(current_path, f"/es/proyectos/{project['slug']}/")
+def render_project_card(project: dict, heading_level: int, current_path: str, lang: str = "es") -> str:
+    t = UI_STRINGS[lang]
+    target_project_path = f"/es/proyectos/{project['slug']}/" if lang == "es" else f"/en/projects/{project['slug']}/"
+    project_url = page_url(current_path, target_project_path)
     tags = project.get("tags", [])[:3]
     tags_html = f'<p class="project-card__tags">{html(" · ".join(tags))}</p>' if tags else ""
     year = project.get("date", "")[:4]
@@ -554,7 +756,7 @@ def render_project_card(project: dict, heading_level: int, current_path: str) ->
             {tags_html}
             <h{heading_level} class="project-card__title">{html(project['title'])}</h{heading_level}>
             <p class="project-card__summary">{html(truncate_words(project['summary'], 18))}</p>
-            <span class="project-card__cta">Ver proyecto<span class="project-card__cta-arrow" aria-hidden="true">&rarr;</span></span>
+            <span class="project-card__cta">{html(t['view_project'])}<span class="project-card__cta-arrow" aria-hidden="true">&rarr;</span></span>
         </div>
         {year_html}
     </a>
@@ -601,8 +803,10 @@ def parse_date(date_string: str) -> date:
     return date.fromisoformat(date_string)
 
 
-def format_date(date_string: str) -> str:
+def format_date(date_string: str, lang: str = "es") -> str:
     parsed = parse_date(date_string)
+    if lang == "en":
+        return f"{ENGLISH_MONTHS[parsed.month - 1]} {parsed.day}, {parsed.year}"
     return f"{parsed.day} de {SPANISH_MONTHS[parsed.month - 1]} de {parsed.year}"
 
 
