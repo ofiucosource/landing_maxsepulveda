@@ -530,6 +530,116 @@
     "webp": true,
     "width": 1200
   },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-07.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 960,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-08.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-09.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-10.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-11.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-12.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-13.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-14.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-15.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-charrua/bordado-charrua-16.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
   "assets/images/gallery/bordado-urbano/bordado-urbano-01.jpg": {
     "avif": true,
     "avif_variants": [],
@@ -573,6 +683,83 @@
     "height": 337,
     "webp": true,
     "width": 600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-07.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-08.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 899,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-09.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 899,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-10.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 899,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-11.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 899,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-12.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 899,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/bordado-urbano/bordado-urbano-13.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 899,
+    "webp": true,
+    "width": 1600
   },
   "assets/images/gallery/ceramica/ceramica-01.jpg": {
     "height": 658,
@@ -801,6 +988,113 @@
     "height": 533,
     "webp": true,
     "width": 800
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-07.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800
+    ],
+    "height": 560,
+    "webp": true,
+    "width": 1403
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-08.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 960,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-09.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 960,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-10.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480
+    ],
+    "height": 1024,
+    "webp": true,
+    "width": 768
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-11.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-12.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-13.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-14.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1600,
+    "webp": true,
+    "width": 1200
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-15.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 682,
+    "webp": true,
+    "width": 1600
+  },
+  "assets/images/gallery/nueva-zelanda/nueva-zelanda-16.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1200,
+    "webp": true,
+    "width": 1600
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-01.jpg": {
     "avif": true,
