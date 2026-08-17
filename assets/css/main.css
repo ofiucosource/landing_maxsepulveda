@@ -304,47 +304,31 @@ a:hover {
 }
 
 /* Header transparente sobre héroes oscuros */
-.home-page .site-header:not(.is-scrolled),
-.about-page .site-header:not(.is-scrolled),
 .projects-index .site-header:not(.is-scrolled) {
     border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
-.home-page .site-header:not(.is-scrolled) .logo,
-.about-page .site-header:not(.is-scrolled) .logo,
 .projects-index .site-header:not(.is-scrolled) .logo {
     color: #ffffff;
 }
 
-.home-page .site-header:not(.is-scrolled) .nav-menu a,
-.about-page .site-header:not(.is-scrolled) .nav-menu a,
 .projects-index .site-header:not(.is-scrolled) .nav-menu a {
     color: rgba(255, 255, 255, 0.72);
 }
 
-.home-page .site-header:not(.is-scrolled) .nav-menu a:hover,
-.home-page .site-header:not(.is-scrolled) .nav-menu a[aria-current="page"],
-.about-page .site-header:not(.is-scrolled) .nav-menu a:hover,
-.about-page .site-header:not(.is-scrolled) .nav-menu a[aria-current="page"],
 .projects-index .site-header:not(.is-scrolled) .nav-menu a:hover,
 .projects-index .site-header:not(.is-scrolled) .nav-menu a[aria-current="page"] {
     color: #ffffff;
 }
 
-.home-page .site-header:not(.is-scrolled) .header-contact__item,
-.about-page .site-header:not(.is-scrolled) .header-contact__item,
 .projects-index .site-header:not(.is-scrolled) .header-contact__item {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.home-page .site-header:not(.is-scrolled) .header-contact__item:hover,
-.about-page .site-header:not(.is-scrolled) .header-contact__item:hover,
 .projects-index .site-header:not(.is-scrolled) .header-contact__item:hover {
     color: #ffffff;
 }
 
-.home-page .site-header:not(.is-scrolled) .menu-toggle span,
-.about-page .site-header:not(.is-scrolled) .menu-toggle span,
 .projects-index .site-header:not(.is-scrolled) .menu-toggle span {
     background: #ffffff;
 }
@@ -618,37 +602,50 @@ body.project-detail .site-header {
     background: var(--ink);
 }
 
-/* Navigation sobre la portada clara */
-.home-page .site-header:not(.is-scrolled) {
+/* Navigation sobre páginas de fondo claro (Inicio y Sobre Max) */
+.home-page .site-header:not(.is-scrolled),
+.about-page .site-header:not(.is-scrolled) {
     background: rgba(246, 242, 234, 0.92);
     -webkit-backdrop-filter: blur(14px) saturate(1.4);
     backdrop-filter: blur(14px) saturate(1.4);
     border-bottom-color: var(--hairline);
 }
 
-.home-page .site-header:not(.is-scrolled) .logo {
+.home-page .site-header:not(.is-scrolled) .logo,
+.about-page .site-header:not(.is-scrolled) .logo {
     color: var(--color-text);
 }
 
-.home-page .site-header:not(.is-scrolled) .nav-menu a {
+.home-page .site-header:not(.is-scrolled) .nav-menu a,
+.about-page .site-header:not(.is-scrolled) .nav-menu a {
     color: var(--color-text-light);
 }
 
 .home-page .site-header:not(.is-scrolled) .nav-menu a:hover,
-.home-page .site-header:not(.is-scrolled) .nav-menu a[aria-current="page"] {
+.home-page .site-header:not(.is-scrolled) .nav-menu a[aria-current="page"],
+.about-page .site-header:not(.is-scrolled) .nav-menu a:hover,
+.about-page .site-header:not(.is-scrolled) .nav-menu a[aria-current="page"] {
     color: var(--color-text);
 }
 
-.home-page .site-header:not(.is-scrolled) .header-contact__item {
+.home-page .site-header:not(.is-scrolled) .header-contact__item,
+.about-page .site-header:not(.is-scrolled) .header-contact__item {
     color: var(--color-text-light);
 }
 
-.home-page .site-header:not(.is-scrolled) .header-contact__item:hover {
+.home-page .site-header:not(.is-scrolled) .header-contact__item:hover,
+.about-page .site-header:not(.is-scrolled) .header-contact__item:hover {
     color: var(--bronze-deep);
 }
 
-.home-page .site-header:not(.is-scrolled) .menu-toggle span {
+.home-page .site-header:not(.is-scrolled) .menu-toggle span,
+.about-page .site-header:not(.is-scrolled) .menu-toggle span {
     background: var(--color-text);
+}
+
+/* Espacio superior para la primera sección en Sobre Max */
+.about-page .sf-stack > .sf-block:first-child {
+    padding-top: calc(var(--header-h) + clamp(2rem, 5vw, 4rem));
 }
 
 /* Indicador de scroll */
@@ -1667,7 +1664,7 @@ article.project-detail {
 }
 
 .sf-contact__phone {
-    margin-bottom: calc(var(--spacing-unit) * 2.5);
+    margin-bottom: 1.25rem;
 }
 
 .sf-contact__phone-link {
@@ -1680,6 +1677,30 @@ article.project-detail {
 
 .sf-contact__phone-link:hover {
     color: var(--bronze-deep);
+}
+
+.sf-contact__resume {
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+}
+
+.sf-contact__resume-link {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--bronze-deep);
+    transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+.sf-contact__resume-link:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
 }
 
 .sf-contact__social {

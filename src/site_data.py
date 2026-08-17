@@ -538,6 +538,7 @@ home_blocks = [
         "email": "maxsepulvedaz@gmail.com",
         "phone": "+56 9 8654 5810",
         "phone_link": "+56986545810",
+        "resume": {"label": "Currículo completo", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
         "social_links": [
             {"platform": "instagram", "url": "https://www.instagram.com/maxartepopular/", "label": "Instagram"},
             {"platform": "facebook", "url": "https://www.facebook.com/MaxArteVisual/", "label": "Facebook"},

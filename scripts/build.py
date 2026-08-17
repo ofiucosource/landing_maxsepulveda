@@ -511,7 +511,7 @@ def render_contact(block: dict, current_path: str) -> str:
     resume_html = ""
     if block.get("resume"):
         resume_url = asset_url(current_path, block["resume"]["url"])
-        resume_html = f'<div class="sf-contact__email"><a href="{resume_url}" class="sf-contact__email-link" target="_blank" rel="noopener">{html(block["resume"]["label"])} &rarr;</a></div>'
+        resume_html = f'<div class="sf-contact__resume"><a href="{resume_url}" class="sf-contact__resume-link" target="_blank" rel="noopener">{html(block["resume"]["label"])} &rarr;</a></div>'
     return f"""<section class="sf-block sf-block--contact">
     <div class="sf-container">
         <div class="sf-contact">
