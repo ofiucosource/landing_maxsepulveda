@@ -39,6 +39,17 @@
     "webp": true,
     "width": 700
   },
+  "assets/images/disciplinas/audiovisuales.jpg": {
+    "avif": true,
+    "avif_variants": [
+      480,
+      800,
+      1200
+    ],
+    "height": 1350,
+    "webp": true,
+    "width": 1800
+  },
   "assets/images/disciplinas/batik-y-bordado.jpeg": {
     "avif": true,
     "avif_variants": [
@@ -1103,9 +1114,9 @@
       800,
       1200
     ],
-    "height": 1600,
+    "height": 1586,
     "webp": true,
-    "width": 1569
+    "width": 1600
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-02.jpg": {
     "avif": true,
@@ -1114,9 +1125,9 @@
       800,
       1200
     ],
-    "height": 1599,
+    "height": 1600,
     "webp": true,
-    "width": 1600
+    "width": 1588
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-03.jpg": {
     "avif": true,
@@ -1127,7 +1138,7 @@
     ],
     "height": 1600,
     "webp": true,
-    "width": 1557
+    "width": 1597
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-04.jpg": {
     "avif": true,
@@ -1138,7 +1149,7 @@
     ],
     "height": 1600,
     "webp": true,
-    "width": 1581
+    "width": 1594
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-05.jpg": {
     "avif": true,
@@ -1147,9 +1158,9 @@
       800,
       1200
     ],
-    "height": 1576,
+    "height": 1600,
     "webp": true,
-    "width": 1600
+    "width": 1597
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-06.jpg": {
     "avif": true,
@@ -1160,7 +1171,7 @@
     ],
     "height": 1600,
     "webp": true,
-    "width": 1562
+    "width": 1586
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-07.jpg": {
     "avif": true,
@@ -1171,7 +1182,7 @@
     ],
     "height": 1600,
     "webp": true,
-    "width": 1584
+    "width": 1596
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-08.jpg": {
     "avif": true,
@@ -1180,7 +1191,7 @@
       800,
       1200
     ],
-    "height": 1598,
+    "height": 1596,
     "webp": true,
     "width": 1600
   },
@@ -1193,7 +1204,7 @@
     ],
     "height": 1600,
     "webp": true,
-    "width": 1570
+    "width": 1585
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-10.jpg": {
     "avif": true,
@@ -1202,7 +1213,7 @@
       800,
       1200
     ],
-    "height": 1560,
+    "height": 1591,
     "webp": true,
     "width": 1600
   },
@@ -1213,9 +1224,9 @@
       800,
       1200
     ],
-    "height": 1581,
+    "height": 1600,
     "webp": true,
-    "width": 1600
+    "width": 1583
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-12.jpg": {
     "avif": true,
@@ -1224,9 +1235,9 @@
       800,
       1200
     ],
-    "height": 1596,
+    "height": 1600,
     "webp": true,
-    "width": 1600
+    "width": 1596
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-13.jpg": {
     "avif": true,
@@ -1235,9 +1246,9 @@
       800,
       1200
     ],
-    "height": 1577,
+    "height": 1600,
     "webp": true,
-    "width": 1600
+    "width": 1591
   },
   "assets/images/gallery/taller-bordado-batik-san-pedro/taller-bordado-batik-san-pedro-14.jpg": {
     "avif": true,
@@ -1256,9 +1267,9 @@
       480,
       800
     ],
-    "height": 1280,
+    "height": 1194,
     "webp": true,
-    "width": 1280
+    "width": 1195
   },
   "assets/images/gallery/taller-san-vicente/taller-san-vicente-01.jpg": {
     "avif": true,

@@ -79,7 +79,7 @@ disciplines = [
         "name": "Audiovisuales",
         "description": "Dirección de arte de cortometrajes y documentales de procesos creativos comunitarios.",
         "icon": "video",
-        "image": "assets/images/disciplinas/audiovisuales.jpeg",
+        "image": "assets/images/disciplinas/audiovisuales.jpg",
         "anchor": "audiovisuales",
         "panel": "fullbleed",
     },
@@ -177,7 +177,7 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/residencia-artistica-en-nueva-zelanda/",
         "tags": ["Exposición", "Internacional", "Nueva Zelanda", "Cerámica", "Textil"],
-        "image": "assets/images/gallery/nueva-zelanda/nueva-zelanda-02.jpg",
+        "image": "assets/images/gallery/nueva-zelanda/nueva-zelanda-13.jpg",
         "gallery": gallery(
             "nueva-zelanda",
             [
@@ -250,14 +250,7 @@ projects = [
                 "mural-08.jpg",
             ],
         ),
-        "content": [
-            {
-                "type": "text_section",
-                "title": "Murales textiles colaborativos",
-                "content": "<p>Registro fotográfico de murales textiles colaborativos realizados por Max Sepúlveda junto a comunidades locales.</p>",
-                "variant": "default",
-            },
-        ],
+        "content": [],
     },
     {
         "title": "Costa Rica Fashion Week 2019",
@@ -301,14 +294,7 @@ projects = [
             "taller-san-vicente",
             [f"taller-san-vicente-{i:02d}.jpg" for i in range(1, 41)],
         ),
-        "content": [
-            {
-                "type": "text_section",
-                "title": "Resultados del taller",
-                "content": "<p>Registro fotográfico de los resultados del <strong>taller de técnicas textiles</strong> dirigido por Max Sepúlveda en <strong>San Vicente de Tagua Tagua</strong>.</p>",
-                "variant": "default",
-            },
-        ],
+        "content": [],
     },
     {
         "title": "Resultados del Taller de Bordado y batik en San Pedro de Atacama",
@@ -322,14 +308,7 @@ projects = [
             "taller-bordado-batik-san-pedro",
             [f"taller-bordado-batik-san-pedro-{i:02d}.jpg" for i in range(1, 16)],
         ),
-        "content": [
-            {
-                "type": "text_section",
-                "title": "Resultados del taller",
-                "content": "<p>Registro fotográfico de los resultados del <strong>taller de bordado y batik</strong> dirigido por Max Sepúlveda en <strong>San Pedro de Atacama</strong>.</p>",
-                "variant": "default",
-            },
-        ],
+        "content": [],
     },
 ]
 
@@ -421,7 +400,6 @@ awards = [
 ]
 
 exhibitions = [
-    {"year": "2026", "title": "Exposición individual Andino, Espacio Cultural Leritchitacks de San Pedro de Atacama, Chile."},
     {"year": "2025", "title": "Exposición colectiva Alfarería Ancestral, Museo Escolar Laguna de Tagua Tagua, San Vicente de Tagua Tagua, Chile."},
     {"year": "2024", "title": "Exposición colectiva Art Santiago 2024 en el Centro Cultural Gabriela Mistral GAM, Santiago, Chile."},
     {"year": "2023", "title": "Exposición colectiva de egreso Pieza Única, Instituto Profesional AIEP, Santiago, Chile."},
@@ -458,16 +436,19 @@ about_page = {
             "variant": "portrait-reference",
         },
         {
-            "type": "name_list",
-            "title": "Empresas, instituciones y organizaciones",
-            "subtitle": "Espacios públicos, privados, educativos y comunitarios con los que ha trabajado o colaborado.",
-            "items": institutions,
-        },
-        {
-            "type": "name_list",
-            "title": "Colaboraciones",
-            "subtitle": "Red de espacios culturales, museos, medios, instituciones educativas y comunidades vinculadas a su trayectoria.",
-            "items": collaborations,
+            "type": "contact",
+            "title": "Contacto",
+            "text": "Contacto para contratar sus servicios, colaboraciones y voluntariados.",
+            "email": "maxsepulvedaz@gmail.com",
+            "phone": "+56 9 8654 5810",
+            "phone_link": "+56986545810",
+            "resume": {"label": "Currículo completo", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
+            "social_links": [
+                {"platform": "instagram", "label": "Instagram de Max Sepúlveda", "url": "https://www.instagram.com/maxartepopular/"},
+                {"platform": "facebook", "label": "Facebook Max Sepúlveda Artepopular", "url": "https://www.facebook.com/MaxArteVisual/"},
+                {"platform": "youtube", "label": "YouTube Warisdey1974", "url": "https://www.youtube.com/@Warisdey1974"},
+            ],
+            "variant": "default",
         },
         {
             "type": "dated_list",
@@ -480,42 +461,6 @@ about_page = {
             "title": "Exposiciones",
             "subtitle": "Selección cronológica de exposiciones individuales y colectivas.",
             "items": exhibitions,
-        },
-        {
-            "type": "portfolio_grid",
-            "title": "Proyectos destacados",
-            "subtitle": "Una selección de obras y procesos colaborativos representativos de su trayectoria.",
-            "show_featured_only": True,
-            "max_items": 7,
-            "show_link_to_all": True,
-            "variant": "default",
-        },
-        {
-            "type": "contact",
-            "title": "Contacto",
-            "text": "Contacto para contratar sus servicios, colaboraciones y voluntariados.",
-            "email": "maxsepulvedaz@gmail.com",
-            "phone": "+56 9 8654 5810",
-            "phone_link": "+56986545810",
-            "resume": {"label": "Currículo completo", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
-            "social_links": [
-                {
-                    "platform": "instagram",
-                    "label": "Instagram de Max Sepúlveda",
-                    "url": "https://www.instagram.com/maxartepopular/",
-                },
-                {
-                    "platform": "facebook",
-                    "label": "Facebook Max Sepúlveda Artepopular",
-                    "url": "https://www.facebook.com/MaxArteVisual/",
-                },
-                {
-                    "platform": "youtube",
-                    "label": "YouTube Warisdey1974",
-                    "url": "https://www.youtube.com/@Warisdey1974",
-                },
-            ],
-            "variant": "default",
         },
     ],
 }

@@ -96,7 +96,7 @@ UI_STRINGS = {
         "kicker_project": "Proyecto",
         "kicker_selection": "Selección",
         "projects_title": "Proyectos",
-        "projects_intro": "Una selección de trabajos en arte comunitario, textil, cerámica, investigación patrimonial, circulación internacional y gestión cultural.",
+        "projects_intro": "",
         "view_project": "Ver proyecto",
         "view_all_projects": "Ver todos los proyectos",
         "back_to_projects": "Volver a proyectos",
@@ -122,7 +122,7 @@ UI_STRINGS = {
         "kicker_project": "Project",
         "kicker_selection": "Curated Selection",
         "projects_title": "Projects",
-        "projects_intro": "A curated selection of work in community art, textiles, ceramics, heritage research, international residencies, and cultural management.",
+        "projects_intro": "",
         "view_project": "View project",
         "view_all_projects": "View all projects",
         "back_to_projects": "Back to projects",
@@ -261,6 +261,24 @@ def layout(
   ]
 }}"""
 
+    footer = "" if body_class == "home-page" else f"""
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <p class="footer-brand">{html(site['name'])}</p>
+                    <p class="footer-tagline">{html(site['tagline'])}</p>
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:{html(site['email'])}" class="footer-link">{html(site['email'])}</a>
+                    <a href="tel:{html(site['phone_link'])}" class="footer-link">{html(site['phone'])}</a>
+                    <span class="footer-location">{html(site['location'])}</span>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; {html(site['year'])} {html(site['name'])}. {html(t['all_rights_reserved'])}</p>
+        </div>
+    </footer>""".strip()
+
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -316,22 +334,7 @@ def layout(
     <main class="main-content" id="contenido">
         {content if content.strip().startswith('<div class="sf-stack') else f'<div class="sf-stack">{content}</div>'}
     </main>
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <p class="footer-brand">{html(site['name'])}</p>
-                    <p class="footer-tagline">{html(site['tagline'])}</p>
-                </div>
-                <div class="footer-contact">
-                    <a href="mailto:{html(site['email'])}" class="footer-link">{html(site['email'])}</a>
-                    <a href="tel:{html(site['phone_link'])}" class="footer-link">{html(site['phone'])}</a>
-                    <span class="footer-location">{html(site['location'])}</span>
-                </div>
-            </div>
-            <p class="footer-copy">&copy; {html(site['year'])} {html(site['name'])}. {html(t['all_rights_reserved'])}</p>
-        </div>
-    </footer>
+{footer}
     <script src="{asset_url(current_path, 'assets/js/main.js')}" defer></script>
 </body>
 </html>
@@ -379,6 +382,7 @@ def render_projects_index(lang: str) -> str:
     current_path = "/es/proyectos/" if lang == "es" else "/en/projects/"
     cards = "\n".join(render_project_card(project, 2, current_path, lang) for project in data["projects"])
     header_image = css_background(current_path, "assets/images/proyectos-header.jpg")
+    intro = f'<div class="intro"><p>{html(t["projects_intro"])}</p></div>' if t["projects_intro"] else ""
     content = f"""
 <section class="page-header page-header--image">
     <div class="page-header__background" aria-hidden="true" style="background-image: url('{header_image}');"></div>
@@ -386,7 +390,7 @@ def render_projects_index(lang: str) -> str:
     <div class="container page-header__content">
         <p class="page-header__kicker">{html(t['kicker_portfolio'])}</p>
         <h1>{html(t['projects_title'])}</h1>
-        <div class="intro"><p>{html(t['projects_intro'])}</p></div>
+{intro}
     </div>
 </section>
 <section class="projects-section">
@@ -413,10 +417,6 @@ def render_project_detail(project: dict, lang: str) -> str:
     es_path = f"/es/proyectos/{project['slug']}/"
     en_path = f"/en/projects/{project['slug']}/"
 
-    project_link = ""
-    if project.get("live_url"):
-        project_link = f'<div class="project-links"><a href="{attr(project["live_url"])}" target="_blank" rel="noopener" class="btn btn-primary">{html(t["view_project"])}</a></div>'
-
     gallery_html = ""
     if project.get("gallery"):
         items = "\n".join(
@@ -425,22 +425,17 @@ def render_project_detail(project: dict, lang: str) -> str:
         )
         gallery_html = f'<section class="sf-block sf-block--gallery"><div class="sf-container"><div class="sf-gallery sf-gallery--cols-masonry">{items}</div></div></section>'
 
+    project_blocks = [{**block, "title": ""} for block in project["content"]]
+    project_content = render_blocks(project_blocks, current_path, lang) if project_blocks else ""
     content = f"""
 <article class="project-detail">
     <header class="project-header">
         <div class="container">
-            <p class="project-header__kicker">{html(t['kicker_project'])}</p>
             <h1>{html(project['title'])}</h1>
-            <p class="summary">{html(project['summary'])}</p>
-            <div class="project-meta">
-                <time datetime="{project['date']}">{format_date(project['date'], lang)}</time>
-                {render_tags(project.get('tags', []), t['projects_path'], current_path)}
-            </div>
-            {project_link}
         </div>
     </header>
     <div class="project-content">
-        {render_blocks(project['content'], current_path, lang)}
+{project_content}
     </div>
     {gallery_html}
     <footer class="project-footer container">
@@ -587,10 +582,10 @@ def render_text_section(block: dict, current_path: str, lang: str = "es") -> str
     <div class="sf-container">
         <div class="{text_class}">
             <div class="sf-text__content">
-                {title}
+{title}
                 <div class="sf-text__body prose">{block['content']}</div>
             </div>
-            {image}
+{image}
         </div>
     </div>
 </section>"""
@@ -741,10 +736,6 @@ def render_project_card(project: dict, heading_level: int, current_path: str, la
     t = UI_STRINGS[lang]
     target_project_path = f"/es/proyectos/{project['slug']}/" if lang == "es" else f"/en/projects/{project['slug']}/"
     project_url = page_url(current_path, target_project_path)
-    tags = project.get("tags", [])[:3]
-    tags_html = f'<p class="project-card__tags">{html(" · ".join(tags))}</p>' if tags else ""
-    year = project.get("date", "")[:4]
-    year_html = f'<span class="project-card__year">{html(year)}</span>' if year else ""
     img_html = ""
     if project.get("image"):
         img_html = render_image(current_path, project["image"], "", sizes=CARD_SIZES)
@@ -753,12 +744,9 @@ def render_project_card(project: dict, heading_level: int, current_path: str, la
         <div class="project-card__media">{img_html}</div>
         <div class="project-card__veil" aria-hidden="true"></div>
         <div class="project-card__body">
-            {tags_html}
             <h{heading_level} class="project-card__title">{html(project['title'])}</h{heading_level}>
-            <p class="project-card__summary">{html(truncate_words(project['summary'], 18))}</p>
             <span class="project-card__cta">{html(t['view_project'])}<span class="project-card__cta-arrow" aria-hidden="true">&rarr;</span></span>
         </div>
-        {year_html}
     </a>
 </article>"""
 

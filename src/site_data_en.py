@@ -86,7 +86,7 @@ disciplines = [
         "name": "Audiovisual Production",
         "description": "Art direction for short films and documentaries documenting community creative processes.",
         "icon": "video",
-        "image": "assets/images/disciplinas/audiovisuales.jpeg",
+        "image": "assets/images/disciplinas/audiovisuales.jpg",
         "anchor": "audiovisuales",
         "panel": "fullbleed",
     },
@@ -184,7 +184,7 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/residencia-artistica-en-nueva-zelanda/",
         "tags": ["Exhibition", "International", "New Zealand", "Ceramics", "Textiles"],
-        "image": "assets/images/gallery/nueva-zelanda/nueva-zelanda-02.jpg",
+        "image": "assets/images/gallery/nueva-zelanda/nueva-zelanda-13.jpg",
         "gallery": gallery(
             "nueva-zelanda",
             [
@@ -257,14 +257,7 @@ projects = [
                 "mural-08.jpg",
             ],
         ),
-        "content": [
-            {
-                "type": "text_section",
-                "title": "Collaborative Textile Murals",
-                "content": "<p>Photographic documentation of collaborative textile murals created by Max Sepúlveda together with local communities.</p>",
-                "variant": "default",
-            },
-        ],
+        "content": [],
     },
     {
         "title": "Costa Rica Fashion Week 2019",
@@ -308,14 +301,7 @@ projects = [
             "taller-san-vicente",
             [f"taller-san-vicente-{i:02d}.jpg" for i in range(1, 41)],
         ),
-        "content": [
-            {
-                "type": "text_section",
-                "title": "Workshop Results",
-                "content": "<p>Photographic documentation of the results of the <strong>textile techniques workshop</strong> led by Max Sepúlveda in <strong>San Vicente de Tagua Tagua</strong>.</p>",
-                "variant": "default",
-            },
-        ],
+        "content": [],
     },
     {
         "title": "Embroidery & Batik Workshop Results in San Pedro de Atacama",
@@ -329,14 +315,7 @@ projects = [
             "taller-bordado-batik-san-pedro",
             [f"taller-bordado-batik-san-pedro-{i:02d}.jpg" for i in range(1, 16)],
         ),
-        "content": [
-            {
-                "type": "text_section",
-                "title": "Workshop Results",
-                "content": "<p>Photographic documentation of the results of the <strong>embroidery and batik workshop</strong> led by Max Sepúlveda in <strong>San Pedro de Atacama</strong>.</p>",
-                "variant": "default",
-            },
-        ],
+        "content": [],
     },
 ]
 
@@ -428,7 +407,6 @@ awards = [
 ]
 
 exhibitions = [
-    {"year": "2026", "title": "Solo exhibition 'Andino', Leritchitacks Cultural Space, San Pedro de Atacama, Chile."},
     {"year": "2025", "title": "Group exhibition 'Ancestral Pottery', Laguna de Tagua Tagua School Museum, San Vicente de Tagua Tagua, Chile."},
     {"year": "2024", "title": "Group exhibition 'Art Santiago 2024', Gabriela Mistral Cultural Center (GAM), Santiago, Chile."},
     {"year": "2023", "title": "Graduation group exhibition 'Pieza Única', AIEP Professional Institute, Santiago, Chile."},
@@ -465,16 +443,19 @@ about_page = {
             "variant": "portrait-reference",
         },
         {
-            "type": "name_list",
-            "title": "Companies, Institutions & Organizations",
-            "subtitle": "Public, private, educational, and community spaces with which he has worked or collaborated.",
-            "items": institutions,
-        },
-        {
-            "type": "name_list",
-            "title": "Collaborations",
-            "subtitle": "Network of cultural centers, museums, media, educational institutions, and communities connected throughout his career.",
-            "items": collaborations,
+            "type": "contact",
+            "title": "Contact",
+            "text": "Contact Max to commission services, collaborations, and volunteer opportunities.",
+            "email": "maxsepulvedaz@gmail.com",
+            "phone": "+56 9 8654 5810",
+            "phone_link": "+56986545810",
+            "resume": {"label": "Full CV (PDF)", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
+            "social_links": [
+                {"platform": "instagram", "label": "Max Sepúlveda on Instagram", "url": "https://www.instagram.com/maxartepopular/"},
+                {"platform": "facebook", "label": "Max Sepúlveda on Facebook", "url": "https://www.facebook.com/MaxArteVisual/"},
+                {"platform": "youtube", "label": "Max Sepúlveda on YouTube", "url": "https://www.youtube.com/@Warisdey1974"},
+            ],
+            "variant": "default",
         },
         {
             "type": "dated_list",
@@ -487,42 +468,6 @@ about_page = {
             "title": "Exhibitions",
             "subtitle": "Chronological selection of solo and group exhibitions.",
             "items": exhibitions,
-        },
-        {
-            "type": "portfolio_grid",
-            "title": "Featured Projects",
-            "subtitle": "A curated selection of artworks and collaborative processes representative of his career.",
-            "show_featured_only": True,
-            "max_items": 7,
-            "show_link_to_all": True,
-            "variant": "default",
-        },
-        {
-            "type": "contact",
-            "title": "Contact",
-            "text": "Get in touch to commission services, workshops, collaborations, and projects.",
-            "email": "maxsepulvedaz@gmail.com",
-            "phone": "+56 9 8654 5810",
-            "phone_link": "+56986545810",
-            "resume": {"label": "Full CV (PDF)", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
-            "social_links": [
-                {
-                    "platform": "instagram",
-                    "label": "Max Sepúlveda on Instagram",
-                    "url": "https://www.instagram.com/maxartepopular/",
-                },
-                {
-                    "platform": "facebook",
-                    "label": "Max Sepúlveda on Facebook",
-                    "url": "https://www.facebook.com/MaxArteVisual/",
-                },
-                {
-                    "platform": "youtube",
-                    "label": "Max Sepúlveda on YouTube",
-                    "url": "https://www.youtube.com/@Warisdey1974",
-                },
-            ],
-            "variant": "default",
         },
     ],
 }
