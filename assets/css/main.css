@@ -1930,6 +1930,16 @@ section.sf-block--discipline-panel {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.footer-credit {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 180ms ease;
+}
+
+.footer-credit:hover {
+    color: var(--bronze-light);
+    text-decoration: none;
+}
+
 /* ==========================================================================
    Focus / util
    ========================================================================== */

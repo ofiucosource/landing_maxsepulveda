@@ -92,6 +92,7 @@ UI_STRINGS = {
         "menu_aria": "Menú de navegación",
         "skip_content": "Saltar al contenido",
         "all_rights_reserved": "Todos los derechos reservados.",
+        "footer_credit": "¿Necesitas una web?",
         "kicker_portfolio": "Portafolio",
         "kicker_project": "Proyecto",
         "kicker_selection": "Selección",
@@ -118,6 +119,7 @@ UI_STRINGS = {
         "menu_aria": "Navigation menu",
         "skip_content": "Skip to content",
         "all_rights_reserved": "All rights reserved.",
+        "footer_credit": "Need a website?",
         "kicker_portfolio": "Portfolio",
         "kicker_project": "Project",
         "kicker_selection": "Curated Selection",
@@ -275,7 +277,7 @@ def layout(
                     <span class="footer-location">{html(site['location'])}</span>
                 </div>
             </div>
-            <p class="footer-copy">&copy; {html(site['year'])} {html(site['name'])}. {html(t['all_rights_reserved'])}</p>
+            <p class="footer-copy">&copy; {html(site['year'])} {html(site['name'])}. {html(t['all_rights_reserved'])} · <a href="https://github.com/ontos-2021" class="footer-credit" target="_blank" rel="noopener noreferrer">{html(t['footer_credit'])}</a></p>
         </div>
     </footer>""".strip()
 
