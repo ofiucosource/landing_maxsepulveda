@@ -138,7 +138,7 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-charrua-de-la-memoria/",
         "tags": ["Arte Comunitario", "Textil", "Uruguay", "Premios"],
-        "image": "assets/images/proyectos/intervenciones/mx.jpg",
+        "image": "assets/images/gallery/bordado-charrua/bordado-charrua-05.jpg",
         "gallery": gallery(
             "bordado-charrua",
             [
@@ -297,7 +297,7 @@ projects = [
         "content": [],
     },
     {
-        "title": "Resultados del Taller de Bordado y batik en San Pedro de Atacama",
+        "title": "Resultados del Taller de Bordado y Batik en San Pedro de Atacama",
         "slug": "resultados-taller-bordado-batik-san-pedro-de-atacama",
         "date": "2023-06-15",
         "summary": "Registro fotográfico de los resultados del taller de bordado y batik dirigido por Max Sepúlveda en San Pedro de Atacama.",

@@ -422,7 +422,7 @@ def render_project_detail(project: dict, lang: str) -> str:
     gallery_html = ""
     if project.get("gallery"):
         items = "\n".join(
-            f'<figure class="sf-gallery__item"><a href="{asset_url(current_path, img)}" class="sf-gallery__link" target="_blank">{render_image(current_path, img, "", sizes=GALLERY_SIZES)}</a></figure>'
+            f'<figure class="sf-gallery__item"><a href="{asset_url(current_path, img)}" class="sf-gallery__link">{render_image(current_path, img, "", sizes=GALLERY_SIZES)}</a></figure>'
             for img in project["gallery"]
         )
         gallery_html = f'<section class="sf-block sf-block--gallery"><div class="sf-container"><div class="sf-gallery sf-gallery--cols-masonry">{items}</div></div></section>'

@@ -145,7 +145,7 @@ projects = [
         "featured": True,
         "live_url": "https://maxsepulvedaartevisual.com/portafolio/bordado-charrua-de-la-memoria/",
         "tags": ["Community Art", "Textile", "Uruguay", "Awards"],
-        "image": "assets/images/proyectos/intervenciones/mx.jpg",
+        "image": "assets/images/gallery/bordado-charrua/bordado-charrua-05.jpg",
         "gallery": gallery(
             "bordado-charrua",
             [
