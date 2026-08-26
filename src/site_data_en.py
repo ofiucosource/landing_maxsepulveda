@@ -449,7 +449,7 @@ about_page = {
             "email": "maxsepulvedaz@gmail.com",
             "phone": "+56 9 8654 5810",
             "phone_link": "+56986545810",
-            "resume": {"label": "Full CV (PDF)", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
+            "resume": {"label": "Full CV (PDF)", "url": "assets/pdf/curriculum-max-sepulveda-en.pdf"},
             "social_links": [
                 {"platform": "instagram", "label": "Max Sepúlveda on Instagram", "url": "https://www.instagram.com/maxartepopular/"},
                 {"platform": "facebook", "label": "Max Sepúlveda on Facebook", "url": "https://www.facebook.com/MaxArteVisual/"},
@@ -490,7 +490,7 @@ home_blocks = [
         "email": "maxsepulvedaz@gmail.com",
         "phone": "+56 9 8654 5810",
         "phone_link": "+56986545810",
-        "resume": {"label": "Full CV (PDF)", "url": "assets/pdf/curriculum-max-sepulveda.pdf"},
+        "resume": {"label": "Full CV (PDF)", "url": "assets/pdf/curriculum-max-sepulveda-en.pdf"},
         "social_links": [
             {"platform": "instagram", "url": "https://www.instagram.com/maxartepopular/", "label": "Instagram"},
             {"platform": "facebook", "url": "https://www.facebook.com/MaxArteVisual/", "label": "Facebook"},
